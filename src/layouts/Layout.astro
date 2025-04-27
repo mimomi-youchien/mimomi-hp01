@@ -1,0 +1,111 @@
+---
+import "../styles/style.scss";
+import Header from "../components/common/Header.astro";
+import Footer from "../components/common/Footer.astro";
+
+const logoWide = "/assets/images/global/logo-wide.svg";
+const logoTall = "/assets/images/global/logo-tall.svg";
+
+const navList = [
+  {
+    href: '/#concept',
+    label: 'コンセプト'
+  },
+  {
+    href: '/#menu',
+    label: 'メニュー'
+  },
+  {
+    href: '/#access',
+    label: 'アクセス'
+  },
+  {
+    href: '/#faq',
+    label: 'よくある質問'
+  },
+  {
+    href: '/contact',
+    label: 'お問い合わせ'
+  }
+]
+
+const snsList = [
+  {
+    href: 'https://line.me/R/ti/p/@309upsyu?ts=03010941&oat_content=url',
+    src: '/assets/images/global/icon-line.svg',
+    ariaLabel: 'ラインで友だち追加'
+  },
+  {
+    href: 'https://www.instagram.com/kotono_yoga',
+    src: '/assets/images/global/icon-instagram.svg',
+    ariaLabel: 'インスタグラムを見る'
+  }
+]
+
+const {
+  subTitle = "トップページ",
+  ogType = "website",
+  ogTitle = subTitle,
+  description = "所沢市の女性向けヨガ&ピラティス「koyomi yoga pilates」。人気の姿勢改善で理想のボディラインへ。少人数制の心地よい空間で心と身体を整えます。",
+  ogDescription = description,
+  // noContact = false,
+  noIndex = false,
+  jsonLd = ""
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>koyomi yoga pilates｜所沢のヨガ&ピラティススタジオ｜{subTitle}</title>
+    <meta name="description" content={description}>
+
+    <!-- noindex -->
+    <!-- { noIndex && <meta name="robots" content="noindex, nofollow"> } -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/android-chrome-256x256.png">
+
+    <!-- ogp -->
+    <meta property="og:site_name" content="koyomi yoga pilates｜所沢のヨガ&ピラティススタジオ">
+    <meta property="og:url" content={`https://koyomi-yoga.com${Astro.url.pathname}`} />
+    <meta property="og:type" content={ogType}>
+    <meta property="og:title" content={ogTitle}>
+    <meta property="og:description" content={ogDescription}>
+    <meta property="og:image" content="https://koyomi-yoga.com/ogp.webp">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content={ogDescription}>
+    <meta name="twitter:image:src" content="https://koyomi-yoga.com/ogp.webp">
+
+    <!-- destyle.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css">
+
+    <!-- 構造化データ -->
+    {jsonLd && (
+      <script type="application/ld+json" set:html={jsonLd}></script>
+    )}
+  </head>
+
+  <body>
+    <Header
+      logoWide={logoWide}
+      navList={navList}
+      snsList={snsList}
+    />
+
+    <slot />
+
+    <Footer
+      logoWide={logoWide}
+      logoTall={logoTall}
+      navList={navList}
+      snsList={snsList}
+    />
+  </body>
+</html>

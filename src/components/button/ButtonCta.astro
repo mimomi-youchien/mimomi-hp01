@@ -1,0 +1,126 @@
+---
+const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
+---
+
+<a href={ctaHref || "https://www.google.co.jp/"} class={ctaClass || "c-button-cta"} target={ctaTarget || "_blank"}>{ctaText || "お友だち追加する"}</a>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .c-button-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 9px 20px;
+    border-radius: 5px;
+    background-color: var(--color-line);
+    color: var(--color-base);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url(/public/assets/images/global/icon-line.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(146deg) brightness(104%) contrast(100%);
+    }
+
+    &--recruitment {
+
+    }
+
+    &--tel {
+      padding: 9px 27px 9px 20px;
+      background-color: var(--color-main);
+      font-weight: 400;
+
+      &::before {
+        background-image: url(/public/assets/images/global/icon-tel.svg);
+      }
+    }
+
+    &--lg {
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+
+      &::before {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  @include mq() {
+    .c-button-cta {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 12px;
+
+      &::before {
+        width: 20px;
+        height: 20px;
+      }
+
+      &--recruitment {
+
+      }
+
+      &--tel {
+        padding: 12px 22px 11px;
+        gap: 12px;
+        font-size: 14px;
+
+        @media screen and (min-width: 1024px) {
+          background-color: rgb(133 94 59 / .3);
+          color: var(--color-main);
+          pointer-events: none;
+          cursor: default;
+        }
+
+        &::before {
+          width: 16px;
+          height: 16px;
+
+          @media screen and (min-width: 1024px) {
+            filter: invert(33%) sepia(95%) saturate(257%) hue-rotate(347deg) brightness(93%) contrast(87%);
+          }
+        }
+      }
+
+      &--lg {
+        // padding: 20px 40px;
+        padding: max(18px, calc(20 / 1024 * 100vw)) max(38px, calc(40 / 1024 * 100vw));
+        // gap: 20px;
+        gap: max(18px, calc(20 / 1024 * 100vw));
+        border-radius: 20px;
+        // font-size: 26px;
+        font-size: max(24px, calc(26 / 1024 * 100vw));
+
+        @media screen and (min-width: 1024px) {
+          padding: 20px 40px;
+          gap: 20px;
+          font-size: 26px;
+        }
+
+        &::before {
+          // width: 40px;
+          width: max(38px, calc(40 / 1024 * 100vw));
+          // height: 40px;
+          height: max(38px, calc(40 / 1024 * 100vw));
+
+          @media screen and (min-width: 1024px) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+</style>

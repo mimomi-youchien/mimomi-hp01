@@ -1,0 +1,35 @@
+---
+const { title1, title2, titleClass } = Astro.props;
+---
+
+<h2 class={titleClass || "c-section-title"}>{title1}<br>{title2}</h2>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .c-section-title {
+    padding-left: .2em;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @include mq() {
+    .c-section-title {
+      font-size: 30px;
+
+      &--ls-0 {
+        padding-left: 0;
+        letter-spacing: 0;
+      }
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+</style>
+

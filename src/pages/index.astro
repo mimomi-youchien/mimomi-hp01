@@ -1,0 +1,280 @@
+---
+// import "../styles/splide.css";
+import Layout from "../layouts/Layout.astro";
+
+import TopKv from "../components/topPage/TopKv.astro";
+import TopLead from "../components/topPage/TopLead.astro";
+import TopIntroduction from "../components/topPage/TopIntroduction.astro";
+import TopLife from "../components/topPage/TopLife.astro";
+import TopNews from "../components/topPage/TopNews.astro";
+import TopLinks from "../components/topPage/TopLinks.astro";
+import TopFaq from "../components/topPage/TopFaq.astro";
+import TopDownload from "../components/topPage/TopDownload.astro";
+import Cta from "../components/Cta.astro";
+// import TopConcept from "../components/topPage/TopConcept.astro";
+// import TopPrograms from "../components/topPage/TopPrograms.astro";
+// import TopMenu from "../components/topPage/TopMenu.astro";
+// import TopFlow from "../components/topPage/TopFlow.astro";
+// import TopFaq from "../components/topPage/TopFaq.astro";
+// import TopAccess from "../components/topPage/TopAccess.astro";
+// import ContactSection from "../components/ContactSection.astro";
+
+const logoTall = "/assets/images/global/logo-tall.svg";
+
+// 構造化データ生成関数
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "YogaStudio",
+  "name": "koyomi yoga pilates｜所沢のヨガ&ピラティススタジオ",
+  "description": "所沢市の女性向けヨガ&ピラティス「koyomi yoga pilates」。マタニティ・産後ケアからボディメイクまで多彩なプログラム。少人数制の空間で心と体を整えます。",
+  "url": "https://koyomi-yoga.com/",
+  "image": "https://koyomi-yoga.com/ogp.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "松葉町11-11 刑部歯科医院 2階",
+    "addressLocality": "所沢市",
+    "addressRegion": "埼玉県",
+    "postalCode": "359-0044"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.8068955,
+    "longitude": 139.45373,
+    "name": "koyomi yoga pilates"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Tuesday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:30",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://line.me/R/ti/p/@309upsyu?ts=03010941&oat_content=url",
+    "https://www.instagram.com/kotono_yoga",
+    "https://coubic.com/yogapilates-koyomi"
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://coubic.com/yogapilates-koyomi",
+      "inLanguage": "ja-JP",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "ヨガ・ピラティスレッスン予約"
+    }
+  },
+  "menu": [
+    {
+      "@type": "Menu",
+      "name": "グループレッスン",
+      "description": "同じ想いを持つ仲間と一緒に、心と体をゆっくりほどく時間を過ごしませんか？",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "カウンセリング＋60分レッスン",
+          "offers": {
+            "@type": "Offer",
+            "price": 3500,
+            "priceCurrency": "JPY"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "4回券",
+          "offers": {
+            "@type": "Offer",
+            "price": 12800,
+            "priceCurrency": "JPY"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "8回券",
+          "offers": {
+            "@type": "Offer",
+            "price": 24000,
+            "priceCurrency": "JPY"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Menu",
+      "name": "プライベートレッスン",
+      "description": "誰にも気兼ねせず、自分のペースで進められる特別なレッスン。心と体の状態に丁寧に向き合いながら、一人ひとりに合わせて必要なサポートをご提供します。",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "カウンセリング＋姿勢チェック＋50分レッスン",
+          "offers": {
+            "@type": "Offer",
+            "price": 7500,
+            "priceCurrency": "JPY"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "4回券",
+          "offers": {
+            "@type": "Offer",
+            "price": 28800,
+            "priceCurrency": "JPY"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "8回券",
+          "offers": {
+            "@type": "Offer",
+            "price": 56000,
+            "priceCurrency": "JPY"
+          }
+        }
+      ]
+    }
+  ],
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "服装について",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "動きやすい服装でお越しください。関節の動きが分かりやすいものを着用いただくと、よりスムーズに身体の調整が可能です。"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Question",
+      "name": "駐車場・駐輪場について",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "提携の駐車場・駐輪場はございません。お手数ですが、近隣の施設をご利用ください。"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Question",
+      "name": "持ちものについて",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ウェア（上下）・お水（500ml〜1L）・タオルをお持ちください。※マットやレッスンで使用するアイテムは、こちらでご用意しております。"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Question",
+      "name": "男性の入店について",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "施設は女性専用のため、男性のご入店はお断りしております。"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Question",
+      "name": "年齢制限について",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "中学生・高校生の方は、体験時のみ保護者の同伴が必要になります。2回目以降は、本人のみでレッスン可能です。"
+      },
+      "inLanguage": "ja"
+    }
+  ]
+});
+---
+
+<Layout
+  subTitle="トップページ"
+  ogType="website"
+  description="所沢市の女性向けヨガ&ピラティス「koyomi yoga pilates」。マタニティ・産後ケアからボディメイクまで多彩なプログラム。少人数制の空間で心と体を整えます。"
+  jsonLd={jsonLd}
+>
+  <!-- top-kv -->
+  <div id="kv">
+    <TopKv />
+  </div>
+
+  <!-- top-main -->
+  <main class="top-main">
+
+    <!-- top-lead -->
+    <div id="lead">
+      <TopLead />
+    </div>
+
+    <!-- top-introduction -->
+    <div id="introduction">
+      <TopIntroduction />
+    </div>
+
+    <!-- top-life -->
+    <div id="life">
+      <TopLife />
+    </div>
+
+    <!-- top-news -->
+    <div id="news">
+      <TopNews />
+    </div>
+
+    <!-- top-links -->
+    <div id="links">
+      <TopLinks />
+    </div>
+
+    <!-- top-faq -->
+    <div id="faq">
+      <TopFaq />
+    </div>
+
+    <!-- top-download -->
+    <div id="download">
+      <TopDownload />
+    </div>
+
+    <!-- top-cta -->
+    <div class="top-cta l-section">
+      <Cta />
+    </div><!-- /.top-cta.l-section -->
+
+
+
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+</style>

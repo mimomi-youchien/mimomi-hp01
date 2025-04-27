@@ -1,0 +1,259 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="top-links">
+  <div class="top-links-container l-container-s">
+    <div class="top-links-title">
+      <SectionTitle
+        title1="園のこと"
+      />
+    </div><!-- /.top-links-title -->
+    <ul class="top-links-list l-section-body">
+      <li class="top-links-item">
+        <a href="" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--01">入園案内</h3>
+            <div class="top-links-item-image">
+              <img src="/public/assets/images/links/pic-links-01@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">入園時や毎月の費用についてご案内します。</p>
+        </a>
+      </li>
+      <li class="top-links-item">
+        <a href="" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--02">園の概要</h3>
+            <div class="top-links-item-image">
+              <img src="/public/assets/images/links/pic-links-02@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">アクセスや駐車場、採用情報をご覧いただけます。</p>
+        </a>
+      </li>
+      <li class="top-links-item">
+        <a href="" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--03">ぴよちゃん教室</h3>
+            <div class="top-links-item-image">
+              <img src="/public/assets/images/links/pic-links-03@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">未就園児(1,2歳)の親子教室についてご案内します。</p>
+        </a>
+      </li>
+      <li class="top-links-item">
+        <a href="" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--04">メンバーシップ</h3>
+            <div class="top-links-item-image">
+              <img src="/public/assets/images/links/pic-links-04@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">保護者さま専用。おたよりや園児の日常を届けます。</p>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.top-links-container.l-container-s -->
+</section><!-- /.top-links -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-links {
+    padding-top: 38px;
+    line-height: 1.5;
+  }
+
+  .top-links-container {
+
+  }
+
+  .l-container-s {
+
+  }
+
+  .top-links-title {
+
+  }
+
+  .top-links-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+    padding-top: 10px;
+  }
+
+  .top-links-item {
+
+  }
+
+  .top-links-item-link {
+
+  }
+
+  .top-links-item-head {
+    position: relative;
+  }
+
+  .top-links-item-title {
+    display: grid;
+    place-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    color: #fffef6;
+    font-weight: 700;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+
+    &--01,
+    &--02 {
+      width: 91px;
+      height: 40px;
+    }
+
+    &--03,
+    &--04 {
+      width: 134px;
+      height: 37px;
+      padding-right: 10px;
+    }
+
+    &--01 {
+      background-image: url(/public/assets/images/links/bg-links-title-green.svg);
+    }
+
+    &--02 {
+      background-image: url(/public/assets/images/links/bg-links-title-yellow.svg);
+    }
+
+    &--03 {
+      background-image: url(/public/assets/images/links/bg-links-title-pink.svg);
+    }
+
+    &--04 {
+      background-image: url(/public/assets/images/links/bg-links-title-blue.svg);
+    }
+
+  }
+
+  .top-links-item-image {
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      width: 68px;
+      height: 68px;
+      background-color: var(--color-btn-hover);
+      clip-path: circle(50% at 93% 92%);
+      bottom: 0;
+      right: 0;
+    }
+
+    &::after {
+      width: 11px;
+      height: 9px;
+      background-image: url(/public/assets/images/global/icon-arrow-right.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      bottom: 13px;
+      right: 10px;
+
+    }
+  }
+
+  .top-links-item-text {
+    margin-top: 5px;
+    text-align: justify;
+  }
+
+  @include mq() {
+    .top-links {
+      padding-top: 110px;
+    }
+
+    .top-links-container {
+
+    }
+
+    .l-container-s {
+
+    }
+
+    .top-links-title {
+
+    }
+
+    .top-links-list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      gap: min(26px, calc(26 var(--vw-pc)));
+      padding-top: 18px;
+    }
+
+    .top-links-item {
+
+    }
+
+    .top-links-item-link {
+
+    }
+
+    .top-links-item-head {
+      // position: relative;
+    }
+
+    .top-links-item-title {
+      top: -18px;
+
+      &--01,
+      &--02 {
+        width: 121px;
+        height: 53px;
+      }
+
+      &--03,
+      &--04 {
+        width: 179px;
+        height: 49px;
+      }
+    }
+
+    .top-links-item-image {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+      }
+
+      &::before {
+        width: 80px;
+        height: 80px;
+        clip-path: circle(50% at 95% 92%);
+        // bottom: 0;
+        // right: 0;
+      }
+
+      &::after {
+        width: 13px;
+        height: 11px;
+        bottom: 15px;
+        right: 11px;
+      }
+    }
+
+    .top-links-item-text {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  }
+
+</style>

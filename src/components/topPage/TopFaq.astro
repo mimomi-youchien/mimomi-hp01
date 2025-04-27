@@ -1,0 +1,29 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import ButtonLink from "../button/ButtonLink.astro";
+---
+
+<section class="top-faq">
+  <div class="top-faq-container l-container-s">
+    <div class="l-section">
+      <div class="top-faq-title">
+        <SectionTitle
+          title1="よくある質問"
+        />
+      </div><!-- /.top-faq-title -->
+      <ul class="top-faq-list l-section-body">
+        <li>FAQ</li>
+        <li>FAQ</li>
+        <li>FAQ</li>
+      </ul>
+      <div class="top-faq-button">
+        <ButtonLink buttonText="すべての質問を見る" />
+      </div><!-- /.top-faq-button -->
+    </div><!-- /.l-section -->
+  </div><!-- /.top-faq-container.l-container-s -->
+</section><!-- /.top-faq -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+</style>

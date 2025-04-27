@@ -1,0 +1,82 @@
+---
+const { blogTitle, blogHref, blogCategory, blogDatetime, blogDate, blogSrc, blogAlt } = Astro.props;
+---
+
+<a href={blogHref} class="c-blog-card">
+  <div class="c-blog-card-image">
+    <img src={blogSrc || "/assets/images/news/image-news-dummy-image@2x.png"} alt={blogAlt} loading="lazy" decoding="async" width="250" height="160">
+  </div><!-- /.c-blog-card-image -->
+  <div class="c-blog-card-content">
+    <span class="c-blog-card-meta">
+      <span class="c-blog-card-category">{blogCategory}</span>
+      <time class="c-blog-card-date" datetime={blogDatetime}>{blogDate}</time>
+    </span>
+    <p class="c-blog-card-post-title">{blogTitle}</p>
+  </div><!-- /.c-blog-card-content -->
+</a>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .c-blog-card {
+    display: flex;
+    align-items: center;
+    gap: min(20px, calc(20 var(--vw-sp)));
+    line-height: 1.5;
+  }
+
+  .c-blog-card-image {
+    flex: 0 0 100px;
+  }
+
+  .c-blog-card-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .c-blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .c-blog-card-category {
+    padding: 1px 12px 0;
+    border-radius: 3px;
+    border: 1px solid;
+  }
+
+  .c-blog-card-date {
+    font-weight: 700;
+  }
+
+  .c-blog-card-post-title {
+    font-weight: 700;
+  }
+
+  @include mq() {
+    .c-blog-card {
+      gap: 40px;
+    }
+
+    .c-blog-card-image {
+      flex: 0 0 250px;
+    }
+
+    .c-blog-card-content {
+      gap: 20px;
+    }
+
+    .c-blog-card-meta {
+      gap: 40px;
+      font-size: 14px;
+    }
+
+    .c-blog-card-category {
+      padding: 2px 19px 1px;
+    }
+  }
+</style>

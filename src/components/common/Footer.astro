@@ -1,0 +1,53 @@
+---
+const { logoWide, logoTall, navList, snsList } = Astro.props;
+---
+
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-container l-container">
+    <div class="footer-logo footer-logo--sp">
+      <img src={logoWide} alt="コヨミ ヨガ ピラティス" loading="lazy" decoding="async" width="142" height="45">
+    </div><!-- /.footer-logo -->
+    <div class="footer-logo footer-logo--pc">
+      <img src={logoTall} alt="コヨミ ヨガ ピラティス" loading="lazy" decoding="async" width="292" height="330">
+    </div><!-- /.footer-logo -->
+    <div class="footer-content">
+      <nav class="footer-nav">
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <a href="/">トップ</a>
+          </li>
+          {navList.map((item) =>
+            <li class="footer-nav-item">
+              <a href={item.href}>{item.label}</a>
+            </li>
+          )}
+          <li class="footer-nav-item">
+            <a href="https://coubic.com/yogapilates-koyomi" target="_blank">ご予約サイト</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <ul class="footer-links-list">
+            <li class="footer-links-item">
+              <a href="/tokushoho">特定商取引法に基づく表記</a>
+            </li>
+            <li class="footer-links-item">
+              <a href="/privacy-policy">プライバシーポリシー</a>
+            </li>
+          </ul>
+        </div><!-- /.footer-links -->
+        <small class="footer-copyright" aria-label="著作権 2025 コヨミ ヨガ ピラティス">&copy; 2025 koyomi yoga pilates</small>
+      </div><!-- /.footer-bottom -->
+    </div><!-- /.footer-content -->
+  </div><!-- /.footer-container.l-container -->
+</footer><!-- /.footer -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .footer {
+    margin-top: 200px;
+  }
+</style>

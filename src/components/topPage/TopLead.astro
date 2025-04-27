@@ -1,0 +1,178 @@
+<section class="top-lead">
+  <div class="top-lead-container l-container-s">
+    <h2 class="top-lead-title">豊かな緑に囲まれた広い敷地で、<br>のびのびと過ごせる幼稚園</h2>
+    <div class="l-section-body">
+      <div class="top-lead-description">
+        <p class="top-lead-text">京成実籾駅前に位置し、子ども達のために考え抜かれた環境と設備が整っています。<br>自由に遊び、学ぶ姿をいつでも見学にお越しください。</p>
+        <p class="top-lead-text">みもみ幼稚園に関する最新情報やお問い合わせ情報などは公式LINEにてお送りしておりますので、まずはお友だち追加をお願いいたします！<br>ご質問等ございましたら、チャットも対応しておりますので、メッセージをお送りください。</p>
+      </div><!-- /.top-lead-description -->
+      <div class="top-lead-button">
+        <a href="#" target="_blank">お友だち追加する</a>
+      </div><!-- /.top-lead-button -->
+    </div><!-- /.l-section-body -->
+  </div><!-- /.top-lead-container.l-container-s -->
+</section><!-- /.top-lead -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-lead {
+    padding-top: 57px;
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &::before {
+      // width: 224px;
+      width: min(254px, calc(224 var(--vw-sp)));
+      // height: 201px;
+      height: min(228px, calc(201 var(--vw-sp)));
+      background-image: url(/public/assets/images/global/dec-laurel-01.svg);
+      top: -31px;
+      right: -83px;
+    }
+
+    &::after {
+      // width: 227px;
+      width: min(257px, calc(227 var(--vw-sp)));
+      // height: 238px;
+      height: min(270px, calc(238 var(--vw-sp)));
+      background-image: url(/public/assets/images/global/dec-laurel-02.svg);
+      bottom: 81px;
+      left: -80px;
+    }
+  }
+
+  .top-lead-container {
+    // max-width: 480px;
+  }
+
+  .top-lead-title {
+    // margin-top: 57px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.185em;
+    line-height: 1.78;
+    text-align: center;
+  }
+
+  .top-lead-description {
+    display: grid;
+    gap: 2em;
+    text-align: justify;
+  }
+
+  .top-lead-text {
+
+  }
+
+  .top-lead-button {
+    margin-top: 30px;
+    text-align: right;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 19px;
+      border-radius: 5px;
+      border: 1px solid var(--color-line);
+      background-color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        background-image: url(/public/assets/images/global/icon-line.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        filter: invert(100%) sepia(16%) saturate(4980%) hue-rotate(33deg) brightness(85%) contrast(76%);
+      }
+    }
+  }
+
+  @include mq() {
+    .top-lead {
+      padding-top: 117px;
+      padding-bottom: 120px;
+
+      &::before {
+        // width: 682px;
+        width: clamp(546px, calc(682 var(--vw-pc)), 682px);
+        // height: 612px;
+        height: clamp(490px, calc(612 var(--vw-pc)), 612px);
+        top: -182px;
+        right: -211px;
+      }
+
+      &::after {
+        // width: 690px;
+        width: clamp(552px, calc(690 var(--vw-pc)), 690px);
+        // height: 725px;
+        height: clamp(580px, calc(725 var(--vw-pc)), 725px);
+        bottom: 18px;
+        left: -278px;
+      }
+    }
+
+    .top-lead-container {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .top-lead-title {
+      // margin-top: 117px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .top-lead-description {
+      gap: 1.88em;
+    }
+
+    .top-lead-text {
+
+    }
+
+    .top-lead-button {
+      margin-top: 40px;
+
+      a {
+        gap: 10px;
+        padding: 10px 19px;
+        border-radius: 10px;
+        font-size: 12px;
+
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .top-lead-bg {
+      width: 1764px;
+      width: min(1764px, calc(1764 var(--vw-pc)));
+      top: auto;
+      bottom: -20px;
+      left: 50%;
+      translate: -52%;
+    }
+  }
+
+
+</style>

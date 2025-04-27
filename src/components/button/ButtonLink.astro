@@ -1,0 +1,47 @@
+---
+const { buttonText, ButtonHref } = Astro.props;
+---
+
+<a href={ButtonHref} class="c-button-top">{buttonText}</a>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .c-button-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 29px;
+    padding: 5px 17px 5px 20px;
+    border-radius: 5px;
+    border: 1px solid;
+    background-color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+
+    &::after {
+      content: "";
+      width: 11px;
+      height: 9px;
+      background-image: url(/public/assets/images/global/icon-arrow-right.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+  }
+
+  @include mq() {
+    .c-button-top {
+      gap: 36px;
+      padding: 4px 18px 4px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: calc(30 / 14);
+
+      &::after {
+        width: 13px;
+        height: 11px;
+      }
+    }
+  }
+
+</style>

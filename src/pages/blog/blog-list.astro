@@ -1,0 +1,107 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageKv from "../../components/PageKv.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import Cta from "../../components/Cta.astro";
+---
+
+<Layout
+  subTitle="お知らせ"
+  pgType="website"
+  description=""
+>
+
+  <!-- blog-list-kv -->
+  <div class="blog-list-kv">
+    <PageKv
+      title="お知らせ"
+      imageSrcSp="/assets/images/kv/page-kv/pic-kv-blog-sp@2x.png"
+      imageSrcPc="/assets/images/kv/page-kv/pic-kv-blog-pc@2x.png"
+    />
+  </div><!-- /.blog-list-kv -->
+
+  <main class="blog-list-main l-section-body">
+    <div class="l-container-s">
+      <ul class="blog-list-list">
+        <li class="blog-list-item">
+          <BlogCard
+            blogTitle="未就園児教室のご案内"
+            blogHref="/blog/mi-shuen-ji-class/"
+            blogCategory="募集案内"
+            blogDatetime="2025-05-01"
+            blogDate="2025.05.01"
+            blogSrc="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji-class@2x.jpg"
+            blogAlt=""
+          />
+        </li>
+          <BlogCard
+            blogTitle="令和7年度 未就園児イベントのお知らせ"
+            blogHref="/blog/mi-shuen-ji-events/"
+            blogCategory="募集案内"
+            blogDatetime="2025-05-01"
+            blogDate="2025.05.01"
+            blogSrc="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji-events.jpg"
+            blogAlt=""
+          />
+        <li class="blog-list-item">
+          <BlogCard
+            blogTitle="ホームページをリニューアルしました！"
+            blogHref="/blog/site-renewal"
+            blogCategory="お知らせ"
+            blogDatetime="2025-05-01"
+            blogDate="2025.05.01"
+            blogSrc="/assets/images/blog/pic-blog-thumbnail-site-renewal.jpg"
+            blogAlt=""
+          />
+        </li>
+      </ul>
+    </div><!-- /.l-container-s -->
+  </main>
+
+  <div class="blog-list-cta">
+    <Cta />
+  </div><!-- /.blog-list-cta -->
+</Layout>
+
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .blog-list-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+  }
+
+  .blog-list-main {
+  }
+
+  .blog-list-list {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .blog-list-item {
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid;
+    }
+  }
+
+
+  @include mq() {
+    .blog-list-kv {
+      margin-top: 100px;
+    }
+
+    .blog-list-main {
+
+    }
+
+    .blog-list-list {
+      margin-top: 40px;
+    }
+
+
+  }
+</style>
