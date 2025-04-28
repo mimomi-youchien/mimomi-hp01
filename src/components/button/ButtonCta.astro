@@ -2,7 +2,7 @@
 const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
 ---
 
-<a href={ctaHref || "https://www.google.co.jp/"} class={ctaClass || "c-button-cta"} target={ctaTarget || "_blank"}>{ctaText || "お友だち追加する"}</a>
+<a href={ctaHref || "https://lin.ee/UtZ5lXCf/"} class={ctaClass || "c-button-cta"} target={ctaTarget || "_blank"}>{ctaText || "お友だち追加する"}</a>
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
@@ -24,7 +24,7 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
       content: "";
       width: 16px;
       height: 16px;
-      background-image: url(/public/assets/images/global/icon-line.svg);
+      background-image: url(/assets/images/global/icon-line.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
@@ -32,7 +32,7 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
     }
 
     &--recruitment {
-
+      background-color: var(--color-main);
     }
 
     &--tel {
@@ -41,7 +41,7 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
       font-weight: 400;
 
       &::before {
-        background-image: url(/public/assets/images/global/icon-tel.svg);
+        background-image: url(/assets/images/global/icon-tel.svg);
       }
     }
 
@@ -77,7 +77,8 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
         gap: 12px;
         font-size: 14px;
 
-        @media screen and (min-width: 1024px) {
+        // タブレット横向き(1024px)まで電話発信有効
+        @media screen and (min-width: 1025px) {
           background-color: rgb(133 94 59 / .3);
           color: var(--color-main);
           pointer-events: none;
@@ -88,7 +89,8 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
           width: 16px;
           height: 16px;
 
-          @media screen and (min-width: 1024px) {
+          // タブレット横向き(1024px)まで電話発信有効
+          @media screen and (min-width: 1025px) {
             filter: invert(33%) sepia(95%) saturate(257%) hue-rotate(347deg) brightness(93%) contrast(87%);
           }
         }
@@ -120,6 +122,16 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
             height: 40px;
           }
         }
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    .c-button-cta {
+      transition: opacity .3s ease;
+
+      &:hover {
+        opacity: .8;
       }
     }
   }

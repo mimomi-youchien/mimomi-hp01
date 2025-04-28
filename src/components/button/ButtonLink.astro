@@ -22,10 +22,11 @@ const { buttonText, ButtonHref } = Astro.props;
       content: "";
       width: 11px;
       height: 9px;
-      background-image: url(/public/assets/images/global/icon-arrow-right.svg);
+      background-image: url(/assets/images/global/icon-arrow-right.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
+      filter: invert(34%) sepia(63%) saturate(339%) hue-rotate(347deg) brightness(99%) contrast(93%);
     }
   }
 
@@ -40,6 +41,24 @@ const { buttonText, ButtonHref } = Astro.props;
       &::after {
         width: 13px;
         height: 11px;
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    .c-button-top {
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--color-baby-pink);
+
+        &::after {
+          filter: invert(97%) sepia(91%) saturate(6024%) hue-rotate(294deg) brightness(100%) contrast(96%);
+        }
+      }
+
+      &::after {
+        transition: filter .3s ease;
       }
     }
   }

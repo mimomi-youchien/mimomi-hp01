@@ -7,7 +7,7 @@
         <p class="top-lead-text">みもみ幼稚園に関する最新情報やお問い合わせ情報などは公式LINEにてお送りしておりますので、まずはお友だち追加をお願いいたします！<br>ご質問等ございましたら、チャットも対応しておりますので、メッセージをお送りください。</p>
       </div><!-- /.top-lead-description -->
       <div class="top-lead-button">
-        <a href="#" target="_blank">お友だち追加する</a>
+        <a href="https://lin.ee/UtZ5lXCf/" target="_blank">お友だち追加する</a>
       </div><!-- /.top-lead-button -->
     </div><!-- /.l-section-body -->
   </div><!-- /.top-lead-container.l-container-s -->
@@ -37,7 +37,7 @@
       width: min(254px, calc(224 var(--vw-sp)));
       // height: 201px;
       height: min(228px, calc(201 var(--vw-sp)));
-      background-image: url(/public/assets/images/global/dec-laurel-01.svg);
+      background-image: url(/assets/images/global/dec-laurel-01.svg);
       top: -31px;
       right: -83px;
     }
@@ -47,7 +47,7 @@
       width: min(257px, calc(227 var(--vw-sp)));
       // height: 238px;
       height: min(270px, calc(238 var(--vw-sp)));
-      background-image: url(/public/assets/images/global/dec-laurel-02.svg);
+      background-image: url(/assets/images/global/dec-laurel-02.svg);
       bottom: 81px;
       left: -80px;
     }
@@ -95,7 +95,7 @@
         content: "";
         width: 14px;
         height: 14px;
-        background-image: url(/public/assets/images/global/icon-line.svg);
+        background-image: url(/assets/images/global/icon-line.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
@@ -134,17 +134,12 @@
     }
 
     .top-lead-title {
-      // margin-top: 117px;
       font-size: 30px;
       letter-spacing: 0;
     }
 
     .top-lead-description {
       gap: 1.88em;
-    }
-
-    .top-lead-text {
-
     }
 
     .top-lead-button {
@@ -174,5 +169,16 @@
     }
   }
 
+  @media (any-hover: hover) {
+    .top-lead-button {
+      a {
+        transition: opacity .3s ease;
+
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
 
 </style>

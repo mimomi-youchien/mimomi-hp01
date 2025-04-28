@@ -43,9 +43,9 @@ import Cta from "../components/Cta.astro";
               </div><!-- /.msj-about-content -->
               <div class="msj-about-image">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="/public/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.png">
-                  <source media="(min-width: 768px)" srcset="/public/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-pc@2x.png">
-                  <img src="/public/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
+                  <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.png">
+                  <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-pc@2x.png">
+                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
                 </picture>
               </div><!-- /.msj-about-image -->
             </div><!-- /.msj-about-item -->
@@ -56,9 +56,9 @@ import Cta from "../components/Cta.astro";
               </div><!-- /.msj-about-content -->
               <div class="msj-about-image msj-about-image--02">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="/public/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.png">
-                  <source media="(min-width: 768px)" srcset="/public/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-pc@2x.png">
-                  <img src="/public/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
+                  <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.png">
+                  <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-pc@2x.png">
+                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
                 </picture>
               </div><!-- /.msj-about-image -->
             </div><!-- /.msj-about-item -->
@@ -323,7 +323,7 @@ import Cta from "../components/Cta.astro";
       content: "";
       width: 68px;
       height: 71px;
-      background-image: url(/public/assets/images/mi-shuen-ji/illust-mi-shuen-ji-01.svg);
+      background-image: url(/assets/images/mi-shuen-ji/illust-mi-shuen-ji-01.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
@@ -338,7 +338,7 @@ import Cta from "../components/Cta.astro";
       &::after {
         width: 70px;
         height: 75px;
-        background-image: url(/public/assets/images/mi-shuen-ji/illust-mi-shuen-ji-02.svg);
+        background-image: url(/assets/images/mi-shuen-ji/illust-mi-shuen-ji-02.svg);
         right: auto;
         bottom: 0;
         left: -5px;
@@ -391,7 +391,7 @@ import Cta from "../components/Cta.astro";
             content: "";
             width: 93px;
             height: 93px;
-            background-image: url(/public/assets/images/mi-shuen-ji/illust-mi-shuen-ji-01.svg);
+            background-image: url(/assets/images/mi-shuen-ji/illust-mi-shuen-ji-01.svg);
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center center;
@@ -520,8 +520,6 @@ import Cta from "../components/Cta.astro";
 
   .msj-overview-tel {
     text-decoration: underline;
-    pointer-events: none;
-    cursor: default;
   }
 
   .msj-overview-button {
@@ -540,7 +538,7 @@ import Cta from "../components/Cta.astro";
         content: "";
         width: 95px;
         height: 103px;
-        background-image: url(/public/assets/images/mi-shuen-ji/illust-mi-shuen-ji-02.svg);
+        background-image: url(/assets/images/mi-shuen-ji/illust-mi-shuen-ji-02.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
@@ -627,9 +625,12 @@ import Cta from "../components/Cta.astro";
     }
 
     .msj-overview-tel {
-      // text-decoration: underline;
-      // pointer-events: none;
-      // cursor: default;
+      // タブレット横向き(1024px)まで電話発信有効
+      @media screen and (min-width: 1025px) {
+        text-decoration: none;
+        pointer-events: none;
+        cursor: default;
+      }
     }
 
     .msj-overview-button {
@@ -657,7 +658,7 @@ import Cta from "../components/Cta.astro";
     &::before {
       width: calc(224 var(--vw-sp));
       height: calc(201 var(--vw-sp));
-      background-image: url(/public/assets/images/global/dec-laurel-01.svg);
+      background-image: url(/assets/images/global/dec-laurel-01.svg);
       top: calc(-23 var(--vw-sp));
       left: calc(50% + calc(156 var(--vw-sp)));
     }
@@ -665,7 +666,7 @@ import Cta from "../components/Cta.astro";
     &::after {
       width: calc(227 var(--vw-sp));
       height: calc(238 var(--vw-sp));
-      background-image: url(/public/assets/images/global/dec-laurel-02.svg);
+      background-image: url(/assets/images/global/dec-laurel-02.svg);
       bottom: calc(21 var(--vw-sp));
       left: calc(50% - calc(154 var(--vw-sp)));
     }
@@ -780,8 +781,11 @@ import Cta from "../components/Cta.astro";
     }
 
     .msj-visit-tel {
-      @media screen and (min-width: 1024px) {
-        // 無効処理
+      // タブレット横向き(1024px)まで電話発信有効
+      @media screen and (min-width: 1025px) {
+        text-decoration: none;
+        pointer-events: none;
+        cursor: default;
       }
     }
 

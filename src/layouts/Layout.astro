@@ -3,8 +3,8 @@ import "../styles/style.scss";
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
 
-const logoWide = "/assets/images/global/logo-wide.svg";
-const logoTall = "/assets/images/global/logo-tall.svg";
+const logo = "/assets/images/global/logo.svg";
+const logoAlt = "学校法人 みもみ幼稚園";
 
 const navList = [
   {
@@ -26,19 +26,6 @@ const navList = [
   {
     href: '/contact',
     label: 'お問い合わせ'
-  }
-]
-
-const snsList = [
-  {
-    href: 'https://line.me/R/ti/p/@309upsyu?ts=03010941&oat_content=url',
-    src: '/assets/images/global/icon-line.svg',
-    ariaLabel: 'ラインで友だち追加'
-  },
-  {
-    href: 'https://www.instagram.com/kotono_yoga',
-    src: '/assets/images/global/icon-instagram.svg',
-    ariaLabel: 'インスタグラムを見る'
   }
 ]
 
@@ -94,18 +81,16 @@ const {
 
   <body>
     <Header
-      logoWide={logoWide}
+      logo={logo}
+      logoAlt={logoAlt}
       navList={navList}
-      snsList={snsList}
     />
 
     <slot />
 
     <Footer
-      logoWide={logoWide}
-      logoTall={logoTall}
+      logo={logo}
       navList={navList}
-      snsList={snsList}
     />
   </body>
 </html>

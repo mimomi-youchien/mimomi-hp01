@@ -79,4 +79,14 @@ const { blogTitle, blogHref, blogCategory, blogDatetime, blogDate, blogSrc, blog
       padding: 2px 19px 1px;
     }
   }
+
+  @media (any-hover: hover) {
+    .c-blog-card {
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--color-baby-pink);
+      }
+    }
+  }
 </style>
