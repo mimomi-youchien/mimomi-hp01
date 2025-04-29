@@ -15,8 +15,8 @@ import Cta from "../../components/Cta.astro";
   <div class="blog-single-kv">
     <PageKv
       title="お知らせ"
-      imageSrcSp="/assets/images/kv/page-kv/pic-kv-blog-sp@2x.png"
-      imageSrcPc="/assets/images/kv/page-kv/pic-kv-blog-pc@2x.png"
+      imageSrcSp="/assets/images/kv/page-kv/pic-kv-blog-sp@2x.webp"
+      imageSrcPc="/assets/images/kv/page-kv/pic-kv-blog-pc@2x.webp"
     />
   </div><!-- /.blog-single-kv -->
 
@@ -31,7 +31,7 @@ import Cta from "../../components/Cta.astro";
           </div><!-- /.blog-single-meta -->
         </div><!-- /.blog-single-head -->
         <div class="blog-single-thumbnail">
-          <img src="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji@2x.jpg" alt="" loading="eager" decoding="async" width="800" height="512">
+          <img src="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji@2x.webp" alt="" loading="eager" decoding="async" width="800" height="512">
         </div><!-- /.blog-single-thumbnail -->
 
         <!-- single-content (microCMSリッチエディタより) -->
@@ -180,6 +180,10 @@ import Cta from "../../components/Cta.astro";
     text-align: right;
   }
 
+  .blog-single-cta {
+    margin-top: 60px;
+  }
+
   @include mq() {
     .blog-single-kv {
       margin-top: 100px;
@@ -227,6 +231,10 @@ import Cta from "../../components/Cta.astro";
 
     .blog-single-button {
       text-align: right;
+    }
+
+    .blog-single-cta {
+      margin-top: 120px;
     }
   }
 </style>

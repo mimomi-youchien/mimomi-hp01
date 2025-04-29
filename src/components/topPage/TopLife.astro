@@ -12,7 +12,7 @@ import ButtonLink from "../button/ButtonLink.astro";
         />
       </div><!-- /.top-life-title -->
       <ul class="top-life-list l-section-body">
-        <li class="top-life-item">
+        <li class="top-life-item top-life-item--01">
           <h3 class="top-life-heading-sp">感じる“ココロ”</h3>
           <div class="top-life-content">
             <div class="top-life-description">
@@ -22,11 +22,11 @@ import ButtonLink from "../button/ButtonLink.astro";
                 <p class="top-life-text">日々自然に囲まれる環境が子どもたちの豊かな成長にとって大切だと考えます。<br>「土ってふかふかしてる！」「おいもが大きくなった！」子ども達にとって、この世界は初めての経験と感動で溢れています。<br>感動は「もっと知りたい！」と、知的好奇心を向上させ、学ぶ意欲へとつながります。心動かす体験を大切に。子ども達が目を輝かせ、夢中になる姿を見守ります。</p>
               </div><!-- /.top-life-wrapper -->
             </div><!-- /.top-life-description -->
-            <div class="top-life-image">
+            <div class="top-life-image top-life-image--01">
               <picture>
-                <source media="(max-width: 767px)" srcset="/assets/images/life/pic-life-sp-01@2x.png">
-                <source media="(min-width: 768px)" srcset="/assets/images/life/pic-life-pc-01@2x.png">
-                <img src="/assets/images/life/pic-life-sp-01@2x.png" alt="" loading="lazy" decoding="async" width="240" height="180">
+                <source media="(max-width: 767px)" srcset="/assets/images/life/pic-life-sp-01@2x.webp">
+                <source media="(min-width: 768px)" srcset="/assets/images/life/pic-life-pc-01@2x.webp">
+                <img src="/assets/images/life/pic-life-sp-01@2x.webp" alt="" loading="lazy" decoding="async" width="240" height="180">
               </picture>
             </div><!-- /.top-life-image -->
           </div><!-- /.top-life-content -->
@@ -43,9 +43,9 @@ import ButtonLink from "../button/ButtonLink.astro";
             </div><!-- /.top-life-description -->
             <div class="top-life-image top-life-image--02">
               <picture>
-                <source media="(max-width: 767px)" srcset="/assets/images/life/pic-life-sp-02@2x.png">
-                <source media="(min-width: 768px)" srcset="/assets/images/life/pic-life-pc-02@2x.png">
-                <img src="/assets/images/life/pic-life-sp-02@2x.png" alt="" loading="lazy" decoding="async" width="240" height="180">
+                <source media="(max-width: 767px)" srcset="/assets/images/life/pic-life-sp-02@2x.webp">
+                <source media="(min-width: 768px)" srcset="/assets/images/life/pic-life-pc-02@2x.webp">
+                <img src="/assets/images/life/pic-life-sp-02@2x.webp" alt="" loading="lazy" decoding="async" width="240" height="180">
               </picture>
             </div><!-- /.top-life-image -->
           </div><!-- /.top-life-content -->
@@ -62,9 +62,9 @@ import ButtonLink from "../button/ButtonLink.astro";
   @use '../../styles/breakpoints' as *;
 
   .top-life {
-
+    overflow: hidden;
   }
-
+  
   .top-life-container {
 
   }
@@ -129,6 +129,48 @@ import ButtonLink from "../button/ButtonLink.astro";
 
   .top-life-image {
     padding: 0 40px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      width: calc(135 var(--vw-sp));
+      height: calc(119 var(--vw-sp));
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+      translate: -50%;
+    }
+
+    &--01 {
+      &::before {
+        background-image: url(/assets/images/life/dec-life-sp-01.svg);
+        top: -42px;
+        left: calc(50% + calc(135 var(--vw-sp)));
+      }
+
+      &::after {
+        background-image: url(/assets/images/life/dec-life-sp-02.svg);
+        bottom: -37px;
+        left: calc(50% - calc(131 var(--vw-sp)));
+      }
+    }
+
+    &--02 {
+      &::before {
+        background-image: url(/assets/images/life/dec-life-sp-03.svg);
+        top: -30px;
+        left: calc(50% - 131px)
+      }
+
+      &::after {
+        background-image: url(/assets/images/life/dec-life-sp-04.svg);
+        bottom: -49px;
+        left: calc(50% + 135px)
+      }
+    }
   }
 
   .top-life-button {
@@ -166,7 +208,45 @@ import ButtonLink from "../button/ButtonLink.astro";
     }
 
     .top-life-item {
+      position: relative;
 
+      &::after {
+        content: "";
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        position: absolute;
+        z-index: -1;
+        translate: -50%;
+      }
+
+      &--01 {
+        &::after {
+          width: 277px;
+          height: 276px;
+          background-image: url(/assets/images/life/dec-life-pc-01.svg);
+          top: -86px;
+          left: calc(50% + 380px);
+
+          @media screen and (min-width: 1025px) {
+            left: calc(50% + 487px);
+          }
+        }
+      }
+
+      &--02 {
+        &::after {
+          width: 283px;
+          height: 272px;
+          background-image: url(/assets/images/life/dec-life-pc-02.svg);
+          bottom: -78px;
+          left: calc(50% - 380px);
+
+          @media screen and (min-width: 1025px) {
+            left: calc(50% - 483px);
+          }
+        }
+      }
     }
 
     .top-life-heading-sp {
@@ -210,8 +290,20 @@ import ButtonLink from "../button/ButtonLink.astro";
       flex: 0 0 280px;
       padding: 0;
 
+      &--01 {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
       &--02 {
         flex: 0 0 320px;
+
+        &::before,
+        &::after {
+          display: none;
+        }
       }
     }
 

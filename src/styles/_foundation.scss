@@ -37,18 +37,6 @@ body {
   }
 }
 
-// body.isScrollAllowed {
-//   overflow: hidden;
-// }
-
-main {
-  padding-bottom: 60px;
-
-  @include mq() {
-    padding-bottom: 120px;
-  }
-}
-
 ol,
 ul {
   list-style: none;

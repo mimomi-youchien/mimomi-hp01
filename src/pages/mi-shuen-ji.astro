@@ -17,8 +17,8 @@ import Cta from "../components/Cta.astro";
     <div class="mi-shuen-ji-kv">
       <PageKv
         title="未就園児親子教室について"
-        imageSrcSp="/assets/images/kv/page-kv/pic-kv-mi-shuen-ji-sp@2x.png"
-        imageSrcPc="/assets/images/kv/page-kv/pic-kv-mi-shuen-ji-pc@2x.png"
+        imageSrcSp="/assets/images/kv/page-kv/pic-kv-mi-shuen-ji-sp@2x.webp"
+        imageSrcPc="/assets/images/kv/page-kv/pic-kv-mi-shuen-ji-pc@2x.webp"
       />
     </div><!-- /.mi-shuen-ji-kv -->
 
@@ -43,9 +43,9 @@ import Cta from "../components/Cta.astro";
               </div><!-- /.msj-about-content -->
               <div class="msj-about-image">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.png">
-                  <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-pc@2x.png">
-                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
+                  <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.webp">
+                  <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-pc@2x.webp">
+                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.webp" alt="" loading="eager" decoding="async" width="240" height="180">
                 </picture>
               </div><!-- /.msj-about-image -->
             </div><!-- /.msj-about-item -->
@@ -56,9 +56,9 @@ import Cta from "../components/Cta.astro";
               </div><!-- /.msj-about-content -->
               <div class="msj-about-image msj-about-image--02">
                 <picture>
-                  <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.png">
-                  <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-pc@2x.png">
-                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
+                  <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.webp">
+                  <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-pc@2x.webp">
+                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.webp" alt="" loading="eager" decoding="async" width="240" height="180">
                 </picture>
               </div><!-- /.msj-about-image -->
             </div><!-- /.msj-about-item -->
@@ -259,6 +259,17 @@ import Cta from "../components/Cta.astro";
 
   .mi-shuen-ji {
     overflow: hidden;
+  }
+
+  .mi-shuen-ji-cta {
+    margin-top: 60px;
+  }
+
+  @include mq() {
+    .mi-shuen-ji-cta {
+      margin-top: 120px;
+    }
+
   }
 
   // mi-shuen-ji-kv

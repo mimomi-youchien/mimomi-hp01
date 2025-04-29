@@ -15,8 +15,8 @@ import Cta from "../../components/Cta.astro";
   <div class="blog-list-kv">
     <PageKv
       title="お知らせ"
-      imageSrcSp="/assets/images/kv/page-kv/pic-kv-blog-sp@2x.png"
-      imageSrcPc="/assets/images/kv/page-kv/pic-kv-blog-pc@2x.png"
+      imageSrcSp="/assets/images/kv/page-kv/pic-kv-blog-sp@2x.webp"
+      imageSrcPc="/assets/images/kv/page-kv/pic-kv-blog-pc@2x.webp"
     />
   </div><!-- /.blog-list-kv -->
 
@@ -30,7 +30,7 @@ import Cta from "../../components/Cta.astro";
             blogCategory="募集案内"
             blogDatetime="2025-05-01"
             blogDate="2025.05.01"
-            blogSrc="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji-class@2x.jpg"
+            blogSrc="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji-class@2x.webp"
             blogAlt=""
           />
         </li>
@@ -41,7 +41,7 @@ import Cta from "../../components/Cta.astro";
             blogCategory="募集案内"
             blogDatetime="2025-05-01"
             blogDate="2025.05.01"
-            blogSrc="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji-events.jpg"
+            blogSrc="/assets/images/blog/pic-blog-thumbnail-mi-shuen-ji-events.webp"
             blogAlt=""
           />
         </li>
@@ -52,7 +52,7 @@ import Cta from "../../components/Cta.astro";
             blogCategory="お知らせ"
             blogDatetime="2025-05-01"
             blogDate="2025.05.01"
-            blogSrc="/assets/images/blog/pic-blog-thumbnail-site-renewal.jpg"
+            blogSrc="/assets/images/blog/pic-blog-thumbnail-site-renewal.webp"
             blogAlt=""
           />
         </li>
@@ -90,6 +90,10 @@ import Cta from "../../components/Cta.astro";
     }
   }
 
+  .blog-list-cta {
+    margin-top: 60px;
+  }
+
 
   @include mq() {
     .blog-list-kv {
@@ -104,6 +108,8 @@ import Cta from "../../components/Cta.astro";
       margin-top: 40px;
     }
 
-
+    .blog-list-cta {
+      margin-top: 120px;
+    }
   }
 </style>

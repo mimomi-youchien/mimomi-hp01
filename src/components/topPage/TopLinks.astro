@@ -15,7 +15,7 @@ import SectionTitle from "../SectionTitle.astro";
           <div class="top-links-item-head">
             <h3 class="top-links-item-title top-links-item-title--01">入園案内</h3>
             <div class="top-links-item-image">
-              <img src="/assets/images/links/pic-links-01@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+              <img src="/assets/images/links/pic-links-01@2x.webp" alt="" loading="lazy" decoding="async" width="180" height="160">
             </div><!-- /.top-links-item-image -->
           </div><!-- /.top-links-item-head -->
           <p class="top-links-item-text">入園時や毎月の費用についてご案内します。</p>
@@ -26,7 +26,7 @@ import SectionTitle from "../SectionTitle.astro";
           <div class="top-links-item-head">
             <h3 class="top-links-item-title top-links-item-title--02">園の概要</h3>
             <div class="top-links-item-image">
-              <img src="/assets/images/links/pic-links-02@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+              <img src="/assets/images/links/pic-links-02@2x.webp" alt="" loading="lazy" decoding="async" width="180" height="160">
             </div><!-- /.top-links-item-image -->
           </div><!-- /.top-links-item-head -->
           <p class="top-links-item-text">アクセスや駐車場、採用情報をご覧いただけます。</p>
@@ -37,7 +37,7 @@ import SectionTitle from "../SectionTitle.astro";
           <div class="top-links-item-head">
             <h3 class="top-links-item-title top-links-item-title--03">ぴよちゃん教室</h3>
             <div class="top-links-item-image">
-              <img src="/assets/images/links/pic-links-03@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+              <img src="/assets/images/links/pic-links-03@2x.webp" alt="" loading="lazy" decoding="async" width="180" height="160">
             </div><!-- /.top-links-item-image -->
           </div><!-- /.top-links-item-head -->
           <p class="top-links-item-text">未就園児(1,2歳)の親子教室についてご案内します。</p>
@@ -48,7 +48,7 @@ import SectionTitle from "../SectionTitle.astro";
           <div class="top-links-item-head">
             <h3 class="top-links-item-title top-links-item-title--04">メンバーシップ</h3>
             <div class="top-links-item-image">
-              <img src="/assets/images/links/pic-links-04@2x.jpg" alt="" loading="lazy" decoding="async" width="180" height="160">
+              <img src="/assets/images/links/pic-links-04@2x.webp" alt="" loading="lazy" decoding="async" width="180" height="160">
             </div><!-- /.top-links-item-image -->
           </div><!-- /.top-links-item-head -->
           <p class="top-links-item-text">保護者さま専用。おたよりや園児の日常を届けます。</p>
@@ -165,6 +165,34 @@ import SectionTitle from "../SectionTitle.astro";
       gap: 26px;
       gap: min(26px, calc(26 var(--vw-pc)));
       padding-top: 18px;
+      position: relative;
+
+      @media screen and (min-width: 1025px) {
+        &::before,
+        &::after {
+          content: "";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          position: absolute;
+        }
+
+        &::before {
+          width: 121px;
+          height: 121px;
+          background-image: url(/public/assets/images/links/illust-links-01.svg);
+          top: -70px;
+          left: -96px;
+        }
+
+        &::after {
+          width: 107px;
+          height: 180px;
+          background-image: url(/public/assets/images/links/illust-links-02.svg);
+          bottom: -62px;
+          right: -107px;
+        }
+      }
     }
 
     .top-links-item-title {
