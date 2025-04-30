@@ -22,7 +22,7 @@ const { logo, logoAlt } = Astro.props;
       <nav class="header-nav" aria-label="サイトナビゲーション">
         <ul class="header-nav-list">
           <li class="header-nav-item header-nav-item--top">
-            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">トップ</button>
+            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">ホーム</button>
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
                 <a href="/#faq">よくある質問</a>
@@ -33,10 +33,10 @@ const { logo, logoAlt } = Astro.props;
             </ul>
           </li>
           <li class="header-nav-item">
-            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">園の紹介</button>
+            <button class="header-nav-btn u-disabled" type="button" aria-haspopup="true" aria-expanded="false">園の紹介</button>
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
-                <a>教育方針</a>
+                <a href="">教育方針</a>
               </li>
               <li class="header-hidden-item">
                 <a>自園給食</a>
@@ -53,7 +53,7 @@ const { logo, logoAlt } = Astro.props;
             </ul>
           </li>
           <li class="header-nav-item">
-            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">園の生活</button>
+            <button class="header-nav-btn u-disabled" type="button" aria-haspopup="true" aria-expanded="false">園の生活</button>
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
                 <a>園の一日</a>
@@ -70,19 +70,19 @@ const { logo, logoAlt } = Astro.props;
             </ul>
           </li>
           <li class="header-nav-item">
-            <a>入園案内</a>
+            <a href="" class="u-disabled">入園案内</a>
           </li>
           <li class="header-nav-item">
             <a href="/blog/blog-list/">お知らせ</a>
           </li>
           <li class="header-nav-item">
-            <a>園の概要</a>
+            <a href="" class="u-disabled">園の概要</a>
           </li>
           <li class="header-nav-item">
-            <a>よくある質問</a>
+            <a href="" class="u-disabled">よくある質問</a>
           </li>
           <li class="header-nav-item header-nav-item--parents">
-            <a><span><span>保護者さま</span><span>専用ページ</span><span class="_no-pc">「おたより」</span></span></a>
+            <a href="" class="u-disabled"><span><span>保護者さま</span><span>専用ページ</span><span class="_no-pc">「おたより」</span></span></a>
           </li>
           <li class="header-nav-item header-nav-item--mi-shuen-ji">
             <a href="/mi-shuen-ji/"><span><span>未就園児(1,2歳)</span><span>親子教室について</span></span></a>
@@ -294,6 +294,14 @@ const { logo, logoAlt } = Astro.props;
       }
     }
 
+    &--parents {
+      a {
+        &::before {
+          filter: invert(92%) sepia(4%) saturate(8%) hue-rotate(314deg) brightness(87%) contrast(99%);
+        }
+      }
+    }
+
     &--mi-shuen-ji {
       a {
         &::before {
@@ -315,7 +323,7 @@ const { logo, logoAlt } = Astro.props;
       content: "";
       width: 10px;
       height: 8px;
-      background-color: var(--color-main);
+      background-color: currentColor;
       clip-path: polygon(100% 0, 0 0, 50% 100%);
     }
 

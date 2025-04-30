@@ -55,3 +55,15 @@
     display: none;
   }
 }
+
+// 暫定公開用のユーティリティクラス
+/* 無効なリンク */
+.u-disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+/* 一時的な非表示 */
+.u-display-none {
+  display: none;
+}

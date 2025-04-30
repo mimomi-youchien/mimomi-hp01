@@ -59,12 +59,12 @@ import ButtonLink from "../button/ButtonLink.astro";
                   <p class="top-faq-paragraph">早朝保育(8:00〜9:00)、延長保育(保育後〜18:00)があり、全園児ご利用いただけます。早朝保育は一律200円、延長保育は1時間200円となります。また、春休み、夏休み、冬休みには長期休暇保育(8:00〜18:00)をご利用いただけます。詳細は「預かり保育」のページをご覧ください。</p>
                 </div><!-- /.top-faq-answer -->
               </div><!-- /.top-faq-wrapper -->
-              <a class="top-faq-link">続きを見る</a>
+              <a href="" class="top-faq-link top-faq-link--disabled">続きを見る</a>
             </dd>
           </dl>
         </li>
       </ul>
-      <div class="top-faq-button">
+      <div class="top-faq-button u-display-none">
         <ButtonLink buttonText="すべての質問を見る" />
       </div><!-- /.top-faq-button -->
     </div><!-- /.l-section -->
@@ -74,42 +74,10 @@ import ButtonLink from "../button/ButtonLink.astro";
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
 
-  .top-faq {
-
-  }
-
-  .top-faq-container {
-
-  }
-
-  .l-container-s {
-
-  }
-
-  .l-section {
-
-  }
-
-  .top-faq-title {
-
-  }
-
   .top-faq-list {
     display: grid;
     gap: 20px;
     text-align: justify;
-  }
-
-  .l-section-body {
-
-  }
-
-  .top-faq-item {
-
-  }
-
-  .top-faq-dl {
-
   }
 
   .top-faq-dt {
@@ -130,10 +98,6 @@ import ButtonLink from "../button/ButtonLink.astro";
     text-transform: uppercase;
   }
 
-  .top-faq-question {
-
-  }
-
   .top-faq-dd {
     padding: 9px 20px 0 21px;
   }
@@ -147,10 +111,6 @@ import ButtonLink from "../button/ButtonLink.astro";
     margin-top: 3px;
   }
 
-  .top-faq-paragraph {
-
-  }
-
   .top-faq-link {
     display: inline-block;
     padding-right: 3px;
@@ -158,6 +118,10 @@ import ButtonLink from "../button/ButtonLink.astro";
     margin: 3px 0 0 24px;
     font-size: 10px;
     position: relative;
+
+    &--disabled {
+      display: none;
+    }
 
     &::after {
       content: "";
@@ -184,14 +148,6 @@ import ButtonLink from "../button/ButtonLink.astro";
       gap: 40px;
     }
 
-    .top-faq-item {
-
-    }
-
-    .top-faq-dl {
-
-    }
-
     .top-faq-dt {
       gap: 20px;
       padding: 11px 50px;
@@ -199,10 +155,6 @@ import ButtonLink from "../button/ButtonLink.astro";
 
     .top-faq-icon {
       font-size: 20px;
-    }
-
-    .top-faq-question {
-
     }
 
     .top-faq-dd {
@@ -216,10 +168,6 @@ import ButtonLink from "../button/ButtonLink.astro";
 
     .top-faq-answer {
       margin-top: 3px;
-    }
-
-    .top-faq-paragraph {
-
     }
 
     .top-faq-link {
@@ -240,5 +188,14 @@ import ButtonLink from "../button/ButtonLink.astro";
     }
   }
 
+  @media (any-hover: hover) {
+    .top-faq-link {
+      transition: opacity .3s ease;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
 
 </style>

@@ -46,7 +46,7 @@ const { logo } = Astro.props;
       <div class="footer-nav-list">
         <div class="footer-nav-group">
           <div class="footer-nav-item">
-            <a href="/">トップ</a>
+            <a href="/">ホーム</a>
             <ul class="footer-sub-menus">
               <li class="footer-sub-menus-item">
                 <a href="/#faq">よくある質問</a>
@@ -57,64 +57,64 @@ const { logo } = Astro.props;
             </ul>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a>園の紹介</a>
+            <a href="" class="u-disabled">園の紹介</a>
             <ul class="footer-sub-menus">
               <li class="footer-sub-menus-item">
-                <a>教育方針</a>
+                <a href="" class="u-disabled">教育方針</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>自園給食</a>
+                <a href="" class="u-disabled">自園給食</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>バス送迎</a>
+                <a href="" class="u-disabled">バス送迎</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>安心・安全への取り組み</a>
+                <a href="" class="u-disabled">安心・安全への取り組み</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>施設紹介</a>
+                <a href="" class="u-disabled">施設紹介</a>
               </li>
             </ul>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a>園の生活</a>
+            <a href="" class="u-disabled">園の生活</a>
             <ul class="footer-sub-menus">
               <li class="footer-sub-menus-item">
-                <a>園の一日</a>
+                <a href="" class="u-disabled">園の一日</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>みもみ保育</a>
+                <a href="" class="u-disabled">みもみ保育</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>年間行事</a>
+                <a href="" class="u-disabled">年間行事</a>
               </li>
               <li class="footer-sub-menus-item">
-                <a>預かり保育</a>
+                <a href="" class="u-disabled">預かり保育</a>
               </li>
             </ul>
           </div><!-- /.footer-nav-item -->
         </div><!-- /.footer-nav-group -->
         <div class="footer-nav-group">
           <div class="footer-nav-item">
-            <a>入園案内</a>
+            <a href="" class="u-disabled">入園案内</a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
             <a href="/blog/blog-list">お知らせ</a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a>園の概要</a>
+            <a href="" class="u-disabled">園の概要</a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a>よくある質問</a>
+            <a href="" class="u-disabled">よくある質問</a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a>保護者さま専用ページ<span>「おたより」</span></a>
+            <a href="" class="u-disabled">保護者さま専用ページ<span>「おたより」</span></a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
             <a href="/mi-shuen-ji">未就園児親子教室<span>について</span></a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a>プライバシーポリシー</a>
+            <a href="" class="u-disabled">プライバシーポリシー</a>
           </div><!-- /.footer-nav-item -->
         </div><!-- /.footer-nav-group -->
       </div><!-- /.footer-nav-list -->
@@ -159,27 +159,12 @@ const { logo } = Astro.props;
     width: fit-content;
   }
 
-  .l-container {
-
-  }
-
-  .footer-info {
-  }
-
   .footer-logo {
     max-width: 84px;
   }
 
   .footer-location {
     margin-top: 10px;
-  }
-
-  .footer-address {
-
-  }
-
-  .footer-access {
-
   }
 
   .footer-tel {
@@ -326,17 +311,14 @@ const { logo } = Astro.props;
       // margin-top: 20px;
     }
 
-    // .footer-tel {
-    //   a {
-    //     gap: 10px;
-    //     font-size: 16px;
-
-    //     &::before {
-    //       width: 16px;
-    //       height: 16px;
-    //     }
-    //   }
-    // }
+    .footer-tel {
+      // タブレット横向き(1024px)まで電話発信有効
+      @media screen and (min-width: 1025px) {
+        text-decoration: none;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
 
     .footer-line {
       // margin-top: 15px;
@@ -418,6 +400,17 @@ const { logo } = Astro.props;
 
       small {
         font-size: 10px;
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    .footer-nav-item a,
+    .footer-sub-menus-item a {
+      transition: opacity .3s ease;
+
+      &:hover {
+        opacity: .8;
       }
     }
   }
