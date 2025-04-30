@@ -19,7 +19,7 @@ const { logo } = Astro.props;
       </div><!-- /.footer-tel -->
       <div class="footer-line">
         <p class="footer-line-text">
-          <span>みもみ幼稚園公式LINEにて最新情報を配信してます！</span>
+          <span>みもみ幼稚園公式LINEにて最新情報を配信しています！</span>
           <span>採用情報はリクルート専用LINEをご登録ください。</span>
         </p>
         <ul class="footer-line-link">
@@ -220,10 +220,6 @@ const { logo } = Astro.props;
     margin-top: 5px;
   }
 
-  .footer-line-item {
-
-  }
-
   .footer-privacy-policy {
     a {
       display: block;
@@ -235,22 +231,6 @@ const { logo } = Astro.props;
 
   .footer-nav {
     display: none;
-  }
-
-  .footer-nav-list {
-
-  }
-
-  .footer-nav-item {
-
-  }
-
-  .footer-sub-menus {
-
-  }
-
-  .footer-sub-menus-item {
-
   }
 
   .footer-copyright {
@@ -265,39 +245,24 @@ const { logo } = Astro.props;
 
   @include mq() {
     .footer {
-      padding-top: 70px;
+      padding-top: 60px;
       margin-top: 120px;
-      // padding-top: 133px;
-      // height: 590px;
+      height: 480px;
 
       &::before {
-        content: "";
-        width: 2000px;
-        height: 590px;
-        background-image: url(/public/assets/images/global/bg-footer-pc@2x.webp);
+        width: 1200px;
+        height: 480px;
+        background-image: url(/public/assets/images/global/bg-footer-tb@2x.png);
       }
-    }
-  }
-
-  @media screen and (min-width: 1025px) {
-    .footer {
-      padding-top: 133px;
-      height: 590px;
     }
 
     .footer-container {
-      display: flex;
-      justify-content: space-between;
       width: 100%;
-    }
-
-    .l-container {
-
+      padding: 0 calc(80 / 768 * 100vw);
     }
 
     .footer-info {
       font-size: 12px;
-      margin-top: 5px;
     }
 
     .footer-logo {
@@ -306,14 +271,6 @@ const { logo } = Astro.props;
 
     .footer-location {
       margin-top: 20px;
-    }
-
-    .footer-address {
-
-    }
-
-    .footer-access {
-
     }
 
     .footer-tel {
@@ -330,6 +287,59 @@ const { logo } = Astro.props;
 
     .footer-line {
       margin-top: 15px;
+    }
+
+    .footer-line-link {
+      gap: 24px;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .footer {
+      padding-top: 133px;
+      height: 590px;
+
+      &::before {
+        width: 2000px;
+        height: 590px;
+        background-image: url(/public/assets/images/global/bg-footer-pc@2x.webp);
+      }
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 40px;
+    }
+
+    .footer-info {
+      // font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .footer-logo {
+      // max-width: 172px;
+    }
+
+    .footer-location {
+      // margin-top: 20px;
+    }
+
+    // .footer-tel {
+    //   a {
+    //     gap: 10px;
+    //     font-size: 16px;
+
+    //     &::before {
+    //       width: 16px;
+    //       height: 16px;
+    //     }
+    //   }
+    // }
+
+    .footer-line {
+      // margin-top: 15px;
     }
 
     .footer-line-link {

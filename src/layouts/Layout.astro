@@ -5,37 +5,12 @@ import Footer from "../components/common/Footer.astro";
 
 const logo = "/assets/images/global/logo.svg";
 const logoAlt = "学校法人 みもみ幼稚園";
-
-const navList = [
-  {
-    href: '/#concept',
-    label: 'コンセプト'
-  },
-  {
-    href: '/#menu',
-    label: 'メニュー'
-  },
-  {
-    href: '/#access',
-    label: 'アクセス'
-  },
-  {
-    href: '/#faq',
-    label: 'よくある質問'
-  },
-  {
-    href: '/contact',
-    label: 'お問い合わせ'
-  }
-]
-
 const {
   subTitle = "トップページ",
   ogType = "website",
   ogTitle = subTitle,
-  description = "所沢市の女性向けヨガ&ピラティス「koyomi yoga pilates」。人気の姿勢改善で理想のボディラインへ。少人数制の心地よい空間で心と身体を整えます。",
+  description = "京成実籾駅徒歩3分。自然いっぱいの広い敷地でのびのび遊び、学ぶ「みもみ幼稚園」。習志野市・船橋市・八千代市・千葉市から通いやすく、自由と自立を育む教育を行っています。",
   ogDescription = description,
-  // noContact = false,
   noIndex = false,
   jsonLd = ""
 } = Astro.props;
@@ -46,7 +21,7 @@ const {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>koyomi yoga pilates｜所沢のヨガ&ピラティススタジオ｜{subTitle}</title>
+    <title>自然の中で育つ習志野市の幼稚園｜みもみ幼稚園｜{subTitle}</title>
     <meta name="description" content={description}>
 
     <!-- noindex -->
@@ -59,16 +34,16 @@ const {
     <link rel="icon" type="image/png" href="/android-chrome-256x256.png">
 
     <!-- ogp -->
-    <meta property="og:site_name" content="koyomi yoga pilates｜所沢のヨガ&ピラティススタジオ">
-    <meta property="og:url" content={`https://koyomi-yoga.com${Astro.url.pathname}`} />
+    <meta property="og:site_name" content="自然の中で育つ習志野市の幼稚園｜みもみ幼稚園">
+    <meta property="og:url" content={`https://www.mimomi-youchien.com/${Astro.url.pathname}`} />
     <meta property="og:type" content={ogType}>
     <meta property="og:title" content={ogTitle}>
     <meta property="og:description" content={ogDescription}>
-    <meta property="og:image" content="https://koyomi-yoga.com/ogp.webp">
+    <meta property="og:image" content="https://www.mimomi-youchien.com//ogp.webp">
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content={ogDescription}>
-    <meta name="twitter:image:src" content="https://koyomi-yoga.com/ogp.webp">
+    <meta name="twitter:image:src" content="https://www.mimomi-youchien.com//ogp.webp">
 
     <!-- destyle.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css">
@@ -83,14 +58,12 @@ const {
     <Header
       logo={logo}
       logoAlt={logoAlt}
-      navList={navList}
     />
 
     <slot />
 
     <Footer
       logo={logo}
-      navList={navList}
     />
   </body>
 </html>
