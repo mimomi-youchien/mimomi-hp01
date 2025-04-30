@@ -9,10 +9,10 @@
 html {
   font-size: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 70px;
+  scroll-padding-top: 48px;
 
   @include mq() {
-    scroll-padding-top: 140px;
+    scroll-padding-top: 100px;
   }
 }
 
