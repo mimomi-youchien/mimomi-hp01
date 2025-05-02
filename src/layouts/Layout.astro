@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 
 const hostname = Astro.request?.url?.hostname;
-const shouldNoIndex = hostname ? hostname.includes("netlify.app") : false;
+const shouldNoIndex = hostname ? hostname !== "www.mimomi-youchien.com" : false;
 ---
 
 <!DOCTYPE html>
