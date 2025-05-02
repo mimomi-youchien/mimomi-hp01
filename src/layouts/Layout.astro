@@ -3,21 +3,20 @@ import "../styles/style.scss";
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
 
-const isNetlifyPreview = import.meta.env.CONTEXT !== "production";
 const logo = "/assets/images/global/logo.svg";
 const logoAlt = "学校法人 みもみ幼稚園";
-
 const {
   subTitle = "トップページ",
   ogType = "website",
   ogTitle = subTitle,
   description = "京成実籾駅徒歩3分。自然いっぱいの広い敷地でのびのび遊び、学ぶ「みもみ幼稚園」。習志野市・船橋市・八千代市・千葉市から通いやすく、自由と自立を育む教育を行っています。",
   ogDescription = description,
-  noIndex = false,
+  // noIndex = false,
   jsonLd = ""
 } = Astro.props;
 
-const shouldNoIndex = isNetlifyPreview || noIndex;
+const currentHost = Astro.site?.hostname || "";
+const shouldNoIndex = currentHost.includes("netlify.app");
 ---
 
 <!DOCTYPE html>
@@ -29,6 +28,8 @@ const shouldNoIndex = isNetlifyPreview || noIndex;
     <meta name="description" content={description}>
 
     <!-- noindex -->
+    <!-- { noIndex && <meta name="robots" content="noindex, nofollow" /> } -->
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
     {shouldNoIndex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- favicon -->
