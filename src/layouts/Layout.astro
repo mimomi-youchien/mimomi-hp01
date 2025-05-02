@@ -15,8 +15,7 @@ const {
   jsonLd = ""
 } = Astro.props;
 
-const hostname = Astro.request?.url?.hostname;
-const shouldNoIndex = hostname ? hostname !== "www.mimomi-youchien.com" : false;
+const isProduction = import.meta.env.MODE === 'production';
 ---
 
 <!DOCTYPE html>
@@ -30,7 +29,7 @@ const shouldNoIndex = hostname ? hostname !== "www.mimomi-youchien.com" : false;
     <!-- noindex -->
     <!-- { noIndex && <meta name="robots" content="noindex, nofollow" /> } -->
     <!-- <meta name="robots" content="noindex, nofollow"> -->
-    {shouldNoIndex && <meta name="robots" content="noindex, nofollow" />}
+    {isProduction && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- favicon -->
     <link rel="shortcut icon" href="/favicon.ico">
@@ -65,7 +64,7 @@ const shouldNoIndex = hostname ? hostname !== "www.mimomi-youchien.com" : false;
     />
 
     <slot />
-    <p>Host: {hostname}</p>
+
     <Footer
       logo={logo}
     />
