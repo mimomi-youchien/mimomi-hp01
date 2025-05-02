@@ -11,12 +11,9 @@ const {
   ogTitle = subTitle,
   description = "京成実籾駅徒歩3分。自然いっぱいの広い敷地でのびのび遊び、学ぶ「みもみ幼稚園」。習志野市・船橋市・八千代市・千葉市から通いやすく、自由と自立を育む教育を行っています。",
   ogDescription = description,
-  // noIndex = false,
+  noIndex = false,
   jsonLd = ""
 } = Astro.props;
-
-// NetlifyのCONTEXT環境変数を参照
-const isProduction = import.meta.env.CONTEXT === 'production';
 ---
 
 <!DOCTYPE html>
@@ -28,9 +25,7 @@ const isProduction = import.meta.env.CONTEXT === 'production';
     <meta name="description" content={description}>
 
     <!-- noindex -->
-    <!-- { noIndex && <meta name="robots" content="noindex, nofollow" /> } -->
-    <!-- <meta name="robots" content="noindex, nofollow"> -->
-    {!isProduction && <meta name="robots" content="noindex, nofollow" />}
+    { noIndex && <meta name="robots" content="noindex, nofollow" /> }
 
     <!-- favicon -->
     <link rel="shortcut icon" href="/favicon.ico">
@@ -52,8 +47,6 @@ const isProduction = import.meta.env.CONTEXT === 'production';
     <!-- destyle.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css">
 
-    <!-- 構造化データ -->
-    <!-- 構造化データ -->
     <!-- 構造化データ -->
     {jsonLd && (
       <script type="application/ld+json" set:html={jsonLd}></script>
