@@ -15,8 +15,8 @@ const {
   jsonLd = ""
 } = Astro.props;
 
-const currentHost = Astro.request.url.hostname;
-const shouldNoIndex = currentHost.includes("netlify.app");
+const hostname = Astro.request?.url?.hostname;
+const shouldNoIndex = hostname ? hostname.includes("netlify.app") : false;
 ---
 
 <!DOCTYPE html>
