@@ -15,7 +15,8 @@ const {
   jsonLd = ""
 } = Astro.props;
 
-const isProduction = import.meta.env.MODE === 'production';
+const hostname = Astro.url.hostname;
+const noIndex = hostname === 'mimomi-dev.netlify.app';
 ---
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ const isProduction = import.meta.env.MODE === 'production';
     <!-- noindex -->
     <!-- { noIndex && <meta name="robots" content="noindex, nofollow" /> } -->
     <!-- <meta name="robots" content="noindex, nofollow"> -->
-    {isProduction && <meta name="robots" content="noindex, nofollow" />}
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- favicon -->
     <link rel="shortcut icon" href="/favicon.ico">
