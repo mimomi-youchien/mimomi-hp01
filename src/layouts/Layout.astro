@@ -18,7 +18,8 @@ const {
   jsonLd = ""
 } = Astro.props;
 
-const shouldNoIndex = isDev || noIndex;
+const isPreview = import.meta.env.SITE?.includes("netlify.app");
+const shouldNoIndex = isPreview || noIndex;
 ---
 
 <!DOCTYPE html>
