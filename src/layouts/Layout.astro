@@ -3,7 +3,8 @@ import "../styles/style.scss";
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
 
-const isDev = import.meta.env.MODE !== "production";
+const isLocal = import.meta.env.DEV;
+const isPreview = import.meta.env.SITE?.includes("netlify.app");
 
 const logo = "/assets/images/global/logo.svg";
 const logoAlt = "学校法人 みもみ幼稚園";
@@ -18,9 +19,7 @@ const {
   jsonLd = ""
 } = Astro.props;
 
-const isPreview = import.meta.env.SITE?.includes("netlify.app");
-const shouldNoIndex = isPreview || noIndex;
----
+const shouldNoIndex = isLocal || isPreview || noIndex;---
 
 <!DOCTYPE html>
 <html lang="ja" prefix="og: https://ogp.me/ns#">
