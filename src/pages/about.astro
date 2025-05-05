@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AboutLead from "../components/page-about/AboutLead.astro";
+import AboutPhilosophy from "../components/page-about/AboutPhilosophy.astro";
+import AboutKyushoku from "../components/page-about/AboutKyushoku.astro";
+import AboutBus from "../components/page-about/AboutBus.astro";
+import AboutSafety from "../components/page-about/AboutSafety.astro";
+import AboutFacility from "../components/page-about/AboutFacility.astro";
+import PageKv from "../components/PageKv.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ButtonCta from "../components/button/ButtonCta.astro";
+import Cta from "../components/Cta.astro";
+---
+
+<Layout
+  subTitle="園の紹介"
+  pgType="website"
+  description="⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫"
+  noIndex="true"
+>
+
+  <div class="about">
+    <!-- about-kv -->
+    <div class="about-kv">
+      <PageKv
+        title="園の紹介"
+        imageSrcSp="/assets/images/kv/page-kv/pic-kv-about-sp@2x.png"
+        imageSrcPc="/assets/images/kv/page-kv/pic-kv-about-pc@2x.png"
+      />
+    </div><!-- /.about-kv -->
+
+    <main class="about-main l-section-body">
+      <div class="l-container-s">
+
+        <!-- about-lead -->
+        <div class="about-lead">
+          <AboutLead />
+        </div><!-- /.about-lead -->
+
+        <!-- about-philosophy -->
+        <div class="about-philosophy" id="philosophy">
+          <AboutPhilosophy />
+        </div><!-- /.about-philosophy -->
+
+        <!-- about-kyushoku -->
+        <div class="about-kyushoku" id="kyushoku">
+          <AboutKyushoku />
+        </div><!-- /.about-kyushoku -->
+
+        <!-- about-bus -->
+        <div class="about-bus" id="bus">
+          <AboutBus />
+        </div><!-- /.about-bus -->
+
+        <!-- about-safety -->
+        <div class="about-safety" id="safety">
+          <AboutSafety />
+        </div><!-- /.about-safety -->
+
+        <!-- about-facility -->
+        <div class="about-facility" id="facility">
+          <AboutFacility />
+        </div><!-- /.about-facility -->
+
+
+
+      </div><!-- /.l-container-s -->
+    </main>
+    <div class="about-cta">
+      <Cta />
+    </div><!-- /.about-cta -->
+  </div><!-- /.about -->
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .about {
+    overflow: hidden;
+  }
+
+  .about-cta {
+    margin-top: 60px;
+  }
+
+  @include mq() {
+    .about-cta {
+      margin-top: 120px;
+    }
+  }
+
+  // about-kv
+  .about-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+
+    @include mq() {
+      margin-top: 100px;
+    }
+  }
+
+  // about-kyushoku
+  .about-kyushoku {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 800px;
+      height: 1280px;
+      background-image: url(/public/assets/images/about/page-about/kyushoku/bg-about-kyushoku-sp@2x.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      top: -172px;
+      left: 50%;
+      z-index: -1;
+      translate: -50%;
+
+      @include mq() {
+        width: 2000px;
+        height: 1562px;
+        background-image: url(/public/assets/images/about/page-about/kyushoku/bg-about-kyushoku-pc@2x.svg);
+        top: -219px;
+      }
+    }
+  }
+</style>

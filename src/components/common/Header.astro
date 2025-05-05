@@ -33,22 +33,22 @@ const { logo, logoAlt } = Astro.props;
             </ul>
           </li>
           <li class="header-nav-item">
-            <button class="header-nav-btn u-disabled" type="button" aria-haspopup="true" aria-expanded="false">園の紹介</button>
+            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">園の紹介</button>
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
-                <a href="">教育方針</a>
+                <a href="/about/#philosophy">教育方針</a>
               </li>
               <li class="header-hidden-item">
-                <a>自園給食</a>
+                <a href="/about/#kyushoku">自園給食</a>
               </li>
               <li class="header-hidden-item">
-                <a>バス送迎</a>
+                <a href="/about/#bus">送迎バス</a>
               </li>
               <li class="header-hidden-item">
-                <a>安心・安全への取り組み</a>
+                <a href="/about/#safety">安心・安全への取り組み</a>
               </li>
               <li class="header-hidden-item">
-                <a>施設紹介</a>
+                <a href="/about/#facility">施設紹介</a>
               </li>
             </ul>
           </li>
@@ -691,10 +691,12 @@ const { logo, logoAlt } = Astro.props;
   @media screen and (max-width: 767px) {
     .header {
       height: 48px;
+      padding-bottom: 2px;
     }
 
     .header-logo {
       max-width: 84px;
+      margin-bottom: 9px;
     }
 
     // hamburger menu
