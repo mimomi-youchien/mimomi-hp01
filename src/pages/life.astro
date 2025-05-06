@@ -11,29 +11,29 @@ import Cta from "../components/Cta.astro";
 ---
 
 <Layout
-  subTitle="園の紹介"
+  subTitle="園の生活"
   pgType="website"
   description="⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎⚫"
   noIndex="true"
 >
 
-  <div class="about">
-    <!-- about-kv -->
-    <div class="about-kv">
+  <div class="life">
+    <!-- life-kv -->
+    <div class="life-kv">
       <PageKv
         title="園の紹介"
-        imageSrcSp="/assets/images/kv/page-kv/pic-kv-about-sp@2x.png"
-        imageSrcPc="/assets/images/kv/page-kv/pic-kv-about-pc@2x.png"
+        imageSrcSp="/assets/images/kv/page-kv/pic-kv-life-sp@2x.png"
+        imageSrcPc="/assets/images/kv/page-kv/pic-kv-life-pc@2x.png"
       />
-    </div><!-- /.about-kv -->
+    </div><!-- /.life-kv -->
 
-    <main class="about-main l-section-body">
+    <main class="life-main l-section-body">
       <div class="l-container-s">
 
-        <!-- about-lead -->
-        <div class="about-lead js-load-fade-in" id="philosophy">
+        <!-- life-timetable -->
+        <div class="life-timetable js-load-fade-in" id="timetable">
           <AboutLead />
-        </div><!-- /.about-lead -->
+        </div><!-- /.life-timetable -->
 
         <!-- about-philosophy -->
         <div class="about-philosophy js-fade-in">
@@ -62,31 +62,31 @@ import Cta from "../components/Cta.astro";
       </div><!-- /.l-container-s -->
     </main>
 
-    <div class="about-cta">
+    <div class="life-cta">
       <Cta />
-    </div><!-- /.about-cta -->
-  </div><!-- /.about -->
+    </div><!-- /.life-cta -->
+  </div><!-- /.life -->
 </Layout>
 
 <style lang="scss">
   @use '../styles/breakpoints' as *;
 
-  .about {
+  .life {
     overflow: hidden;
   }
 
-  .about-cta {
+  .life-cta {
     margin-top: 60px;
   }
 
   @include mq() {
-    .about-cta {
+    .life-cta {
       margin-top: 120px;
     }
   }
 
-  // about-kv
-  .about-kv {
+  // life-kv
+  .life-kv {
     padding-top: 20px;
     margin-top: 48px;
 
