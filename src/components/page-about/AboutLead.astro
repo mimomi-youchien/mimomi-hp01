@@ -35,9 +35,6 @@
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
 
-    .about-lead {
-  }
-
   .about-lead-title {
     display: flex;
     flex-direction: column;
@@ -122,6 +119,10 @@
   }
 
   @include mq() {
+    .about-lead {
+      padding-top: 10px;
+    }
+
     .about-lead-title {
       display: block;
       font-size: 30px;
