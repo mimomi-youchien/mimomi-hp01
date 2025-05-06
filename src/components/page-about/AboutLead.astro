@@ -10,9 +10,9 @@
       </div><!-- /.about-lead-content -->
       <div class="about-lead-image">
         <picture>
-          <source media="(max-width: 767px)" srcset="/public/assets/images/about/page-about/lead/pic-about-lead-01-sp@2x.png">
-          <source media="(min-width: 768px)" srcset="/public/assets/images/about/page-about/lead/pic-about-lead-01-pc@2x.png">
-          <img src="/public/assets/images/about/page-about/lead/pic-about-lead-01-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
+          <source media="(max-width: 767px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-01-sp@2x.png">
+          <source media="(min-width: 768px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-01-pc@2x.png">
+          <img src="/assets/images/about/page-about/lead/pic-about-lead-01-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
         </picture>
       </div><!-- /.about-lead-image -->
     </div><!-- /.about-lead-item -->
@@ -23,9 +23,9 @@
       </div><!-- /.about-lead-content -->
       <div class="about-lead-image about-lead-image--02">
         <picture>
-          <source media="(max-width: 767px)" srcset="/public/assets/images/about/page-about/lead/pic-about-lead-02-sp@2x.png">
-          <source media="(min-width: 768px)" srcset="/public/assets/images/about/page-about/lead/pic-about-lead-02-pc@2x.png">
-          <img src="/public/assets/images/about/page-about/lead/pic-about-lead-02-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
+          <source media="(max-width: 767px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-02-sp@2x.png">
+          <source media="(min-width: 768px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-02-pc@2x.png">
+          <img src="/assets/images/about/page-about/lead/pic-about-lead-02-sp@2x.png" alt="" loading="eager" decoding="async" width="240" height="180">
         </picture>
       </div><!-- /.about-lead-image -->
     </div><!-- /.about-lead-item -->
@@ -74,27 +74,49 @@
     padding: 0 40px;
     position: relative;
 
+    &::before,
     &::after {
       content: "";
-      width: 68px;
-      height: 71px;
-      background-image: url(/assets/images/about/illust-about-01.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
       position: absolute;
-      right: -2px;
-      bottom: -5px;
+      z-index: -1;
+    }
+
+    &::before {
+      width: 135px;
+      height: 119px;
+      background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-01.svg);
+      right: -57px;
+      top: -18px;
+    }
+
+    &::after {
+      width: 135px;
+      height: 119px;
+      background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-02.svg);
+      left: -49px;
+      bottom: -30px;
     }
 
     &--02 {
-      &::after {
-        width: 70px;
-        height: 75px;
-        background-image: url(/assets/images/about/illust-about-02.svg);
+      &::before {
+        width: 135px;
+        height: 119px;
+        background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-03.svg);
+        top: -18px;
         right: auto;
-        bottom: 0;
-        left: -5px;
+        left: -49px;
+      }
+
+      &::after {
+        width: 135px;
+        height: 119px;
+        background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-04.svg);
+        right: -57px;
+        bottom: -30px;
+        left: auto;
       }
     }
   }
@@ -126,28 +148,6 @@
     .about-lead-content {
       flex: 1 1 auto;
       gap: 1.8em;
-
-      &--02 {
-        position: relative;
-
-        &::after {
-            content: "";
-            width: 93px;
-            height: 93px;
-            background-image: url(/assets/images/about/illust-about-01.svg);
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center center;
-            position: absolute;
-            top: -32px;
-            right: -32px;
-
-            @media screen and (min-width: 1024px) {
-              top: -36px;
-              right: -98px;
-            }
-          }
-        }
       }
     }
 
@@ -158,12 +158,29 @@
       flex: 0 0 380px;
       padding: 0;
 
+      &::before {
+        width: 277px;
+        height: 276px;
+        background-image: url(/assets/images/about/page-about/lead/deco-about-lead-pc-01.svg);
+        right: -229px;
+        top: -115px;
+      }
+
       &::after {
         display: none;
       }
 
       &--02 {
         flex: 0 0 275px;
+
+        &::before {
+          width: 283px;
+          height: 272px;
+          background-image: url(/assets/images/about/page-about/lead/deco-about-lead-pc-02.svg);
+          top: auto;
+          bottom: -152px;
+          left: -221px;
+        }
       }
     }
   }
