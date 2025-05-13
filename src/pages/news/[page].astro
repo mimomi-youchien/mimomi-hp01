@@ -47,16 +47,16 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
     <div class="l-container-s">
       <ul class="news-list-list">
         {
-          posts.map((post) => (
+          posts.map((item) => (
             <li class="news-list-item">
               <BlogCard
-                id={post.id}
-                title={post.title}
-                thumbnail={post.thumbnail?.url}
-                thumbnailAlt={post.thumbnailAlt}
-                customDate={post.customDate}
-                publishedAt={post.publishedAt}
-                category={post.category}
+                id={item.id}
+                title={item.title}
+                thumbnail={item.thumbnail?.url}
+                thumbnailAlt={item.thumbnailAlt}
+                customDate={item.customDate}
+                publishedAt={item.publishedAt}
+                category={item.category}
               />
             </li>
           ))
