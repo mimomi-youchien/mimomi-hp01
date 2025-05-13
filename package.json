@@ -9,7 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.7.4"
+    "astro": "^5.7.4",
+    "date-fns": "^4.1.0",
+    "microcms-js-sdk": "^3.2.0",
+    "node-html-parser": "^7.0.1",
+    "sanitize-html": "^2.16.0"
   },
   "devDependencies": {
     "sass-embedded": "^1.86.3"

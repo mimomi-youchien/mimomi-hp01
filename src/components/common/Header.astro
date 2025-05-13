@@ -2,16 +2,25 @@
 import ButtonCta from "../button/ButtonCta.astro";
 
 const { logo, logoAlt } = Astro.props;
+const isTopPage = Astro.url.pathname === "/";
 ---
 
 <!-- header -->
 <header class="header" id="site-header">
   <div class="header-container l-container">
-    <h1 class="header-logo">
-      <a href="/">
-        <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33">
-      </a>
-    </h1>
+    {isTopPage ? (
+      <h1 class="header-logo">
+        <a href="/">
+          <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33">
+        </a>
+      </h1>
+    ) : (
+      <p class="header-logo">
+        <a href="/">
+          <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33">
+        </a>
+      </p>
+    )}
     <button class="header-hamburger" type="button">
       <span class="header-hamburger-icon"></span>
       <span class="header-hamburger-icon"></span>
@@ -70,22 +79,22 @@ const { logo, logoAlt } = Astro.props;
             </ul>
           </li>
           <li class="header-nav-item">
-            <a href="" class="u-disabled">入園案内</a>
+            <a href="/admission-information">入園案内</a>
           </li>
           <li class="header-nav-item">
-            <a href="/blog/blog-list/">お知らせ</a>
+            <a href="/news/1">お知らせ</a>
           </li>
           <li class="header-nav-item">
             <a href="" class="u-disabled">園の概要</a>
           </li>
           <li class="header-nav-item">
-            <a href="" class="u-disabled">よくある質問</a>
+            <a href="/faq">よくある質問</a>
           </li>
           <li class="header-nav-item header-nav-item--parents">
             <a href="" class="u-disabled"><span><span>保護者さま</span><span>専用ページ</span><span class="_no-pc">「おたより」</span></span></a>
           </li>
           <li class="header-nav-item header-nav-item--mi-shuen-ji">
-            <a href="/mi-shuen-ji/"><span><span>未就園児(1,2歳)</span><span>親子教室について</span></span></a>
+            <a href="/mi-shuen-ji"><span><span>未就園児(1,2歳)</span><span>親子教室について</span></span></a>
           </li>
         </ul>
       </nav>

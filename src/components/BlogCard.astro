@@ -1,24 +1,52 @@
 ---
-const { blogTitle, blogHref, blogCategory, blogDatetime, blogDate, blogSrc, blogAlt } = Astro.props;
+import { format, parseISO } from 'date-fns'; // date-fnsのインストールコマンド: npm install date-fns
+const {
+  id,
+  title,
+  thumbnail,
+  thumbnailAlt,
+  category,
+  customDate, // microCMSで追加した任意日付フィールド
+  publishedAt
+} = Astro.props;
+
+// customDate があればそれを使い、なければ publishedAt を使う
+const rawDate = customDate ?? publishedAt;
+
+// 日付をパースして整形表示（rawDate があれば）
+const formattedDate = rawDate ? format(parseISO(rawDate), 'yyyy.MM.dd') : '日付未定';
+const machineReadableDate = rawDate ? new Date(rawDate).toISOString() : '';
+
+// altテキストを設定（デフォルト値を指定）
+const altText = thumbnailAlt || "ブログのサムネイル画像";
 ---
 
-<a href={blogHref} class="c-blog-card">
-  <div class="c-blog-card-image">
-    <img src={blogSrc || "/assets/images/news/image-news-dummy-image@2x.webp"} alt={blogAlt} loading="lazy" decoding="async" width="250" height="160">
-  </div><!-- /.c-blog-card-image -->
-  <div class="c-blog-card-content">
-    <span class="c-blog-card-meta">
-      <span class="c-blog-card-category">{blogCategory}</span>
-      <time class="c-blog-card-date" datetime={blogDatetime}>{blogDate}</time>
-    </span>
-    <p class="c-blog-card-post-title">{blogTitle}</p>
-  </div><!-- /.c-blog-card-content -->
-</a>
+<article class="c-blog-card">
+  <a href={`/news/${id}`} class="c-blog-card-link" aria-label={`ブログ記事: ${title}`}>
+    <div class="c-blog-card-image">
+      <img
+        src={`${thumbnail}?fm=webp`}
+        alt={altText}
+        loading="lazy"
+        decoding="async"
+        width="250"
+        height="160"
+      >
+    </div><!-- /.c-blog-card-image -->
+    <div class="c-blog-card-content">
+      <span class="c-blog-card-meta">
+        <span class="c-blog-card-category">{category}</span>
+        <time class="c-blog-card-date" datetime={machineReadableDate}>{formattedDate}</time>
+      </span>
+      <p class="c-blog-card-post-title">{title}</p>
+    </div><!-- /.c-blog-card-content -->
+  </a>
+</article>
 
 <style lang="scss">
   @use '../styles/breakpoints' as *;
 
-  .c-blog-card {
+  .c-blog-card-link {
     display: flex;
     align-items: center;
     gap: min(20px, calc(20 var(--vw-sp)));
@@ -58,7 +86,7 @@ const { blogTitle, blogHref, blogCategory, blogDatetime, blogDate, blogSrc, blog
   }
 
   @include mq() {
-    .c-blog-card {
+    .c-blog-card-link {
       gap: 40px;
     }
 

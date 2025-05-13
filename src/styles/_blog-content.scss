@@ -1,0 +1,55 @@
+@use 'breakpoints' as *;
+
+// news（お知らせ・一般）
+.news-single-content {
+  padding-bottom: 8px;
+  text-align: justify;
+
+  @include mq() {
+    padding-bottom: 28px;
+  }
+
+  h2 {
+    padding: 5px 20px;
+    margin: 40px 0 32px;
+    background-color: var(--color-baby-pink);
+    color: var(--color-base);
+    font-size: 16px;
+    font-weight: 700;
+
+    @include mq() {
+      padding: 5px 20px;
+      margin: 48px 0 40px;
+      font-size: 20px;
+    }
+  }
+
+  h3 {
+    display: grid;
+    gap: 10px;
+    margin: 32px 0 24px;
+    color: var(--color-baby-pink);
+    font-weight: 700;
+
+    @include mq() {
+      margin: 40px 0 32px;
+    }
+
+    &::after {
+      content: "";
+      width: 120px;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  p {
+    margin: 24px 0;
+
+    @include mq() {
+      margin: 32px 0;
+    }
+  }
+}
+
+

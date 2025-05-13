@@ -1,0 +1,119 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageKv from "../../components/PageKv.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import Cta from "../../components/Cta.astro";
+import type { GetStaticPathsOptions } from 'astro'; // getStaticPaths関数の引数の型定義（型安全のため）
+
+// microCMS呼び出し
+import { getNews } from "../../library/microcms";
+
+const { page } = Astro.props;
+
+// ブログ記事の取得
+const response = await getNews({
+  fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
+  limit: 8,
+  offset: (page.currentPage - 1) * 8,
+});
+const posts = response.contents;
+
+// 動的ルートの生成
+export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
+  // microCMSからブログ記事を最大100件まで取得(記事がそれ以上ある可能性がある場合は、複数回に分けて取得する処理（ループやoffsetなど）を入れる必要あり)
+  const news = await getNews({ limit: 100 });
+  // paginate()関数を使って、1ページあたり記事件数を指定
+  return paginate(news.contents, { pageSize: 8 });
+};
+---
+
+<Layout
+  subTitle="お知らせ一覧"
+  ogType="website"
+  description="自然いっぱいの広い敷地でのびのび遊び、学ぶ「みもみ幼稚園」。園からのお知らせや日々の様子、行事のご案内などをブログ形式で発信中。"
+  noIndex="true"
+>
+
+  <!-- news-list-kv -->
+  <div class="news-list-kv">
+    <PageKv
+      title="お知らせ"
+      imageSrcSp="/assets/images/kv/page-kv/pic-kv-news-sp@2x.webp"
+      imageSrcPc="/assets/images/kv/page-kv/pic-kv-news-pc@2x.webp"
+    />
+  </div><!-- /.news-list-kv -->
+
+  <main class="news-list-main l-section-body">
+    <div class="l-container-s">
+      <ul class="news-list-list">
+        {
+          posts.map((post) => (
+            <li class="news-list-item">
+              <BlogCard
+                id={post.id}
+                title={post.title}
+                thumbnail={post.thumbnail?.url}
+                thumbnailAlt={post.thumbnailAlt}
+                customDate={post.customDate}
+                publishedAt={post.publishedAt}
+                category={post.category}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+
+  <div class="news-list-cta">
+    <Cta />
+  </div><!-- /.news-list-cta -->
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .news-list-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+  }
+
+  .news-list-main {
+  }
+
+  .news-list-list {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .news-list-item {
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid;
+    }
+  }
+
+  .news-list-cta {
+    margin-top: 60px;
+  }
+
+
+  @include mq() {
+    .news-list-kv {
+      margin-top: 100px;
+    }
+
+    .news-list-main {
+
+    }
+
+    .news-list-list {
+      margin-top: 40px;
+    }
+
+    .news-list-cta {
+      margin-top: 120px;
+    }
+  }
+</style>
