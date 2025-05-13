@@ -12,29 +12,24 @@
       <ul class="top-kv-news-list">
         <li class="top-kv-news-item">
           <a href="/blog/dosokai2025" class="top-kv-news-link">
-            <span class="top-kv-news-head">
-              <time datetime="2025-05-08" class="top-kv-news-date">2025.05.08</time>
-              <span class="top-kv-news-category">お知らせ</span>
-            </span>
-            <p class="top-kv-news-title">1年生・2年生の方へ 同窓会のご案内</p>
+            <div>
+              <span class="top-kv-news-head">
+                <time datetime="2025-05-08" class="top-kv-news-date">2025.05.08</time>
+                <span class="top-kv-news-category">お知らせ</span>
+              </span>
+              <p class="top-kv-news-title">1年生・2年生の方へ 同窓会のご案内</p>
+            </div>
           </a>
         </li>
-        <!-- <li class="top-kv-news-item">
-          <a href="/blog/mi-shuen-ji-class" class="top-kv-news-link">
-            <span class="top-kv-news-head">
-              <time datetime="2025-05-01" class="top-kv-news-date">2025.05.01</time>
-              <span class="top-kv-news-category">募集案内</span>
-            </span>
-            <p class="top-kv-news-title">未就園児教室のご案内</p>
-          </a>
-        </li> -->
         <li class="top-kv-news-item">
           <a href="/blog/mi-shuen-ji-events" class="top-kv-news-link">
-            <span class="top-kv-news-head">
-              <time datetime="2025-05-01" class="top-kv-news-date">2025.05.01</time>
-              <span class="top-kv-news-category">募集案内</span>
-            </span>
-            <p class="top-kv-news-title">令和7年度 未就園児イベントのお知らせ</p>
+            <div>
+              <span class="top-kv-news-head">
+                <time datetime="2025-05-01" class="top-kv-news-date">2025.05.01</time>
+                <span class="top-kv-news-category">募集案内</span>
+              </span>
+              <p class="top-kv-news-title">令和7年度 未就園児イベントのお知らせ</p>
+            </div>
           </a>
         </li>
       </ul>
@@ -87,21 +82,24 @@
   }
 
   .top-kv-news-link {
-    position: relative;
+    // position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     &::after {
       content: "";
       width: 12px;
       height: 10px;
-      margin: auto;
+      // margin: auto;
       background-image: url(/assets/images/global/icon-arrow-right.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 4px;
+      // position: absolute;
+      // top: 0;
+      // bottom: 0;
+      // right: 4px;
       filter: invert(34%) sepia(63%) saturate(339%) hue-rotate(347deg) brightness(99%) contrast(93%);
     }
   }
