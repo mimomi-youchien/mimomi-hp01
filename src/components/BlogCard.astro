@@ -1,12 +1,12 @@
 ---
-import { format, parseISO } from 'date-fns'; // date-fnsのインストールコマンド: npm install date-fns
+import { formatNewsDate, toMachineDate } from "../utils/formatDate";
 const {
   id,
   title,
   thumbnail,
   thumbnailAlt,
   category,
-  customDate, // microCMSで追加した任意日付フィールド
+  customDate,
   publishedAt
 } = Astro.props;
 
@@ -14,8 +14,8 @@ const {
 const rawDate = customDate ?? publishedAt;
 
 // 日付をパースして整形表示（rawDate があれば）
-const formattedDate = rawDate ? format(parseISO(rawDate), 'yyyy.MM.dd') : '日付未定';
-const machineReadableDate = rawDate ? new Date(rawDate).toISOString() : '';
+const formattedDate = formatNewsDate(rawDate);
+const machineReadableDate = toMachineDate(rawDate);
 
 // altテキストを設定（デフォルト値を指定）
 const altText = thumbnailAlt || "ブログのサムネイル画像";

@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import PageKv from "../../components/PageKv.astro";
 import ButtonLink from "../../components/button/ButtonLink.astro";
 import Cta from "../../components/Cta.astro";
+import { formatNewsDate, toMachineDate } from "../../utils/formatDate";
 
 // microCMS呼び出し
 import { getNews, getNewsDetail } from "../../library/microcms";
@@ -82,12 +83,8 @@ const metaDescription = cleanText.length > 150 ? cleanText.substring(0, 150) + "
           <h1 class="news-single-title">{news.title}</h1>
           <div class="news-single-meta">
             <span class="news-single-category">{news.category}</span>
-            <time datetime={news.customDate || news.publishedAt} class="news-single-date">
-              {new Date(news.customDate || news.publishedAt).toLocaleDateString('ja-JP', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-              }).replace(/\//g, '.')}
+            <time datetime={toMachineDate(news.customDate || news.publishedAt)} class="news-single-date">
+              {formatNewsDate(news.customDate || news.publishedAt)}
             </time>
           </div><!-- /.news-single-meta -->
         </div><!-- /.news-single-head -->
