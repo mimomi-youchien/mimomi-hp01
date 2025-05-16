@@ -3,27 +3,46 @@ import Layout from "../../layouts/Layout.astro";
 import PageKv from "../../components/PageKv.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import Cta from "../../components/Cta.astro";
-import type { GetStaticPathsOptions } from 'astro'; // getStaticPaths関数の引数の型定義（型安全のため）
+import type { GetStaticPathsOptions } from 'astro';
 
-// microCMS呼び出し
 import { getNews } from "../../library/microcms";
 
 const { page } = Astro.props;
 
-// ブログ記事の取得
-const response = await getNews({
+// 全件取得（ソート処理のため）
+const allPosts = await getNews({
   fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
-  limit: 8,
-  offset: (page.currentPage - 1) * 8,
+  limit: 100,
 });
-const posts = response.contents;
+
+// ソート処理（customDate優先）
+const sortedPosts = allPosts.contents.sort((a, b) => {
+  const dateA = new Date(a.customDate || a.publishedAt);
+  const dateB = new Date(b.customDate || b.publishedAt);
+  return dateB.getTime() - dateA.getTime(); // 新しい順
+});
+
+// ページごとの投稿を取り出す
+const postsPerPage = 8;
+const start = (page.currentPage - 1) * postsPerPage;
+const end = start + postsPerPage;
+const posts = sortedPosts.slice(start, end);
 
 // 動的ルートの生成
 export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
-  // microCMSからブログ記事を最大100件まで取得(記事がそれ以上ある可能性がある場合は、複数回に分けて取得する処理（ループやoffsetなど）を入れる必要あり)
-  const news = await getNews({ limit: 100 });
-  // paginate()関数を使って、1ページあたり記事件数を指定
-  return paginate(news.contents, { pageSize: 8 });
+  const allNews = await getNews({
+    fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
+    limit: 100,
+  });
+
+  // 同様にソート
+  const sorted = allNews.contents.sort((a, b) => {
+    const dateA = new Date(a.customDate || a.publishedAt);
+    const dateB = new Date(b.customDate || b.publishedAt);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return paginate(sorted, { pageSize: 8 });
 };
 ---
 

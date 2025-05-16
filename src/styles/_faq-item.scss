@@ -28,10 +28,14 @@
   &--blue {
     color: var(--color-blue);
   }
+
+  &--a {
+    margin-top: 2px;
+  }
 }
 
 .faq-dd {
-  padding: 9px 20px 0 21px;
+  padding: 7px 20px 0 21px;
 }
 
 .faq-wrapper {
@@ -46,17 +50,16 @@
 .faq-link {
   display: inline-block;
   padding-right: 3px;
-  border-bottom: 1px solid;
   margin: 3px 0 0 24px;
-  font-size: 10px;
   position: relative;
 
-  &--disabled {
-    display: none;
-  }
-
+  &::before,
   &::after {
     content: "";
+    position: absolute;
+  }
+
+  &::before {
     width: 18px;
     height: 18px;
     background-image: url(/assets/images/faq/icon-faq-arrow-right.svg);
@@ -64,9 +67,16 @@
     background-size: contain;
     background-position: center center;
     filter: invert(36%) sepia(10%) saturate(2363%) hue-rotate(347deg) brightness(100%) contrast(81%);
-    position: absolute;
-    top: 0;
+    top: 4px;
     left: 100%;
+  }
+
+  &::after {
+    width: calc(100% - 3px);
+    height: 1px;
+    background-color: currentColor;
+    bottom: -1px;
+    left: 0;
   }
 }
 
@@ -78,6 +88,10 @@
 
   .faq-icon {
     font-size: 20px;
+
+    &--a {
+      margin-top: 0;
+    }
   }
 
   .faq-dd {
@@ -98,11 +112,16 @@
     margin: 8px 0 0 37px;
     font-size: 14px;
 
-    &::after {
+    &::before {
       content: "";
       width: 24px;
       height: 24px;
       top: 2px;
+    }
+
+    &::after {
+      width: calc(100% - 7px);
+      bottom: -3px;
     }
   }
 }

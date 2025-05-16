@@ -2,9 +2,19 @@
 import { getNews } from "../../library/microcms";
 import { formatNewsDate, toMachineDate } from "../../utils/formatDate";
 
-// 最新2件取得（必要に応じて並び替えやフィルタを調整）
-const response = await getNews({ limit: 2, orders: "-publishedAt" });
-const newsList = response.contents;
+// 多めに取得し、カテゴリーでフィルタしてからソート
+const response = await getNews({ limit: 100 });
+
+const allowedCategories = ["ご連絡", "募集案内"];
+
+const newsList = response.contents
+  .filter(item => item.category.some(cat => allowedCategories.includes(cat)))
+  .sort((a, b) => {
+    const dateA = new Date(a.customDate || a.publishedAt);
+    const dateB = new Date(b.customDate || b.publishedAt);
+    return dateB.getTime() - dateA.getTime();
+  })
+  .slice(0, 2); // 上位2件のみ
 ---
 
 <div class="top-kv">

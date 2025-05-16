@@ -50,7 +50,7 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
     display: flex;
     align-items: center;
     gap: min(20px, calc(20 var(--vw-sp)));
-    line-height: 1.5;
+    line-height: 1;
   }
 
   .c-blog-card-image {
@@ -61,28 +61,43 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .c-blog-card-meta {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 10px;
   }
 
   .c-blog-card-category {
-    padding: 1px 12px 0;
+    padding: 3px 9px;
     border-radius: 3px;
     border: 1px solid;
+    font-size: 12px;
+
+    @media screen and (min-width: 375px) {
+      font-size: 14px;
+    }
   }
 
   .c-blog-card-date {
+    font-size: 10px;
     font-weight: 700;
+
+    @media screen and (min-width: 375px) {
+      font-size: 12px;
+    }
   }
 
   .c-blog-card-post-title {
+    font-size: 12px;
     font-weight: 700;
+    line-height: 1.2;
+
+    @media screen and (min-width: 375px) {
+      font-size: 14px;
+    }
   }
 
   @include mq() {
@@ -104,7 +119,12 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
     }
 
     .c-blog-card-category {
-      padding: 2px 19px 1px;
+      padding: 5px 19px;
+    }
+
+    .c-blog-card-post-title {
+      font-size: 16px;
+      line-height: 1.5;
     }
   }
 

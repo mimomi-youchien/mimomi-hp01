@@ -104,11 +104,10 @@ import SectionTitle from "../SectionTitle.astro";
 
   .about-facility-photos-caption {
     display: flex;
-    align-items: center;
     gap: 5px;
     margin-top: 5px;
     color: var(--color-baby-pink);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 1.5;
 
@@ -116,13 +115,13 @@ import SectionTitle from "../SectionTitle.astro";
       content: "";
       width: 8px;
       height: 7px;
+      margin-top: 5px;
       background-color: currentColor;
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
   }
 
   @include mq() {
-
     .about-facility-head {
       margin-top: 40px;
     }
@@ -150,9 +149,9 @@ import SectionTitle from "../SectionTitle.astro";
       font-size: 16px;
 
       &::before {
-        content: "";
         width: 12px;
         height: 10px;
+        margin-top: 6px;
       }
     }
   }

@@ -138,22 +138,14 @@ import SectionTitle from "../SectionTitle.astro";
     margin: auto;
   }
 
-  .life-mimomi-hoiku-title {
-
-  }
-
   .life-mimomi-hoiku-content {
     display: grid;
     gap: 20px;
   }
 
-  .l-section-body {
-
-  }
-
   .life-mimomi-hoiku-item {
     &--extracurricular {
-      margin-top: 10px;
+      // margin-top: 10px;
     }
   }
 
@@ -177,8 +169,8 @@ import SectionTitle from "../SectionTitle.astro";
 
   .life-mimomi-hoiku-wrapper {
     display: grid;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   .life-mimomi-hoiku-description {
@@ -189,7 +181,7 @@ import SectionTitle from "../SectionTitle.astro";
       // justify-content: space-between;
       align-items: flex-start;
       gap: calc(32 var(--vw-sp));
-      padding: 7px 0 7px calc(20 var(--vw-sp));
+      padding: 6px 0 6px calc(16 var(--vw-sp));
 
       @media screen and (max-width: 374px) {
         padding-left: 10px;
@@ -198,7 +190,7 @@ import SectionTitle from "../SectionTitle.astro";
 
     &--extracurricular-01 {
       border-top: 2px solid;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     &--extracurricular-02 {
@@ -219,7 +211,7 @@ import SectionTitle from "../SectionTitle.astro";
     line-height: 1.5;
 
     &--extracurricular {
-      flex: 0 0 56px;
+      flex: 0 0 65px;
       gap: 0;
       margin-top: 6px;
     }
@@ -290,10 +282,6 @@ import SectionTitle from "../SectionTitle.astro";
     text-align: justify;
   }
 
-  .life-mimomi-hoiku-paragraph {
-
-  }
-
   .life-mimomi-hoiku-photos {
     margin-top: 20px;
 
@@ -305,7 +293,6 @@ import SectionTitle from "../SectionTitle.astro";
     &--pc {
       display: none;
     }
-
   }
 
   .life-mimomi-hoiku-image-left {
@@ -313,28 +300,20 @@ import SectionTitle from "../SectionTitle.astro";
     gap: 10px;
   }
 
-  .life-mimomi-hoiku-image-right {
-
-  }
-
   .life-mimomi-hoiku-list {
     display: flex;
-    gap: calc(40 var(--vw-sp));
+    gap: calc(38 var(--vw-sp));
   }
 
   .life-mimomi-hoiku-term {
-    flex: 0 0 72px;
+    flex: 0 0 85px;
     font-weight: 400;
-  }
-
-  .life-mimomi-hoiku-definition {
-
   }
 
   .life-mimomi-hoiku-note {
     display: block;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: justify;
   }
 
@@ -350,7 +329,7 @@ import SectionTitle from "../SectionTitle.astro";
 
     .life-mimomi-hoiku-item {
       &--extracurricular {
-        margin-top: 20px;
+        // margin-top: 20px;
       }
     }
 
@@ -360,12 +339,22 @@ import SectionTitle from "../SectionTitle.astro";
       line-height: 1.5;
     }
 
+    .life-mimomi-hoiku-wrapper {
+      gap: 20px;
+      margin-top: 20px;
+    }
+
     .life-mimomi-hoiku-description {
       &--extracurricular-01,
       &--extracurricular-02,
       &--extracurricular-03 {
         gap: 59px;
-        padding: 8px 0 20px 36px;
+        padding: 7px 0 14px 36px;
+        // margin-top: 20px;
+      }
+
+      &--extracurricular-01 {
+        margin-top: 20px;
       }
     }
 
@@ -420,7 +409,7 @@ import SectionTitle from "../SectionTitle.astro";
 
     .life-mimomi-hoiku-text {
       margin-top: 10px;
-      font-size: 14px;
+      // font-size: 14px;
     }
 
     .life-mimomi-hoiku-photos {
@@ -439,10 +428,10 @@ import SectionTitle from "../SectionTitle.astro";
 
     .life-mimomi-hoiku-list {
       display: inline-flex;
-      gap: 40px;
+      gap: 30px;
 
       &:nth-child(2) {
-        margin-left: 82px;
+        margin-left: 72px;
         position: relative;
 
         &::before {
@@ -463,8 +452,8 @@ import SectionTitle from "../SectionTitle.astro";
     }
 
     .life-mimomi-hoiku-note {
-      margin-top: 13px;
-      font-size: 14px;
+      margin-top: 10px;
+      font-size: 16px;
     }
   }
 </style>

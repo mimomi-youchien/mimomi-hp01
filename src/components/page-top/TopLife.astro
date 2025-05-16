@@ -51,7 +51,7 @@ import ButtonLink from "../button/ButtonLink.astro";
           </div><!-- /.top-life-content -->
         </li>
       </ul>
-      <div class="top-life-button u-display-none">
+      <div class="top-life-button">
         <ButtonLink buttonText="園の生活を見る" />
       </div><!-- /.top-life-button -->
     </div><!-- /.l-section -->
@@ -64,34 +64,10 @@ import ButtonLink from "../button/ButtonLink.astro";
   .top-life {
     overflow: hidden;
   }
-  
-  .top-life-container {
-
-  }
-
-  .l-container-s {
-
-  }
-
-  .l-section {
-
-  }
-
-  .top-life-title {
-
-  }
-
-  .l-section-body {
-
-  }
 
   .top-life-list {
     display: grid;
     gap: 30px;
-  }
-
-  .top-life-item {
-
   }
 
   .top-life-heading-sp {
@@ -114,17 +90,10 @@ import ButtonLink from "../button/ButtonLink.astro";
     gap: 20px;
   }
 
-  .top-life-description {
-  }
-
   .top-life-wrapper {
     display: grid;
-    gap: 2em;
+    gap: 1.7em;
     text-align: justify;
-  }
-
-  .top-life-text {
-
   }
 
   .top-life-image {
@@ -179,30 +148,6 @@ import ButtonLink from "../button/ButtonLink.astro";
   }
 
   @include mq() {
-    .top-life {
-
-    }
-
-    .top-life-container {
-
-    }
-
-    .l-container-s {
-
-    }
-
-    .l-section {
-
-    }
-
-    .top-life-title {
-
-    }
-
-    .l-section-body {
-
-    }
-
     .top-life-list {
       gap: 40px;
     }
@@ -261,7 +206,6 @@ import ButtonLink from "../button/ButtonLink.astro";
       line-height: 1.5;
     }
 
-
     .top-life-content {
       margin-top: 0;
       flex-direction: row;
@@ -273,17 +217,9 @@ import ButtonLink from "../button/ButtonLink.astro";
       }
     }
 
-    .top-life-description {
-
-    }
-
     .top-life-wrapper {
       gap: 1.88em;
       margin-top: 10px;
-    }
-
-    .top-life-text {
-
     }
 
     .top-life-image {
@@ -308,7 +244,7 @@ import ButtonLink from "../button/ButtonLink.astro";
     }
 
     .top-life-button {
-      margin-top: 40px;
+      margin-top: 20px;
     }
   }
 </style>
