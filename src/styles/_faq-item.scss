@@ -2,7 +2,7 @@
 
 .faq-dt {
   display: flex;
-  align-items: center;
+  // align-items: center;
   gap: 10px;
   padding: 7px 20px 6px;
   border-radius: 10px;
@@ -32,6 +32,10 @@
   &--a {
     margin-top: 2px;
   }
+}
+
+.faq-question {
+  margin-top: 2px;
 }
 
 .faq-dd {
@@ -92,6 +96,10 @@
     &--a {
       margin-top: 0;
     }
+  }
+
+  .faq-question {
+    margin-top: 4px;
   }
 
   .faq-dd {

@@ -33,7 +33,7 @@ import Cta from "../components/Cta.astro";
             <SectionTitle
               title1="「リトルぴよちゃん教室」と"
               title2="「ぴよちゃん教室」"
-              titleClass="c-section-title c-section-title--ls-0"
+              titleClass="c-section-title c-section-title--ls-narrow"
             />
           </div><!-- /.msj-about-title -->
           <div class="msj-about-list">
@@ -169,7 +169,7 @@ import Cta from "../components/Cta.astro";
               <dt class="msj-overview-dt">場所</dt>
               <dd class="msj-overview-dd">
                 <p class="msj-overview-text">
-                  <span class="msj-overview-head">リトルぴよちゃん教室(1歳児)/<br class="u-no-pc">ぴよちゃん教室(2歳児)</span>
+                  <span class="msj-overview-head"><span>リトルぴよちゃん教室(1歳児)/</span><span>ぴよちゃん教室(2歳児)</span></span>
                   <span class="msj-overview-description">みもみ幼稚園 特別教室</span>
                   <small class="msj-overview-note">※園の駐車場・駐輪場をご利用いただけます。</small>
                 </p>
@@ -179,7 +179,7 @@ import Cta from "../components/Cta.astro";
               <dt class="msj-overview-dt msj-overview-dt--belongings">持ち物</dt>
               <dd class="msj-overview-dd">
                 <p class="msj-overview-text">
-                  <span class="msj-overview-head">リトルぴよちゃん教室(1歳児)/<br class="u-no-pc">ぴよちゃん教室(2歳児)</span>
+                  <span class="msj-overview-head"><span>リトルぴよちゃん教室(1歳児)/</span><span>ぴよちゃん教室(2歳児)</span></span>
                   <span class="msj-overview-description">上履き、レッスンバッグ</span>
                 </p>
               </dd>
@@ -189,7 +189,7 @@ import Cta from "../components/Cta.astro";
               <dd class="msj-overview-dd">
                 <p class="msj-overview-text">
                   <span class="msj-overview-head">リトルぴよちゃん教室(1歳児)</span>
-                  <span class="msj-overview-description">(株)学研エデュケーショナル学研教室 <br class="u-no-pc">千葉オフィス<br>TEL：<a href="tel:043-256-8565" class="msj-overview-tel">043-256-8565</a> (受付 9:00~17:00)</span>
+                  <span class="msj-overview-description">(株)学研エデュケーショナル学研教室 <br class="u-no-pc">千葉オフィス<br>TEL：<a href="tel:043-256-8565" class="msj-overview-tel">043-256-8565</a> <br class="u-no-pc">(受付 9:00~17:00)</span>
                 </p>
                 <p class="msj-overview-text">
                   <span class="msj-overview-head">ぴよちゃん教室(2歳児)</span>
@@ -309,11 +309,11 @@ import Cta from "../components/Cta.astro";
   .msj-about-item {
     display: flex;
     flex-direction: column-reverse;
-    gap: 10px;
+    gap: 20px;
   }
 
   .msj-about-content {
-
+    text-align: justify;
   }
 
   .msj-about-title-lv3 {
@@ -323,7 +323,6 @@ import Cta from "../components/Cta.astro";
 
   .msj-about-text {
     margin-top: 10px;
-    text-align: justify;
   }
 
   .msj-about-image {
@@ -363,7 +362,7 @@ import Cta from "../components/Cta.astro";
     margin-top: 10px;
 
     small {
-      font-size: 10px;
+      font-size: 14px;
     }
   }
 
@@ -448,6 +447,7 @@ import Cta from "../components/Cta.astro";
   .msj-overview-list {
     border-top: 1px solid var(--color-baby-pink);
     margin-top: 30px;
+    text-align: justify;
   }
 
   .msj-overview-dl {
@@ -473,7 +473,7 @@ import Cta from "../components/Cta.astro";
 
   .msj-overview-dd {
     flex: 1 1 auto;
-    padding: 20px;
+    padding: 20px 16px 20px 16px;
     border-bottom: 1px solid var(--color-baby-pink);
     border-right: 1px solid var(--color-baby-pink);
     background-color: #fff;
@@ -489,6 +489,10 @@ import Cta from "../components/Cta.astro";
   .msj-overview-head {
     display: block;
     font-weight: 700;
+
+    span {
+      display: inline-block;
+    }
   }
 
   .msj-overview-description {
@@ -502,7 +506,7 @@ import Cta from "../components/Cta.astro";
 
   .msj-overview-note {
     display: block;
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .msj-overview-deco {
@@ -679,6 +683,7 @@ import Cta from "../components/Cta.astro";
     display: grid;
     gap: 30px;
     margin-top: 30px;
+    text-align: justify;
   }
 
   .msj-visit-title-lv3 {
@@ -698,7 +703,7 @@ import Cta from "../components/Cta.astro";
   }
 
   .msj-visit-note {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .msj-visit-tel {

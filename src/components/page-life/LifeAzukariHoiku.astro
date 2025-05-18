@@ -1,0 +1,216 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="life-azukari-hoiku l-section">
+  <div class="life-azukari-hoiku-title">
+    <SectionTitle
+      title1="預かり保育"
+    />
+  </div>
+  <div class="l-section-body">
+    <div class="life-azukari-hoiku-lead">
+      <p class="life-azukari-hoiku-lead-text">預かり保育は全園児ご利用可能です</p>
+      <small class="life-azukari-hoiku-lead-note">※時間・料金については年度毎変更する場合があります。</small>
+    </div><!-- /.life-azukari-hoiku-lead -->
+    <div class="life-azukari-hoiku-content">
+      <section class="life-azukari-hoiku-item life-azukari-hoiku-item--01">
+        <h3 class="life-azukari-hoiku-title-lv3 life-azukari-hoiku-title-lv3--01">早朝保育</h3>
+        <dl class="life-azukari-hoiku-list life-azukari-hoiku-list--01">
+          <dt>時間</dt>
+          <dd>
+            <p>8:00~9:00</p>
+          </dd>
+          <dt>通常料金</dt>
+          <dd>
+            <p>一律200円</p>
+          </dd>
+        </dl>
+      </section>
+      <section class="life-azukari-hoiku-item life-azukari-hoiku-item--02">
+        <h3 class="life-azukari-hoiku-title-lv3 life-azukari-hoiku-title-lv3--02">延長保育</h3>
+        <dl class="life-azukari-hoiku-list life-azukari-hoiku-list--02">
+          <dt>時間</dt>
+          <dd>
+            <strong>1日保育</strong>
+            <ul>
+              <li>14:00~18:00(徒歩・1、2便)</li>
+              <li>15:00~18:00(3便)</li>
+            </ul>
+            <strong>午前保育</strong>
+            <p>12:00~18:00(全園児)</p>
+          </dd>
+          <dt>通常料金</dt>
+          <dd>
+            <p>200円/1時間</p>
+          </dd>
+          <dt>注意事項</dt>
+          <dd>
+            <ul>
+              <li>・通園方法により開始時間が異なります。</li>
+              <li>・おやつ代込みです。</li>
+              <li>・16:00以降もご利用の方は自宅からおやつの持参が可能です。</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+      <section class="life-azukari-hoiku-item life-azukari-hoiku-item--03">
+        <h3 class="life-azukari-hoiku-title-lv3 life-azukari-hoiku-title-lv3--03">長期休暇保育</h3>
+        <dl class="life-azukari-hoiku-list life-azukari-hoiku-list--03">
+          <dt>時間</dt>
+          <dd>
+            <strong>8:00〜18:00</strong>
+            <ul>
+              <li>8:00〜12:00(A)</li>
+              <li>8:00〜17:00(B)</li>
+              <li>8:00〜18:00(C)</li>
+            </ul>
+          </dd>
+          <dt>通常料金</dt>
+          <dd>
+            <ul>
+              <li>500円(A)</li>
+              <li>1,000円(B)</li>
+              <li>1,200円(C)</li>
+            </ul>
+          </dd>
+          <dt>注意事項</dt>
+          <dd>
+            <ul>
+              <li>・時間・料金は変更する場合があります。</li>
+              <li>・おやつ代込みです。</li>
+              <li>・16:00以降もご利用の方は自宅からおやつの持参が可能です。</li>
+            </ul>
+          </dd>
+        </dl>
+      </section>
+    </div><!-- /.life-azukari-hoiku-content -->
+  </div><!-- /.l-section-body -->
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .life-azukari-hoiku {
+    line-height: 1.5;
+  }
+
+  .life-azukari-hoiku-title {
+
+  }
+
+  .life-azukari-hoiku-lead {
+    text-align: center;
+  }
+
+  .life-azukari-hoiku-lead-text {
+
+  }
+
+  .life-azukari-hoiku-lead-note {
+    font-size: 12px;
+  }
+
+  .life-azukari-hoiku-content {
+    display: grid;
+    gap: 20px;
+    max-width: 520px;
+    margin: 20px auto 0;
+  }
+
+  .life-azukari-hoiku-item {
+
+  }
+
+  .life-azukari-hoiku-title-lv3 {
+    padding: 8px 20px 7px;
+    font-size: 16px;
+    font-weight: 700;
+
+    &--01 {
+      background-color: var(--color-baby-pink);
+    }
+
+    &--02 {
+      background-color: var(--color-yellow);
+    }
+
+    &--03 {
+      background-color: var(--color-green);
+    }
+  }
+
+  .life-azukari-hoiku-list {
+    display: grid;
+    grid-template-columns: 94px 1fr;
+    gap: 2px;
+    margin-top: 2px;
+
+    dt,
+    dd {
+      padding: 5px 18px;
+    }
+
+    dt {
+      font-weight: 400;
+    }
+
+    &--01 {
+      dt,
+      dd {
+        background-color: rgb(250 171 153 / .1);
+      }
+    }
+
+    &--02 {
+      dt,
+      dd {
+        background-color: #fef9e6;
+      }
+    }
+
+    &--03 {
+      dt,
+      dd {
+        background-color: #f7fbe7;
+      }
+    }
+  }
+
+  @include mq() {
+
+    .life-azukari-hoiku-title {
+
+    }
+
+    .life-azukari-hoiku-lead-note {
+      font-size: 14px;
+    }
+
+    .life-azukari-hoiku-content {
+      gap: 40px;
+      max-width: initial;
+      margin-top: 60px;
+    }
+
+    .life-azukari-hoiku-item {
+
+    }
+
+    .life-azukari-hoiku-title-lv3 {
+      padding: 15px 40px;
+      font-size: 20px;
+    }
+
+    .life-azukari-hoiku-list {
+      grid-template-columns: 146px 1fr;
+      gap: 3px;
+      margin-top: 3px;
+
+      dt,
+      dd {
+        padding: 18px 40px;
+      }
+    }
+  }
+</style>

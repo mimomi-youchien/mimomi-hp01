@@ -11,28 +11,36 @@
 
   h2 {
     padding: 5px 20px;
-    margin: 40px 0 32px;
+    margin: 32px 0 24px;
     background-color: var(--color-baby-pink);
     color: var(--color-base);
     font-size: 16px;
     font-weight: 700;
 
+    &:not(:first-of-type) {
+      margin-top: 40px;
+    }
+
     @include mq() {
       padding: 5px 20px;
-      margin: 48px 0 40px;
+      margin: 40px 0 32px;
       font-size: 20px;
+
+      &:not(:first-of-type) {
+        margin-top: 48px;
+      }
     }
   }
 
   h3 {
     display: grid;
     gap: 10px;
-    margin: 32px 0 24px;
+    margin-top: 24px;
     color: var(--color-baby-pink);
     font-weight: 700;
 
     @include mq() {
-      margin: 40px 0 32px;
+      margin-top: 32px;
     }
 
     &::after {
@@ -44,10 +52,28 @@
   }
 
   p {
-    margin: 24px 0;
+    margin: 10px 0 24px;
 
     @include mq() {
-      margin: 32px 0;
+      margin: 24px 0 32px;
+    }
+  }
+
+  img + p {
+    margin-top: 24px;
+
+    @include mq() {
+      margin-top: 32px;
+    }
+  }
+
+  img {
+    &:last-of-type {
+      margin-bottom: 24px;
+
+      @include mq() {
+        margin-bottom: 32px;
+      }
     }
   }
 }
