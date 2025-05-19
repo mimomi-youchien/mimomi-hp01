@@ -91,7 +91,7 @@ const isTopPage = Astro.url.pathname === "/";
             <a href="/faq">よくある質問</a>
           </li>
           <li class="header-nav-item header-nav-item--parents">
-            <a href=""><span><span>保護者さま</span><span>専用ページ</span><span class="_no-pc">「おたより」</span></span></a>
+            <a href="/otayori/page"><span><span>保護者さま</span><span>専用ページ</span><span class="_no-pc">「おたより」</span></span></a>
           </li>
           <li class="header-nav-item header-nav-item--mi-shuen-ji">
             <a href="/mi-shuen-ji"><span><span>未就園児(1,2歳)</span><span>親子教室について</span></span></a>
@@ -101,8 +101,7 @@ const isTopPage = Astro.url.pathname === "/";
       <div class="header-cta">
         <!-- pc -->
         <div class="header-cta-button-pc">
-          <a href="https://lin.ee/UtZ5lXCf/" target="_blank">
-            {/* <img src="/assets/images/global/icon-line.svg" alt="最新情報、お問い合わせは公式LINEから" loading="eager" decoding="async" width="41" height="41"> */}
+          <a href="https://lin.ee/UtZ5lXCf/" target="_blank" aria-label="最新情報、お問い合わせは公式LINEから">
           </a>
         </div><!-- /.header-cta-button-pc -->
         <!-- sp -->
@@ -452,7 +451,10 @@ const isTopPage = Astro.url.pathname === "/";
 
     .header-cta-button-pc {
       a {
+        transition: background-color .3s ease;
+
         &:hover {
+          background-color: #84b759;
           animation: header-cta-button .4s ease-in-out;
         }
       }

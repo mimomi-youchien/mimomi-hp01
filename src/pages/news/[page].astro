@@ -52,7 +52,6 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   description="自然いっぱいの広い敷地でのびのび遊び、学ぶ「みもみ幼稚園」。園からのお知らせや日々の様子、行事のご案内などをブログ形式で発信中。"
   noIndex="true"
 >
-
   <!-- news-list-kv -->
   <div class="news-list-kv">
     <PageKv
@@ -97,9 +96,6 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
     margin-top: 48px;
   }
 
-  .news-list-main {
-  }
-
   .news-list-list {
     display: grid;
     gap: 20px;
@@ -121,10 +117,6 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   @include mq() {
     .news-list-kv {
       margin-top: 100px;
-    }
-
-    .news-list-main {
-
     }
 
     .news-list-list {
