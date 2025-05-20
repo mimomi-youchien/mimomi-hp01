@@ -1,5 +1,6 @@
 ---
-const { title, imageSrcSp, imageSrcPc } = Astro.props;
+// PageKv.astro
+const { title, imageSrcSp, imageSrcPc, imageAlt, isDetailPage = false } = Astro.props;
 ---
 
 <div class="c-page-kv l-container">
@@ -7,10 +8,15 @@ const { title, imageSrcSp, imageSrcPc } = Astro.props;
     <picture>
       <source media="(max-width: 767px)" srcset={imageSrcSp}>
       <source media="(min-width: 768px)" srcset={imageSrcPc}>
-      <img src={imageSrcSp} alt="" loading="eager" decoding="async" width="320" height="133">
+      <img src={imageSrcSp} alt={imageAlt} loading="eager" decoding="async" width="320" height="133">
     </picture>
   </div><!-- /.c-page-kv-image -->
-  <h1 class="c-page-kv-title">{title}</h1>
+
+  {isDetailPage ? (
+    <p class="c-page-kv-title">{title}</p>
+  ) : (
+    <h1 class="c-page-kv-title">{title}</h1>
+  )}
 </div><!-- /.c-page-kv.l-container -->
 
 <style lang="scss">

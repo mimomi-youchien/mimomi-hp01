@@ -12,7 +12,6 @@ import Cta from "../components/Cta.astro";
   description="自然いっぱいの広い敷地でのびのび遊び、学ぶ「みもみ幼稚園」。未就園児教室では先生や友達とのふれあいを通して集団生活を体験。入会受付中。"
   noIndex="true"
 >
-
   <div class="mi-shuen-ji">
     <!-- mi-shuen-ji-kv -->
     <div class="mi-shuen-ji-kv">
@@ -20,6 +19,7 @@ import Cta from "../components/Cta.astro";
         title="未就園児親子教室について"
         imageSrcSp="/assets/images/kv/page-kv/pic-kv-mi-shuen-ji-sp@2x.webp"
         imageSrcPc="/assets/images/kv/page-kv/pic-kv-mi-shuen-ji-pc@2x.webp"
+        imageAlt="2歳の子どもが母親とシール遊びや製作に取り組み、先生が笑いかけている様子"
       />
     </div><!-- /.mi-shuen-ji-kv -->
 
@@ -46,7 +46,7 @@ import Cta from "../components/Cta.astro";
                 <picture>
                   <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.webp">
                   <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-pc@2x.webp">
-                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.webp" alt="" loading="eager" decoding="async" width="240" height="180">
+                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-01-sp@2x.webp" alt="2歳の子どもたちが床に座り、先生の絵本の読み聞かせを見ている様子" loading="eager" decoding="async" width="240" height="180">
                 </picture>
               </div><!-- /.msj-about-image -->
             </div><!-- /.msj-about-item -->
@@ -59,7 +59,7 @@ import Cta from "../components/Cta.astro";
                 <picture>
                   <source media="(max-width: 767px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.webp">
                   <source media="(min-width: 768px)" srcset="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-pc@2x.webp">
-                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.webp" alt="" loading="eager" decoding="async" width="240" height="180">
+                  <img src="/assets/images/mi-shuen-ji/pic-mi-shuen-ji-02-sp@2x.webp" alt="2歳の子どもが母親と一緒にクリスマス製作に取り組んでいる様子（折り紙やのり貼り）" loading="eager" decoding="async" width="240" height="180">
                 </picture>
               </div><!-- /.msj-about-image -->
             </div><!-- /.msj-about-item -->
@@ -563,7 +563,6 @@ import Cta from "../components/Cta.astro";
     }
 
     .msj-overview-dt {
-      // flex: 0 0 60px;
       flex: 0 0 clamp(48px, calc(60 var(--vw-pc)), 60px);
 
       &--maintenance-cost,
@@ -573,7 +572,6 @@ import Cta from "../components/Cta.astro";
     }
 
     .msj-overview-dd {
-      // padding: 20px 20px 20px 40px;
       padding: 20px 20px 20px clamp(20px, calc(40 var(--vw-pc)), 40px);
     }
 
@@ -583,18 +581,7 @@ import Cta from "../components/Cta.astro";
       }
     }
 
-    .msj-overview-head {
-      // display: block;
-    }
-
     .msj-overview-description {
-      // display: block;
-      // margin-top: 5px;
-
-      span {
-        // display: block;
-      }
-
       &--target {
         display: flex;
         align-items: center;
@@ -602,7 +589,6 @@ import Cta from "../components/Cta.astro";
     }
 
     .msj-overview-note {
-      // display: block;
       font-size: 14px;
 
       &--target {
@@ -612,7 +598,6 @@ import Cta from "../components/Cta.astro";
 
     .msj-overview-wrapper {
       display: flex;
-      // gap: 48px;
       gap: min(48px, calc(48 var(--vw-pc)));
     }
 
@@ -819,9 +804,6 @@ import Cta from "../components/Cta.astro";
         left: calc(50% + 103px);
         rotate: 22deg;
       }
-    }
-
-    .msj-visit-cta-button {
     }
   }
 </style>

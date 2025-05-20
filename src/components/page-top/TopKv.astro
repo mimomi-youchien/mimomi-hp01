@@ -244,11 +244,12 @@ const newsList = response.contents
 
         &::after {
           filter: invert(97%) sepia(91%) saturate(6024%) hue-rotate(294deg) brightness(100%) contrast(96%);
+          translate: 3px;
         }
       }
 
       &::after {
-        transition: filter .3s ease;
+        transition: filter .3s ease, translate .3s ease;
       }
     }
   }

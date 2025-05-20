@@ -2,7 +2,6 @@
 
 .faq-dt {
   display: flex;
-  // align-items: center;
   gap: 10px;
   padding: 7px 20px 6px;
   border-radius: 10px;
@@ -116,30 +115,34 @@
   }
 
   .faq-link {
-    padding-right: 7px;
-    margin: 8px 0 0 37px;
+    padding: 8px 7px 8px 0;
+    margin: 0 0 0 37px;
     font-size: 14px;
 
     &::before {
       content: "";
       width: 24px;
       height: 24px;
-      top: 2px;
+      top: 10px;
     }
 
     &::after {
       width: calc(100% - 7px);
-      bottom: -3px;
+      bottom: 5px;
     }
   }
 }
 
 @media (any-hover: hover) {
   .faq-link {
-    transition: opacity .3s ease;
+    &::before {
+      transition: translate .3s ease;
+    }
 
     &:hover {
-      opacity: .8;
+      &::before {
+        translate: 3px;
+      }
     }
   }
 }

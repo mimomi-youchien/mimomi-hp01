@@ -118,11 +118,9 @@ import SectionTitle from "../SectionTitle.astro";
     &--04 {
       background-image: url(/assets/images/links/bg-links-title-blue.svg);
     }
-
   }
 
   .top-links-item-image {
-
     &::before,
     &::after {
       content: "";
@@ -181,7 +179,7 @@ import SectionTitle from "../SectionTitle.astro";
         &::before {
           width: 121px;
           height: 121px;
-          background-image: url(/public/assets/images/links/illust-links-01.svg);
+          background-image: url(/assets/images/links/illust-links-01.svg);
           top: -70px;
           left: -96px;
         }
@@ -189,7 +187,7 @@ import SectionTitle from "../SectionTitle.astro";
         &::after {
           width: 107px;
           height: 180px;
-          background-image: url(/public/assets/images/links/illust-links-02.svg);
+          background-image: url(/assets/images/links/illust-links-02.svg);
           bottom: -62px;
           right: -107px;
         }
@@ -241,20 +239,12 @@ import SectionTitle from "../SectionTitle.astro";
   }
 
   @media (any-hover: hover) {
-    .top-links-item-link {
-      img {
-        position: relative;
-        transition: scale .3s ease;
-        z-index: -10;
-      }
+    .top-links-item-image::after {
+      transition: translate .3s ease;
 
-      &:hover img {
-        scale: 1.1;
+      .top-links-item-link:hover & {
+        translate: 3px;
       }
-    }
-
-    .top-links-item-image {
-      overflow: hidden;
     }
   }
 </style>

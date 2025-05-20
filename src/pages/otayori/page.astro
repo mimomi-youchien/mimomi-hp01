@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import OtayoriKv from "../../components/OtayoriKv.astro"
+import SectionTitle from "../../components/SectionTitle.astro";
 import Cta from "../../components/Cta.astro";
 ---
 
@@ -17,8 +18,45 @@ import Cta from "../../components/Cta.astro";
 
   <main class="otayori-list-main l-section-body">
     <div class="l-container-s">
-      
-    </div>
+      <div class="otayori-list-head">
+        <div class="otayori-list-head-title">
+          <SectionTitle
+          title1="今月の園だより"
+          />
+        </div><!-- /.otayori-list-head-title -->
+        <div class="otayori-list-head-content">
+          <div class="otayori-list-head-text">
+            <p class="otayori-list-head-paragraph">園だよりではこの文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>この文章はダミーです。</p>
+            <p class="otayori-list-head-paragraph">文字の大きさ、量、字間、行間等を確認するために入れています。<br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+          </div><!-- /.otayori-list-head-text -->
+          <div class="otayori-list-head-image">
+            <img src="/assets/images/global/image-dummy@2x.webp" alt="No Image" loading="eager" decoding="async" width="537" height="380">
+          </div><!-- /.otayori-list-head-image -->
+        </div><!-- /.otayori-list-head-content -->
+      </div><!-- /.otayori-list-head -->
+      <ul class="otayori-list-category-filter">
+        <li class="otayori-list-category-filter-item">
+          <a href="" class="is-active">全クラス</a>
+        </li>
+        <li class="otayori-list-category-filter-item">
+          <a href="">年少クラス</a>
+        </li>
+        <li class="otayori-list-category-filter-item">
+          <a href="">年中クラス</a>
+        </li>
+        <li class="otayori-list-category-filter-item">
+          <a href="">年長クラス</a>
+        </li>
+      </ul>
+      <ul class="otayori-list-list">
+        <li class="otayori-list-item">
+          ブログカード
+        </li>
+        <li class="otayori-list-item">
+          ブログカード
+        </li>
+      </ul>
+    </div><!-- /.l-container-s -->
   </main>
 
   <div class="otayori-list-cta">
@@ -35,6 +73,61 @@ import Cta from "../../components/Cta.astro";
   }
 
   .otayori-list-main {
+  }
+
+  .otayori-list-head {
+
+  }
+
+  .otayori-list-head-title {
+
+  }
+
+  .otayori-list-head-content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+
+  .otayori-list-head-text {
+
+  }
+
+  .otayori-list-head-paragraph {
+
+  }
+
+  .otayori-list-head-image {
+
+  }
+
+  .otayori-list-category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 200px;
+    margin: 60px auto 0;
+  }
+
+  .otayori-list-category-filter-item {
+    a {
+      display: grid;
+      place-items: center;
+      width: 90px;
+      height: 22px;
+      border-radius: 3px;
+      border: 1px solid currentColor;
+      line-height: 1;
+
+      &.is-active {
+        color: var(--color-base);
+        background-color: var(--color-blue);
+        border-color: var(--color-blue);
+      }
+    }
   }
 
   .otayori-list-list {
@@ -64,8 +157,48 @@ import Cta from "../../components/Cta.astro";
 
     }
 
+    .otayori-list-head {
+
+    }
+
+    .otayori-list-head-title {
+
+    }
+
+    .otayori-list-head-content {
+      flex-direction: row;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .otayori-list-head-text {
+
+    }
+
+    .otayori-list-head-paragraph {
+
+    }
+
+    .otayori-list-head-image {
+
+    }
+
+    .otayori-list-category-filter {
+      gap: 0;
+      max-width: 560px;
+      margin: 120px auto 0;
+    }
+
+    .otayori-list-category-filter-item {
+      a {
+        width: 110px;
+        height: 26px;
+        font-size: 14px;
+      }
+    }
+
     .otayori-list-list {
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     .otayori-list-cta {
