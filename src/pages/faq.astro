@@ -215,7 +215,7 @@ import Cta from "../components/Cta.astro";
                         <p class="faq-paragraph">「今日何したの？」という問いかけは実は子どもにとっては難しい質問です。「今日の給食の◯◯食べた？」、「今日、◯◯ちゃん幼稚園に来てた？」など、具体的で子どもがイメージしやすいような問いかけを意識してみて下さい。お子様との会話のきっかけになります。また、日々の保育の様子などは、「保護者さま限定ページ」(パスワードが必要となります。)にてお伝えします。どなたでもご覧いただける「お知らせ」にても“みもみ日記”として日常をお送りしています。是非ご覧ください。</p>
                       </div><!-- /.faq-answer -->
                     </div><!-- /.faq-wrapper -->
-                    <a href="" class="faq-link">みもみ日記を見る（ToDo；リンク未設定！）</a>
+                    <a href="" class="faq-link u-disabled-link">みもみ日記を見る</a>
                   </dd>
                 </dl>
               </li>
@@ -376,21 +376,25 @@ import Cta from "../components/Cta.astro";
     gap: 8px;
     width: fit-content;
     padding: 8px 0;
+    padding-left: 21px;
     margin: 22px 0 0 auto;
+    background-image: url(/assets/images/global/icon-arrow-up.svg);
+    background-repeat: no-repeat;
+    background-size: 15px 13px;
+    background-position: left top 12px;
     font-weight: 700;
     line-height: 1.5;
     text-align: right;
+    position: relative;
 
-    &::before {
+    &::after {
       content: "";
-      width: 12px;
-      height: 10px;
-      background-image: url(/assets/images/global/icon-arrow-right.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center;
-      rotate: -90deg;
-      filter: invert(36%) sepia(80%) saturate(300%) hue-rotate(347deg) brightness(89%) contrast(87%);
+      position: absolute;
+      bottom: 7px;
+      left: 22px;
+      width: 138px;
+      height: 1px;
+      background-color: currentColor;
     }
   }
 
@@ -460,10 +464,36 @@ import Cta from "../components/Cta.astro";
     .faq-back-to-top {
       margin: 32px 0 0 auto;
       font-size: 14px;
+
+      @media screen and (min-width: 1025px) {
+        &::after {
+          display: none;
+        }
+      }
     }
 
     .faq-cta {
       margin-top: 112px;
+    }
+  }
+
+  @media (any-hover: hover) {
+    .faq-back-to-top {
+      &:hover {
+        animation: back-to-top-button .4s ease-in-out;
+      }
+    }
+  }
+
+  @keyframes back-to-top-button {
+    0% {
+      background-position: left top 12px;
+    }
+    60% {
+      background-position: left top 7px;
+    }
+    100% {
+      background-position: left top 12px;
     }
   }
 </style>
