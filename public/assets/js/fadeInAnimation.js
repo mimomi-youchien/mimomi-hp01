@@ -1,3 +1,4 @@
+// スクロール連動フェードイン
 document.addEventListener("DOMContentLoaded", () => {
   const targets = document.querySelectorAll(".js-fade-in");
 
@@ -18,4 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     el.classList.add("fade-in"); // 初期スタイル付与
     observer.observe(el);
   });
+});
+
+// KV読み込み時フェードイン
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
 });

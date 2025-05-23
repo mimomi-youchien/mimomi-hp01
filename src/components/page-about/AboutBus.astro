@@ -2,7 +2,7 @@
 import SectionTitle from "../SectionTitle.astro";
 ---
 
-<section class="about-bus l-section">
+<section class="about-bus">
   <div class="about-bus-title">
     <SectionTitle
       title1="送迎バス"
@@ -49,7 +49,7 @@ import SectionTitle from "../SectionTitle.astro";
   @use '../../styles/breakpoints' as *;
 
   .about-bus {
-    padding-bottom: 33px;
+    padding: 50px 0 33px;
   }
 
   .about-bus-list {
@@ -117,6 +117,7 @@ import SectionTitle from "../SectionTitle.astro";
 
   @include mq() {
     .about-bus {
+      padding-top: 36px;
       padding-bottom: 0;
     }
 

@@ -397,82 +397,6 @@ const isTopPage = Astro.url.pathname === "/";
     display: none;
   }
 
-  @media (any-hover: hover) {
-    .header-nav-item {
-      a {
-        transition: color .3s ease;
-
-        &:hover {
-          color: var(--color-baby-pink);
-        }
-      }
-
-      &--parents,
-      &--mi-shuen-ji {
-        a {
-          transition: background-color .3s ease;
-
-          &:hover {
-            background-color: var(--color-btn-hover);
-            color: var(--color-main);
-            animation: header-button .4s ease-in-out;
-          }
-        }
-      }
-    }
-
-    @keyframes header-button {
-      0% {
-        background-position: left 19px top 13px;
-      }
-      60% {
-        background-position: left 19px top 7px;
-      }
-      100% {
-        background-position: left 19px top 13px;
-      }
-    }
-
-    .header-nav-btn {
-      transition: color .3s ease;
-
-      &:hover {
-        color: var(--color-baby-pink);
-
-        &::after {
-          background-color: var(--color-baby-pink);
-        }
-      }
-
-      &::after {
-        transition: background-color .3s ease;
-      }
-    }
-
-    .header-cta-button-pc {
-      a {
-        transition: background-color .3s ease;
-
-        &:hover {
-          background-color: #84b759;
-          animation: header-cta-button .4s ease-in-out;
-        }
-      }
-
-      @keyframes header-cta-button {
-        0% {
-          background-position: center top 11px;
-        }
-        60% {
-          background-position: center top 5px;
-        }
-        100% {
-          background-position: center top 11px;
-        }
-      }
-    }
-  }
-
   @media screen and (max-width: 1149px) {
     .header {
       font-size: 16px;
@@ -731,6 +655,92 @@ const isTopPage = Astro.url.pathname === "/";
       top: 49px;
       right: -100%;
       padding: 28px 27px 120px 28px;
+    }
+  }
+
+  // hover action
+  @media (any-hover: hover) {
+    .header-nav-item {
+      a {
+        transition: color .3s ease;
+
+        &:hover {
+          color: var(--color-baby-pink);
+        }
+      }
+
+      &--parents,
+      &--mi-shuen-ji {
+        a {
+          transition: background-color .3s ease;
+
+          &:hover {
+            background-color: var(--color-btn-hover);
+            color: var(--color-main);
+            animation: header-button .4s ease-in-out;
+          }
+
+          @media screen and (max-width: 1149px) {
+            transition: color .3s ease;
+
+            &:hover {
+              background-color: transparent;
+              color: var(--color-baby-pink);
+            }
+          }
+        }
+      }
+    }
+
+    @keyframes header-button {
+      0% {
+        background-position: left 19px top 13px;
+      }
+      60% {
+        background-position: left 19px top 7px;
+      }
+      100% {
+        background-position: left 19px top 13px;
+      }
+    }
+
+    .header-nav-btn {
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--color-baby-pink);
+
+        &::after {
+          background-color: var(--color-baby-pink);
+        }
+      }
+
+      &::after {
+        transition: background-color .3s ease;
+      }
+    }
+
+    .header-cta-button-pc {
+      a {
+        transition: background-color .3s ease;
+
+        &:hover {
+          background-color: #84b759;
+          animation: header-cta-button .4s ease-in-out;
+        }
+      }
+
+      @keyframes header-cta-button {
+        0% {
+          background-position: center top 11px;
+        }
+        60% {
+          background-position: center top 5px;
+        }
+        100% {
+          background-position: center top 11px;
+        }
+      }
     }
   }
 </style>

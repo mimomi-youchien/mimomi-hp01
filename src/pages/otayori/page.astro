@@ -25,10 +25,16 @@ import Cta from "../../components/Cta.astro";
           />
         </div><!-- /.otayori-list-head-title -->
         <div class="otayori-list-head-content">
-          <div class="otayori-list-head-text">
-            <p class="otayori-list-head-paragraph">園だよりではこの文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>この文章はダミーです。</p>
-            <p class="otayori-list-head-paragraph">文字の大きさ、量、字間、行間等を確認するために入れています。<br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
-          </div><!-- /.otayori-list-head-text -->
+          <div class="otayori-list-head-description">
+            <div class="otayori-list-head-text">
+              <p class="otayori-list-head-paragraph">園だより」は、毎月の行事や活動予定、配布物、大切なお知らせやお願いごとなどをまとめたお便りです。</p>
+              <p class="otayori-list-head-paragraph">必要なときにすぐご確認いただけるよう、ホームページにも掲載しております。</p>
+              <p class="otayori-list-head-paragraph">毎月、月末に更新予定です。</p>
+            </div><!-- /.otayori-list-head-text -->
+            <div class="otayori-list-head-button">
+              <a href="" class="faq-link faq-link--otayori">今月の園だよりを見る</a>
+            </div><!-- /.otayori-list-head-button -->
+          </div><!-- /.otayori-list-head-description -->
           <div class="otayori-list-head-image">
             <img src="/assets/images/global/image-dummy@2x.webp" alt="No Image" loading="eager" decoding="async" width="537" height="380">
           </div><!-- /.otayori-list-head-image -->
@@ -36,7 +42,7 @@ import Cta from "../../components/Cta.astro";
       </div><!-- /.otayori-list-head -->
       <ul class="otayori-list-category-filter">
         <li class="otayori-list-category-filter-item">
-          <a href="" class="is-active">全クラス</a>
+          <a href="" class="is-active">すべて</a>
         </li>
         <li class="otayori-list-category-filter-item">
           <a href="">年少クラス</a>
@@ -91,13 +97,26 @@ import Cta from "../../components/Cta.astro";
     line-height: 1.5;
   }
 
-  .otayori-list-head-text {
+  .otayori-list-head-description {
 
+  }
+
+  .otayori-list-head-text {
+    display: grid;
+    gap: 1em;
   }
 
   .otayori-list-head-paragraph {
 
   }
+
+  .otayori-list-head-button {
+    padding-right: 20px;
+    margin-top: 20px;
+    text-align: right;
+    // .otayori-list-head-button .faq-linkは_faq-item.scssでスタイリング
+  }
+
 
   .otayori-list-head-image {
 
@@ -124,8 +143,8 @@ import Cta from "../../components/Cta.astro";
 
       &.is-active {
         color: var(--color-base);
-        background-color: var(--color-blue);
         border-color: var(--color-blue);
+        background-color: var(--color-blue);
       }
     }
   }
@@ -166,9 +185,14 @@ import Cta from "../../components/Cta.astro";
     }
 
     .otayori-list-head-content {
-      flex-direction: row;
+      flex-direction: row-reverse;
+      align-items: center;
       gap: 30px;
       margin-top: 30px;
+    }
+
+    .otayori-list-head-description {
+
     }
 
     .otayori-list-head-text {
@@ -178,6 +202,12 @@ import Cta from "../../components/Cta.astro";
     .otayori-list-head-paragraph {
 
     }
+
+    .otayori-list-head-button {
+      padding-right: 28px;
+      // .otayori-list-head-button .faq-linkは_faq-item.scssでスタイリング
+    }
+
 
     .otayori-list-head-image {
 
@@ -205,5 +235,18 @@ import Cta from "../../components/Cta.astro";
       margin-top: 120px;
     }
   }
-</style>
 
+  @media (any-hover: hover) {
+    .otayori-list-category-filter-item {
+      a {
+        transition: color .3s ease, border-color .3s ease, background-color .3s ease;
+
+        &:hover {
+          color: var(--color-base);
+          border-color: var(--color-blue);
+          background-color: var(--color-blue);
+        }
+      }
+    }
+  }
+</style>

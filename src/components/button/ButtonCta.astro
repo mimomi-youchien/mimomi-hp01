@@ -111,7 +111,12 @@ const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
         }
       }
 
-      &--recruitment,
+      &--recruitment {
+        &:hover {
+          background-color: #65472d;
+        }
+      }
+
       &--tel {
         &:hover {
           background-color: #65472d;

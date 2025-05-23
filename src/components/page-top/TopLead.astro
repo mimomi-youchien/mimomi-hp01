@@ -2,7 +2,7 @@
 import ButtonCta from "../button/ButtonCta.astro"
 ---
 
-<section class="top-lead">
+<section class="top-lead fade-in-up fade-in-up--delay-8">
   <div class="top-lead-container l-container-s">
     <h2 class="top-lead-title">豊かな緑に囲まれた広い敷地で、<br>のびのびと過ごせる幼稚園</h2>
     <div class="l-section-body">
@@ -57,12 +57,7 @@ import ButtonCta from "../button/ButtonCta.astro"
     }
   }
 
-  .top-lead-container {
-    // max-width: 480px;
-  }
-
   .top-lead-title {
-    // margin-top: 57px;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.185em;
@@ -106,22 +101,18 @@ import ButtonCta from "../button/ButtonCta.astro"
 
   @include mq() {
     .top-lead {
-      padding-top: 117px;
+      padding-top: 138px;
       padding-bottom: 120px;
 
       &::before {
-        // width: 682px;
         width: clamp(546px, calc(682 var(--vw-pc)), 682px);
-        // height: 612px;
         height: clamp(490px, calc(612 var(--vw-pc)), 612px);
         top: -182px;
         right: -211px;
       }
 
       &::after {
-        // width: 690px;
         width: clamp(552px, calc(690 var(--vw-pc)), 690px);
-        // height: 725px;
         height: clamp(580px, calc(725 var(--vw-pc)), 725px);
         bottom: 18px;
         left: -278px;

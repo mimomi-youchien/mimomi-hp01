@@ -81,6 +81,10 @@
     bottom: -1px;
     left: 0;
   }
+
+  &--otayori {
+    margin: 0;
+  }
 }
 
 @include mq() {
@@ -129,6 +133,10 @@
     &::after {
       width: calc(100% - 7px);
       bottom: 5px;
+    }
+
+    &--otayori {
+      margin: 0;
     }
   }
 }

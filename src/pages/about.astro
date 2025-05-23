@@ -29,7 +29,6 @@ import Cta from "../components/Cta.astro";
 
     <main class="about-main l-section-body">
       <div class="l-container-s">
-
         <!-- about-lead -->
         <div class="about-lead js-load-fade-in" id="philosophy">
           <AboutLead />
@@ -39,12 +38,14 @@ import Cta from "../components/Cta.astro";
         <div class="about-philosophy js-fade-in">
           <AboutPhilosophy />
         </div><!-- /.about-philosophy -->
+      </div><!-- /.l-container-s -->
 
-        <!-- about-kyushoku -->
-        <div class="about-kyushoku js-fade-in" id="kyushoku">
-          <AboutKyushoku />
-        </div><!-- /.about-kyushoku -->
+      <!-- about-kyushoku -->
+      <div class="about-kyushoku js-fade-in" id="kyushoku">
+        <AboutKyushoku />
+      </div><!-- /.about-kyushoku -->
 
+      <div class="l-container-s">
         <!-- about-bus -->
         <div class="about-bus js-fade-in" id="bus">
           <AboutBus />
@@ -96,29 +97,29 @@ import Cta from "../components/Cta.astro";
   }
 
   // about-kyushoku
-  .about-kyushoku {
-    position: relative;
+  // .about-kyushoku {
+  //   position: relative;
 
-    &::before {
-      content: "";
-      width: 800px;
-      height: 1280px;
-      background-image: url(/assets/images/about/page-about/kyushoku/bg-about-kyushoku-sp@2x.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center;
-      position: absolute;
-      top: -172px;
-      left: 50%;
-      z-index: -1;
-      translate: -50%;
+  //   &::before {
+  //     content: "";
+  //     width: 800px;
+  //     height: 1280px;
+  //     background-image: url(/assets/images/about/page-about/kyushoku/bg-about-kyushoku-sp.svg);
+  //     background-repeat: no-repeat;
+  //     background-size: contain;
+  //     background-position: center center;
+  //     position: absolute;
+  //     top: -172px;
+  //     left: 50%;
+  //     z-index: -1;
+  //     translate: -50%;
 
-      @include mq() {
-        width: 2000px;
-        height: 1562px;
-        background-image: url(/assets/images/about/page-about/kyushoku/bg-about-kyushoku-pc@2x.svg);
-        top: -219px;
-      }
-    }
-  }
+  //     @include mq() {
+  //       width: 2000px;
+  //       height: 1562px;
+  //       background-image: url(/assets/images/about/page-about/kyushoku/bg-about-kyushoku-pc.svg);
+  //       top: -219px;
+  //     }
+  //   }
+  // }
 </style>

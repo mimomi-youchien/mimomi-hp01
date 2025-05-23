@@ -134,7 +134,7 @@ const { logo } = Astro.props;
     padding-top: 40px;
     height: 325px;
     margin-top: 60px;
-    font-size: 10px;
+    font-size: clamp(11px, calc(12 var(--vw-sp)), 12px);
     line-height: 1.5;
     position: relative;
     overflow: hidden;
@@ -164,7 +164,7 @@ const { logo } = Astro.props;
   }
 
   .footer-location {
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .footer-tel {
@@ -182,11 +182,9 @@ const { logo } = Astro.props;
         content: "";
         width: 12px;
         height: 12px;
-        background-image: url(/assets/images/global/icon-tel.svg);
+        background-image: url(/assets/images/global/icon-phone-brown.svg);
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center center;
-        filter: invert(38%) sepia(35%) saturate(640%) hue-rotate(347deg) brightness(92%) contrast(86%);
       }
     }
   }
@@ -202,7 +200,8 @@ const { logo } = Astro.props;
   .footer-line-link {
     display: flex;
     gap: 10px;
-    margin-top: 5px;
+    gap: calc(10 var(--vw-sp));
+    margin-top: 8px;
   }
 
   .footer-privacy-policy {
@@ -210,7 +209,8 @@ const { logo } = Astro.props;
       display: block;
       width: fit-content;
       padding: 5px 0;
-      margin-top: 5px;
+      margin-top: 3px;
+      font-size: 10px;
     }
   }
 
@@ -247,7 +247,7 @@ const { logo } = Astro.props;
     }
 
     .footer-info {
-      font-size: 12px;
+      font-size: 14px;
     }
 
     .footer-logo {
@@ -277,11 +277,32 @@ const { logo } = Astro.props;
     .footer-line-link {
       gap: 24px;
     }
+
+    .footer-privacy-policy {
+      a {
+        font-size: 12px;
+      }
+    }
+
+    .footer-copyright {
+      small {
+        font-size: 12px;
+      }
+    }
   }
 
   @media screen and (min-width: 1025px) {
+    // タブレット横向き(1024px)まで電話発信有効
+    .footer-tel {
+      text-decoration: none;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  @media screen and (min-width: 1030px) {
     .footer {
-      padding-top: 133px;
+      padding-top: 122px;
       height: 590px;
 
       &::before {
@@ -299,37 +320,12 @@ const { logo } = Astro.props;
     }
 
     .footer-info {
-      // font-size: 12px;
+      font-size: 12px;
       margin-top: 5px;
-    }
-
-    .footer-logo {
-      // max-width: 172px;
-    }
-
-    .footer-location {
-      // margin-top: 20px;
-    }
-
-    .footer-tel {
-      // タブレット横向き(1024px)まで電話発信有効
-      @media screen and (min-width: 1025px) {
-        text-decoration: none;
-        pointer-events: none;
-        cursor: default;
-      }
-    }
-
-    .footer-line {
-      // margin-top: 15px;
     }
 
     .footer-line-link {
       gap: 20px;
-    }
-
-    .footer-line-item {
-
     }
 
     .footer-privacy-policy {
@@ -371,7 +367,7 @@ const { logo } = Astro.props;
       a span {
         display: none;
 
-        @media screen and (min-width: 1101px) {
+        @media screen and (min-width: 1120px) {
           display: inline;
         }
       }
@@ -381,10 +377,6 @@ const { logo } = Astro.props;
       display: grid;
       gap: 10px;
       margin-top: 10px;
-    }
-
-    .footer-sub-menus-item {
-
     }
 
     .footer-copyright {
@@ -399,7 +391,7 @@ const { logo } = Astro.props;
       }
 
       small {
-        font-size: 10px;
+        font-size: 12px;
       }
     }
   }

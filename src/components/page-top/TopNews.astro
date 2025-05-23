@@ -21,63 +21,79 @@ const top3Posts = allNews.contents
 ---
 
 <section class="top-news">
-  <div class="top-news-container l-container-s">
-    <div class="top-news-title">
-      <SectionTitle title1="お知らせ" />
-    </div><!-- /.top-news-title -->
-    <p class="top-news-lead">
-      園児の日々の様子や<br class="u-no-pc">イベントごとをお届けしています！
-    </p>
-    <ul class="top-news-list">
-      {
-        top3Posts.map((item) => (
-          <li class="top-news-item">
-            <BlogCard
-              id={item.id}
-              title={item.title}
-              thumbnail={item.thumbnail?.url}
-              thumbnailAlt={item.thumbnailAlt}
-              customDate={item.customDate}
-              publishedAt={item.publishedAt}
-              category={item.category}
-            />
-          </li>
-        ))
-      }
-    </ul>
-    <div class="top-introduction-button">
-      <ButtonLink
-        buttonText="お知らせ一覧へ"
-        ButtonHref="/news/1"
-      />
-    </div><!-- /.top-introduction-button -->
-  </div><!-- /.top-news-container.l-container-s -->
+  <div class="top-news-body">
+    <div class="top-news-container l-container-s">
+      <div class="top-news-title">
+        <SectionTitle title1="お知らせ" />
+      </div><!-- /.top-news-title -->
+      <p class="top-news-lead">
+        園児の日々の様子や<br class="u-no-pc">イベントごとをお届けしています！
+      </p>
+      <ul class="top-news-list">
+        {
+          top3Posts.map((item) => (
+            <li class="top-news-item">
+              <BlogCard
+                id={item.id}
+                title={item.title}
+                thumbnail={item.thumbnail?.url}
+                thumbnailAlt={item.thumbnailAlt}
+                customDate={item.customDate}
+                publishedAt={item.publishedAt}
+                category={item.category}
+              />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="top-introduction-button">
+        <ButtonLink
+          buttonText="お知らせ一覧へ"
+          ButtonHref="/news/1"
+        />
+      </div><!-- /.top-introduction-button -->
+    </div><!-- /.top-news-container.l-container-s -->
+  </div><!-- top-news-body -->
 </section><!-- /.top-news -->
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
 
   .top-news {
-    padding: 83px 0 83px;
-    margin-top: 37px;
+    padding: 73px 0 76px;
+    margin-top: 47px;
     line-height: 1.5;
     position: relative;
     overflow: hidden;
 
+    &::before,
     &::after {
       content: "";
       width: 800px;
-      height: 600px;
-      background-image: url(/assets/images/news/bg-news-sp.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center center;
       position: absolute;
-      top: 0;
       left: 50%;
       z-index: -1;
       translate: -50%;
     }
+
+    &::before {
+      height: 75px;
+      background-image: url(/assets/images/news/bg-news-sp-top.svg);
+      top: 0;
+    }
+
+    &::after {
+      height: 78px;
+      background-image: url(/assets/images/news/bg-news-sp-bottom.svg);
+      bottom: 0;
+    }
+  }
+
+  .top-news-body {
+    background-color: #f6f2ee;
   }
 
   .top-news-lead {
@@ -105,16 +121,26 @@ const top3Posts = allNews.contents
 
   @include mq() {
     .top-news {
-      padding: 130px 0 130px;
-      margin-top: 110px;
+      max-width: 2000px;
+      padding: 130px 0 131px;
+      margin: 110px auto 0;
+
+      &::before,
+      &::after {
+        width: 2000px;
+      }
+
+      &::before {
+        height: 132px;
+        background-image: url(/assets/images/news/bg-news-pc-top.svg);
+      }
 
       &::after {
-        content: "";
-        width: 2000px;
-        height: 1000px;
-        background-image: url(/assets/images/news/bg-news-pc.svg);
+        height: 133px;
+        background-image: url(/assets/images/news/bg-news-pc-bottom.svg);
       }
     }
+
 
     .top-news-list {
       margin-top: 40px;

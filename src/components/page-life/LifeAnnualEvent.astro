@@ -2,7 +2,7 @@
 import SectionTitle from "../SectionTitle.astro";
 ---
 
-<section class="life-annual-event l-section">
+<section class="life-annual-event">
   <div class="life-annual-event-title">
     <SectionTitle
       title1="年間行事"
@@ -126,6 +126,7 @@ import SectionTitle from "../SectionTitle.astro";
   @use '../../styles/breakpoints' as *;
 
   .life-annual-event {
+    padding-top: 28px;
     line-height: 1.5;
   }
 
@@ -192,6 +193,10 @@ import SectionTitle from "../SectionTitle.astro";
   }
 
   @include mq() {
+    .life-annual-event {
+      padding-top: 52px;
+    }
+
     .life-annual-event-list {
       gap: 40px;
       max-width: initial;

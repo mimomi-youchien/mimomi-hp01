@@ -23,9 +23,8 @@ import Cta from "../components/Cta.astro";
       />
     </div><!-- /.mi-shuen-ji-kv -->
 
-    <main class="mi-shuen-ji-main l-section-body">
+    <main class="mi-shuen-ji-main l-section-body js-load-fade-in">
       <div class="l-container-s">
-
         <!-- msj-about -->
         <section class="msj-about">
           <div class="msj-about-title">
@@ -71,7 +70,7 @@ import Cta from "../components/Cta.astro";
         </section>
 
         <!-- msj-overview -->
-        <section class="msj-overview">
+        <section class="msj-overview js-fade-in">
           <div class="msj-overview-title">
             <SectionTitle
               title1="リトルぴよちゃん教室と"
@@ -104,7 +103,7 @@ import Cta from "../components/Cta.astro";
               <dd class="msj-overview-dd">
                 <p class="msj-overview-text">
                   <span class="msj-overview-head">リトルぴよちゃん教室(1歳児)</span>
-                  <span class="msj-overview-description">水曜日(月2回・1回60分)</span>
+                  <span class="msj-overview-description">水曜日(月2回・1回60分) 11:00~12:00</span>
                 </p>
                 <p class="msj-overview-text">
                   <span class="msj-overview-head">ぴよちゃん教室(2歳児)</span>
@@ -156,7 +155,12 @@ import Cta from "../components/Cta.astro";
               <dt class="msj-overview-dt msj-overview-dt--maintenance-cost">施設維持費</dt>
               <dd class="msj-overview-dd">
                 <p class="msj-overview-text">
-                  <span class="msj-overview-head">ぴよちゃん教室(2歳児)のみ</span>
+                  <span class="msj-overview-head">リトルぴよちゃん教室(1歳児)</span>
+                  <span class="msj-overview-description">税込1,500円</span>
+                  <small class="msj-overview-note">※初回のみ徴収させていただきます。</small>
+                </p>
+                <p class="msj-overview-text">
+                  <span class="msj-overview-head">ぴよちゃん教室(2歳児)</span>
                   <span class="msj-overview-description">
                     <span>月2回コース：税込2,000円</span>
                     <span>月3回コース：税込3,000円</span>
@@ -211,7 +215,7 @@ import Cta from "../components/Cta.astro";
         </section>
 
         <!-- msj--visit -->
-        <section class="msj-visit">
+        <section class="msj-visit js-fade-in">
           <div class="msj-visit-title">
             <SectionTitle
               title1="見学・無料体験について"
@@ -283,9 +287,6 @@ import Cta from "../components/Cta.astro";
   }
 
   // mi-shuen-ji-about
-  .msj-about {
-  }
-
   .msj-about-title {
     display: flex;
     flex-direction: column;
