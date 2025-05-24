@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="習志野市の幼稚園｜みもみ幼稚園｜プライバシーポリシー"
+  title="プライバシーポリシー｜習志野市の幼稚園｜みもみ幼稚園"
   ogType="website"
   description="習志野市のみもみ幼稚園のプライバシーポリシーについてご案内します。個人情報の取り扱いに関する方針をご確認ください。"
   noIndex="true"
@@ -112,6 +112,7 @@ import Layout from "../layouts/Layout.astro";
   @use '../styles/breakpoints' as *;
 
   .privacy-policy-main {
+    padding-bottom: 60px;
     margin-top: calc(48px + 60px);
     text-align: justify;
     line-height: 1.5;
@@ -207,6 +208,7 @@ import Layout from "../layouts/Layout.astro";
 
   @include mq() {
     .privacy-policy-main {
+      padding-bottom: 120px;
       margin-top: calc(100px + 80px);
     }
 

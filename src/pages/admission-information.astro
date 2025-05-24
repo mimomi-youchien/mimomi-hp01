@@ -6,7 +6,7 @@ import Cta from "../components/Cta.astro";
 ---
 
 <Layout
-  title="習志野市の幼稚園｜みもみ幼稚園｜入園案内｜手続き費・保育料のご案内"
+  title="入園案内 - 手続き費・保育料のご案内｜習志野市の幼稚園｜みもみ幼稚園"
   ogType="website"
   description="習志野市のみもみ幼稚園の入園手続き費や毎月の保育料などをわかりやすく紹介しています。見学は随時受付中、公式LINEからのお問い合わせも可能です。お気軽にご相談ください。"
   noIndex="true"
@@ -140,6 +140,14 @@ import Cta from "../components/Cta.astro";
     margin-top: 48px;
   }
 
+  .admission-info-main {
+    padding-bottom: 60px;
+    background-image: url(/assets/images/admission-info/bg-admission-info-sp@2x.png);
+    background-repeat: no-repeat;
+    background-size: 800px 1326px;
+    background-position: left 50.6% top -84px;
+  }
+
   .admission-info-content {
     display: grid;
     gap: 20px;
@@ -192,13 +200,21 @@ import Cta from "../components/Cta.astro";
   }
 
   .admission-info-cta {
-    margin-top: 60px;
+    // margin-top: 60px;
   }
 
   @include mq() {
     .admission-info-kv {
       margin-top: 100px;
     }
+
+    .admission-info-main {
+    padding-bottom: 120px;
+    background-image: url(/assets/images/admission-info/bg-admission-info-pc@2x.png);
+    background-repeat: no-repeat;
+    background-size: 2000px 1468px;
+    background-position: left 50% top 13px;
+  }
 
     .admission-info-content {
       display: grid;
@@ -246,7 +262,7 @@ import Cta from "../components/Cta.astro";
     }
 
     .admission-info-cta {
-      margin-top: 120px;
+      // margin-top: 120px;
     }
   }
 </style>

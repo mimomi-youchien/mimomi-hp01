@@ -6,7 +6,7 @@ import ButtonCta from "../components/button/ButtonCta.astro";
 ---
 
 <Layout
-  title="習志野市の幼稚園｜みもみ幼稚園｜採用情報"
+  title="採用情報｜習志野市の幼稚園｜みもみ幼稚園"
   ogType="website"
   description="習志野市のみもみ幼稚園は、豊かな自然の中で子ども達の考える力を育てるための仲間を募集しています。リクルート専用の公式LINEよりご質問・ご相談を受付中。時短勤務も可能です。"
   noIndex="true"
@@ -53,9 +53,45 @@ import ButtonCta from "../components/button/ButtonCta.astro";
 <style lang="scss">
   @use '../styles/breakpoints' as *;
 
+  .recruitment {
+    padding-bottom: 60px;
+    overflow: hidden;
+  }
+
   .recruitment-kv {
     padding-top: 20px;
     margin-top: 48px;
+  }
+
+  .recruitment-main {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+      translate: -50%;
+    }
+
+    &::before {
+      width: calc(224 var(--vw-sp));
+      height: calc(201 var(--vw-sp));
+      background-image: url(/assets/images/global/dec-laurel-01.svg);
+      top: calc(-95 var(--vw-sp));
+      left: calc(50% + calc(156 var(--vw-sp)));
+    }
+
+    &::after {
+      width: calc(227 var(--vw-sp));
+      height: calc(238 var(--vw-sp));
+      background-image: url(/assets/images/global/dec-laurel-02.svg);
+      bottom: calc(-25 var(--vw-sp));
+      left: calc(50% - calc(154 var(--vw-sp)));
+    }
   }
 
   .recruitment-lead {
@@ -116,8 +152,28 @@ import ButtonCta from "../components/button/ButtonCta.astro";
   }
 
   @include mq() {
+    .recruitment {
+      padding-bottom: 120px;
+    }
+
     .recruitment-kv {
       margin-top: 100px;
+    }
+
+    .recruitment-main {
+      &::before {
+        width: min(682px, calc(682 var(--vw-pc)));
+        height: min(612px, calc(612 var(--vw-pc)));
+        top: max(-279px, calc(-279 var(--vw-pc)));
+        left: min(calc(50% + 539px), calc(50% + calc(539 var(--vw-pc))));
+      }
+
+      &::after {
+        width: min(690px, calc(690 var(--vw-pc)));
+        height: min(725px, calc(725 var(--vw-pc)));
+        bottom: max(-163px, calc(-163 var(--vw-pc)));
+        left: max(calc(50% - 536px), calc(50% - calc(536 var(--vw-pc))));
+      }
     }
 
     .recruitment-lead {
