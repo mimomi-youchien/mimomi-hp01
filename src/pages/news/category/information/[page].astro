@@ -85,19 +85,25 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
       </div><!-- /.news-list-category-filter -->
       <ul class="news-list-list">
         {
-          posts.map((item) => (
+          posts.length > 0 ? (
+            posts.map((item) => (
+              <li class="news-list-item">
+                <BlogCard
+                  id={item.id}
+                  title={item.title}
+                  thumbnail={item.thumbnail?.url}
+                  thumbnailAlt={item.thumbnailAlt}
+                  customDate={item.customDate}
+                  publishedAt={item.publishedAt}
+                  category={item.category}
+                />
+              </li>
+            ))
+          ) : (
             <li class="news-list-item">
-              <BlogCard
-                id={item.id}
-                title={item.title}
-                thumbnail={item.thumbnail?.url}
-                thumbnailAlt={item.thumbnailAlt}
-                customDate={item.customDate}
-                publishedAt={item.publishedAt}
-                category={item.category}
-              />
+              <p>現在、表示できる記事がありません。</p>
             </li>
-          ))
+          )
         }
       </ul>
       <div class="news-list-pagination">
