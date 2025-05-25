@@ -29,11 +29,14 @@ import Cta from "../components/Cta.astro";
         <section class="msj-about">
           <div class="msj-about-title">
             <span class="msj-about-title-lead">幼稚園入園前のお子様の為の</span>
-            <SectionTitle
-              title1="「リトルぴよちゃん教室」と"
-              title2="「ぴよちゃん教室」"
-              titleClass="c-section-title c-section-title--ls-narrow"
-            />
+            <div class="msj-about-title-sp">
+              <SectionTitle
+                title1="「リトルぴよちゃん教室」と"
+                title2="「ぴよちゃん教室」"
+                titleClass="c-section-title c-section-title--ls-narrow"
+              />
+            </div><!-- /.msj-about-title-sp -->
+            <h2 class="msj-about-title-pc">「リトルぴよちゃん教室」と「ぴよちゃん教室」</h2>
           </div><!-- /.msj-about-title -->
           <div class="msj-about-list">
             <div class="msj-about-item">
@@ -301,6 +304,10 @@ import Cta from "../components/Cta.astro";
     letter-spacing: .2em;
   }
 
+  .msj-about-title-pc {
+    display: none;
+  }
+
   .msj-about-list {
     display: grid;
     gap: 30px;
@@ -370,6 +377,17 @@ import Cta from "../components/Cta.astro";
   @include mq() {
     .msj-about-title-lead {
       font-size: 20px;
+    }
+
+    .msj-about-title-sp {
+      display: none;
+    }
+
+    .msj-about-title-pc {
+      display: block;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: .065em;
     }
 
     .msj-about-list {
