@@ -2,8 +2,8 @@
 import Layout from "../../../../layouts/Layout.astro";
 import PageKv from "../../../../components/PageKv.astro";
 import NewsCategoryList from "../../../../components/blog/NewsCategoryList.astro";
-import BlogCard from "../../../../components/blog/BlogCard.astro";
-import Pagination from "../../../../components/blog/Pagination.astro"
+import NewsCard from "../../../../components/blog/NewsCard.astro";
+import NewsPagination from "../../../../components/blog/NewsPagination.astro"
 import Cta from "../../../../components/Cta.astro";
 import type { GetStaticPathsOptions } from 'astro';
 import { CATEGORY_MAP } from "../../../../library/categories";
@@ -88,7 +88,7 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
           posts.length > 0 ? (
             posts.map((item) => (
               <li class="news-list-item">
-                <BlogCard
+                <NewsCard
                   id={item.id}
                   title={item.title}
                   thumbnail={item.thumbnail?.url}
@@ -107,7 +107,7 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
         }
       </ul>
       <div class="news-list-pagination">
-        <Pagination
+        <NewsPagination
           currentPage={page.currentPage}
           lastPage={page.lastPage}
           category="information"

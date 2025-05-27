@@ -125,6 +125,36 @@ export const getOtayori = async (queries?: MicroCMSQueries) => {
   return await client.get<OtayoriResponse>({ endpoint: "otayori", queries });
 };
 
+// 100件以上の全件取得（ページネーションで複数回リクエスト）
+export const getAllOtayori = async (queries?: MicroCMSQueries): Promise<OtayoriResponse> => {
+  const limit = 100;
+  let offset = 0;
+  let allContents: Otayori[] = [];
+  let totalCount = 0;
+
+  do {
+    const res = await client.get<OtayoriResponse>({
+      endpoint: "otayori",
+      queries: {
+        ...queries,
+        limit,
+        offset,
+      },
+    });
+
+    allContents = allContents.concat(res.contents);
+    totalCount = res.totalCount;
+    offset += limit;
+  } while (offset < totalCount);
+
+  return {
+    totalCount,
+    offset: 0,
+    limit: allContents.length,
+    contents: allContents,
+  };
+};
+
 // 特定のブログ記事取得
 export const getOtayoriDetail = async (
   contentId: string,

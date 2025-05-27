@@ -1,6 +1,6 @@
 ---
 import SectionTitle from "../SectionTitle.astro";
-import BlogCard from "../blog/BlogCard.astro";
+import NewsCard from "../blog/NewsCard.astro";
 import ButtonLink from "../button/ButtonLink.astro";
 import { getNews } from "../../library/microcms";
 
@@ -33,7 +33,7 @@ const top3Posts = allNews.contents
         {
           top3Posts.map((item) => (
             <li class="top-news-item">
-              <BlogCard
+              <NewsCard
                 id={item.id}
                 title={item.title}
                 thumbnail={item.thumbnail?.url}

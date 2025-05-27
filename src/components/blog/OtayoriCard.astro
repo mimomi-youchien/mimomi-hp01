@@ -21,9 +21,9 @@ const machineReadableDate = toMachineDate(rawDate);
 const altText = thumbnailAlt || "ブログのサムネイル画像";
 ---
 
-<article class="c-blog-card">
-  <a href={`/news/${id}`} class="c-blog-card-link" aria-label={`ブログ記事: ${title}`}>
-    <div class="c-blog-card-image">
+<article class="c-otayori-card">
+  <a href={`/otayori/${id}`} class="c-otayori-card-link" aria-label={`おたより: ${title}`}>
+    <div class="c-otayori-card-image">
       <img
         src={`${thumbnail}?fm=webp`}
         alt={altText}
@@ -32,45 +32,45 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
         width="250"
         height="160"
       >
-    </div><!-- /.c-blog-card-image -->
-    <div class="c-blog-card-content">
-      <span class="c-blog-card-meta">
-        <span class="c-blog-card-category">{category}</span>
-        <time class="c-blog-card-date" datetime={machineReadableDate}>{formattedDate}</time>
+    </div><!-- /.c-otayori-card-image -->
+    <div class="c-otayori-card-content">
+      <span class="c-otayori-card-meta">
+        <span class="c-otayori-card-category">{category}</span>
+        <time class="c-otayori-card-date" datetime={machineReadableDate}>{formattedDate}</time>
       </span>
-      <p class="c-blog-card-post-title">{title}</p>
-    </div><!-- /.c-blog-card-content -->
+      <p class="c-otayori-card-post-title">{title}</p>
+    </div><!-- /.c-otayori-card-content -->
   </a>
 </article>
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
 
-  .c-blog-card-link {
+  .c-otayori-card-link {
     display: flex;
     align-items: center;
     gap: min(20px, calc(20 var(--vw-sp)));
     line-height: 1;
   }
 
-  .c-blog-card-image {
+  .c-otayori-card-image {
     flex: 0 0 100px;
   }
 
-  .c-blog-card-content {
+  .c-otayori-card-content {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
-  .c-blog-card-meta {
+  .c-otayori-card-meta {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .c-blog-card-category {
+  .c-otayori-card-category {
     padding: 3px 9px;
     border-radius: 3px;
     border: 1px solid;
@@ -81,7 +81,7 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
     }
   }
 
-  .c-blog-card-date {
+  .c-otayori-card-date {
     font-size: 10px;
     font-weight: 700;
 
@@ -90,7 +90,7 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
     }
   }
 
-  .c-blog-card-post-title {
+  .c-otayori-card-post-title {
     font-size: 12px;
     font-weight: 700;
     line-height: 1.2;
@@ -101,35 +101,35 @@ const altText = thumbnailAlt || "ブログのサムネイル画像";
   }
 
   @include mq() {
-    .c-blog-card-link {
+    .c-otayori-card-link {
       gap: 40px;
     }
 
-    .c-blog-card-image {
+    .c-otayori-card-image {
       flex: 0 0 250px;
     }
 
-    .c-blog-card-content {
+    .c-otayori-card-content {
       gap: 20px;
     }
 
-    .c-blog-card-meta {
+    .c-otayori-card-meta {
       gap: 40px;
       font-size: 14px;
     }
 
-    .c-blog-card-category {
+    .c-otayori-card-category {
       padding: 5px 19px;
     }
 
-    .c-blog-card-post-title {
+    .c-otayori-card-post-title {
       font-size: 16px;
       line-height: 1.5;
     }
   }
 
   @media (any-hover: hover) {
-    .c-blog-card {
+    .c-otayori-card {
       transition: color .3s ease;
 
       &:hover {
