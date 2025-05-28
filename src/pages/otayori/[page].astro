@@ -8,13 +8,14 @@ import OtayoriPagination from "../../components/blog/OtayoriPagination.astro"
 import Cta from "../../components/Cta.astro";
 import type { GetStaticPathsOptions } from 'astro';
 import { getAllOtayori } from "../../library/microcms";
-import { isAuthenticated } from "../../utils/auth";
+// import { isAuthenticated } from "../../utils/auth"; // ←これは削除
 
-// パスワード保護
-const authed = await isAuthenticated(Astro.cookies);
-if (!authed) {
-  return Astro.redirect(`/password?from=${Astro.url.pathname}`);
-}
+// パスワード保護（クライアントサイドでの認証チェックに変更）
+// ビルド時に認証を行う代わりに、ランタイムでチェックするように変更
+// const authed = await isAuthenticated(Astro.cookies);
+// if (!authed) {
+//   return Astro.redirect(`/password?from=${Astro.url.pathname}`);
+// }
 
 const { page } = Astro.props;
 
@@ -61,6 +62,19 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   description="このページはみもみ幼稚園の在園児保護者向けの情報共有ページです。閲覧にはパスワードが必要です。"
   noIndex="true"
 >
+  <script is:inline>
+    // クッキーから認証情報を取得
+    const authCookie = document.cookie.split('; ').find(row => row.startsWith('auth='));
+    // authクッキーが存在しない、または値が正しいパスワードではない場合、リダイレクト
+    // ここでは、パスワードのハッシュ値などを比較することが望ましいですが、
+    // 現在の認証方法に合わせて、ここでは単純にクッキーの存在を確認します。
+    // 厳密な認証が必要な場合は、サーバーサイドAPIでクッキーの値を検証するエンドポイントを作成し、
+    // fetch APIで確認するなどの方法を検討してください。
+    if (!authCookie) {
+      window.location.href = `/password?from=${encodeURIComponent(window.location.pathname)}`;
+    }
+  </script>
+
   <!-- otayori-list-kv -->
   <div class="otayori-list-kv">
     <OtayoriKv />
