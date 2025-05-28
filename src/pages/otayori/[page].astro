@@ -7,8 +7,14 @@ import OtayoriCard from "../../components/blog/OtayoriCard.astro";
 import OtayoriPagination from "../../components/blog/OtayoriPagination.astro"
 import Cta from "../../components/Cta.astro";
 import type { GetStaticPathsOptions } from 'astro';
-
 import { getAllOtayori } from "../../library/microcms";
+import { isAuthenticated } from "../../utils/auth";
+
+// パスワード保護
+const authed = await isAuthenticated(Astro.cookies);
+if (!authed) {
+  return Astro.redirect(`/password?from=${Astro.url.pathname}`);
+}
 
 const { page } = Astro.props;
 

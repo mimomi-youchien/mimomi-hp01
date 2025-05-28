@@ -166,3 +166,23 @@ export const getOtayoriDetail = async (
     queries,
   });
 };
+
+// password
+// password API用の型定義
+export type PasswordData = {
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  password: string;
+};
+
+// passwordの取得関数
+export const getPassword = async (queries?: MicroCMSQueries): Promise<PasswordData> => {
+  return await client.get<PasswordData>({
+    endpoint: "limited",
+    queries,
+  });
+};
+
+
