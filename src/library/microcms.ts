@@ -184,5 +184,3 @@ export const getPassword = async (queries?: MicroCMSQueries): Promise<PasswordDa
     queries,
   });
 };
-
-
