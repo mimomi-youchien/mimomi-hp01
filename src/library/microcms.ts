@@ -167,7 +167,7 @@ export const getOtayoriDetail = async (
   });
 };
 
-// password
+// 限定ページのパスワード
 // password API用の型定義
 export type PasswordData = {
   createdAt: string;

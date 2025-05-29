@@ -7,44 +7,38 @@ import OtayoriCard from "../../components/blog/OtayoriCard.astro";
 import OtayoriPagination from "../../components/blog/OtayoriPagination.astro"
 import Cta from "../../components/Cta.astro";
 import type { GetStaticPathsOptions } from 'astro';
+
 import { getAllOtayori } from "../../library/microcms";
 
-// Astro.locals から認証状態とエラーメッセージを取得
-const isAuthenticated = Astro.locals.isAuthenticated || false;
-const errorMessage = Astro.locals.errorMessage || '';
+const { page } = Astro.props;
 
-const { page } = Astro.props; // [page].astro の場合
+// 全件取得（ソート処理のため）
+const allPosts = await getAllOtayori({
+  fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
+  limit: 100,
+});
 
-// 認証済みの場合のみ、データ取得処理を実行
-let posts = [];
-if (isAuthenticated) {
-  // 全件取得（ソート処理のため）
-  const allPosts = await getAllOtayori({
-    fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
-    limit: 100,
-  });
+// ソート処理（customDate優先）
+const sortedPosts = allPosts.contents.sort((a, b) => {
+  const dateA = new Date(a.customDate || a.publishedAt);
+  const dateB = new Date(b.customDate || b.publishedAt);
+  return dateB.getTime() - dateA.getTime(); // 新しい順
+});
 
-  // ソート処理（customDate優先）
-  const sortedPosts = allPosts.contents.sort((a, b) => {
-    const dateA = new Date(a.customDate || a.publishedAt);
-    const dateB = new Date(b.customDate || b.publishedAt);
-    return dateB.getTime() - dateA.getTime(); // 新しい順
-  });
+// ページごとの投稿を取り出す
+const postsPerPage = 8;
+const start = (page.currentPage - 1) * postsPerPage;
+const end = start + postsPerPage;
+const posts = sortedPosts.slice(start, end);
 
-  // ページごとの投稿を取り出す
-  const postsPerPage = 8;
-  const start = (page.currentPage - 1) * postsPerPage;
-  const end = start + postsPerPage;
-  posts = sortedPosts.slice(start, end);
-}
-
-// 動的ルートの生成 (ミドルウェアの影響を受けないため、そのまま)
+// 動的ルートの生成
 export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   const allOtayori = await getAllOtayori({
     fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
     limit: 100,
   });
 
+  // 同様にソート
   const sorted = allOtayori.contents.sort((a, b) => {
     const dateA = new Date(a.customDate || a.publishedAt);
     const dateB = new Date(b.customDate || b.publishedAt);
@@ -61,74 +55,70 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   description="このページはみもみ幼稚園の在園児保護者向けの情報共有ページです。閲覧にはパスワードが必要です。"
   noIndex="true"
 >
-  {isAuthenticated ? (
-    <>
-      {/* ... ここに otayori-list-kv, main, Cta などのコードを配置 ... */}
-      <div class="otayori-list-kv">
-        <OtayoriKv />
-      </div><main class="otayori-list-main l-section-body">
-        <div class="l-container-s">
-          <div class="otayori-list-head">
-            <div class="otayori-list-head-title">
-              <SectionTitle
-              title1="今月の園だより"
-              />
-            </div><div class="otayori-list-head-content">
-              <div class="otayori-list-head-description">
-                <div class="otayori-list-head-text">
-                  <p class="otayori-list-head-paragraph">園だより」は、毎月の行事や活動予定、配布物、大切なお知らせやお願いごとなどをまとめたお便りです。</p>
-                  <p class="otayori-list-head-paragraph">必要なときにすぐご確認いただけるよう、ホームページにも掲載しております。</p>
-                  <p class="otayori-list-head-paragraph">毎月、月末に更新予定です。</p>
-                </div><div class="otayori-list-head-button">
-                  <a href="" class="faq-link faq-link--otayori">今月の園だよりを見る</a>
-                </div></div><div class="otayori-list-head-image">
-                <img src="/assets/images/global/image-dummy@2x.webp" alt="No Image" loading="eager" decoding="async" width="537" height="380">
-              </div></div></div><div class="otayori-list-category-filter">
-            <OtayoriCategoryList activeCategory="すべて" />
-          </div>
-          <ul class="otayori-list-list">
-            {
-              posts.length > 0 ? (
-                posts.map((item) => (
-                  <li class="otayori-list-item">
-                    <OtayoriCard
-                      id={item.id}
-                      title={item.title}
-                      thumbnail={item.thumbnail?.url}
-                      thumbnailAlt={item.thumbnailAlt}
-                      customDate={item.customDate}
-                      publishedAt={item.publishedAt}
-                      category={item.category}
-                    />
-                  </li>
-                ))
-              ) : (
-                <li class="otayori-list-item">
-                  <p>現在、表示できる記事がありません。</p>
-                </li>
-              )
-            }
-          </ul>
-          <div class="otayori-list-pagination">
-            <OtayoriPagination currentPage={page.currentPage} lastPage={page.lastPage} />
-          </div>
-        </div></main>
+  <!-- otayori-list-kv -->
+  <div class="otayori-list-kv">
+    <OtayoriKv />
+  </div><!-- /.otayori-list-kv -->
 
-      <div class="otayori-list-cta">
-        <Cta />
-      </div></>
-  ) : (
-    <div class="password-form-container">
-      <h1>保護者さま限定ページ</h1>
-      <p>このページを閲覧するにはパスワードが必要です。</p>
-      <form method="POST">
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password" required />
-        <button type="submit">送信</button>
-      </form>
-      {errorMessage && <p style="color: red;">{errorMessage}</p>}
-    </div>
-  )}
+  <main class="otayori-list-main l-section-body">
+    <div class="l-container-s">
+      <div class="otayori-list-head">
+        <div class="otayori-list-head-title">
+          <SectionTitle
+          title1="今月の園だより"
+          />
+        </div><!-- /.otayori-list-head-title -->
+        <div class="otayori-list-head-content">
+          <div class="otayori-list-head-description">
+            <div class="otayori-list-head-text">
+              <p class="otayori-list-head-paragraph">園だより」は、毎月の行事や活動予定、配布物、大切なお知らせやお願いごとなどをまとめたお便りです。</p>
+              <p class="otayori-list-head-paragraph">必要なときにすぐご確認いただけるよう、ホームページにも掲載しております。</p>
+              <p class="otayori-list-head-paragraph">毎月、月末に更新予定です。</p>
+            </div><!-- /.otayori-list-head-text -->
+            <div class="otayori-list-head-button">
+              <a href="" class="faq-link faq-link--otayori">今月の園だよりを見る</a>
+            </div><!-- /.otayori-list-head-button -->
+          </div><!-- /.otayori-list-head-description -->
+          <div class="otayori-list-head-image">
+            <img src="/assets/images/global/image-dummy@2x.webp" alt="No Image" loading="eager" decoding="async" width="537" height="380">
+          </div><!-- /.otayori-list-head-image -->
+        </div><!-- /.otayori-list-head-content -->
+      </div><!-- /.otayori-list-head -->
+      <div class="otayori-list-category-filter">
+        <OtayoriCategoryList activeCategory="すべて" />
+      </div>
+      <ul class="otayori-list-list">
+        {
+          posts.length > 0 ? (
+            posts.map((item) => (
+              <li class="otayori-list-item">
+                <OtayoriCard
+                  id={item.id}
+                  title={item.title}
+                  thumbnail={item.thumbnail?.url}
+                  thumbnailAlt={item.thumbnailAlt}
+                  customDate={item.customDate}
+                  publishedAt={item.publishedAt}
+                  category={item.category}
+                />
+              </li>
+            ))
+          ) : (
+            <li class="otayori-list-item">
+              <p>現在、表示できる記事がありません。</p>
+            </li>
+          )
+        }
+      </ul>
+      <div class="otayori-list-pagination">
+        <OtayoriPagination currentPage={page.currentPage} lastPage={page.lastPage} />
+      </div>
+    </div><!-- /.l-container-s -->
+  </main>
+
+  <div class="otayori-list-cta">
+    <Cta />
+  </div><!-- /.otayori-list-cta -->
 </Layout>
 
 <style lang="scss">
