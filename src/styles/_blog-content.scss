@@ -79,6 +79,14 @@
     }
   }
 
+  img + img {
+    margin-top: 24px;
+
+    @include mq() {
+      margin-top: 32px;
+    }
+  }
+
   a {
     text-decoration: underline;
   }
