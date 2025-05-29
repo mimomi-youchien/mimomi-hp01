@@ -36,11 +36,13 @@
     display: grid;
     gap: 10px;
     margin-top: 24px;
+    margin-bottom: 16px;
     color: var(--color-baby-pink);
     font-weight: 700;
 
     @include mq() {
       margin-top: 32px;
+      margin-bottom: 24px;
     }
 
     &::after {
@@ -52,7 +54,7 @@
   }
 
   p {
-    margin: 10px 0 24px;
+    margin: 16px 0 24px;
 
     @include mq() {
       margin: 24px 0 32px;
