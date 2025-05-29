@@ -70,7 +70,7 @@
   }
 
   img {
-    &:last-of-type {
+    &:last-child {
       margin-bottom: 24px;
 
       @include mq() {
