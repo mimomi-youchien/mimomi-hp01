@@ -36,8 +36,6 @@ export type News = {
   thumbnailAlt: string;
   category: string[];
   customDate: string;
-  // is_recommended: boolean; // おすすめ記事フラグ
-  // recommend_order: number; // 表示順
 };
 export type NewsResponse = {
   totalCount: number;
@@ -109,8 +107,6 @@ export type Otayori = {
   thumbnailAlt: string;
   category: string[];
   customDate: string;
-  // is_recommended: boolean; // おすすめ記事フラグ
-  // recommend_order: number; // 表示順
 };
 export type OtayoriResponse = {
   totalCount: number;
@@ -167,20 +163,19 @@ export const getOtayoriDetail = async (
   });
 };
 
-// 限定ページのパスワード
-// password API用の型定義
-export type PasswordData = {
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  password: string;
+// limited
+// 型定義
+export type Limited = {
+  thumbnail: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  thumbnailAltDate: string;
+  slug: string;
 };
 
-// passwordの取得関数
-export const getPassword = async (queries?: MicroCMSQueries): Promise<PasswordData> => {
-  return await client.get<PasswordData>({
-    endpoint: "limited",
-    queries,
-  });
-};
+// APIの呼び出し
+export async function getLimited(): Promise<Limited> {
+  return await client.get({ endpoint: 'limited' });
+}

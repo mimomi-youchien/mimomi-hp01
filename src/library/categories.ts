@@ -5,7 +5,7 @@ export const CATEGORY_MAP: Record<string, string> = {
   firstYear: "年少クラス",
   secondYear: "年中クラス",
   thirdYear: "年長クラス",
-  kindergartenNews: "園だより",
+  all: "全クラス",
 };
 
 export const CATEGORY_SLUG_MAP: Record<string, string> = Object.fromEntries(

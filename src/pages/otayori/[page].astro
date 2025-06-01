@@ -7,8 +7,15 @@ import OtayoriCard from "../../components/blog/OtayoriCard.astro";
 import OtayoriPagination from "../../components/blog/OtayoriPagination.astro"
 import Cta from "../../components/Cta.astro";
 import type { GetStaticPathsOptions } from 'astro';
-
+import { getLimited } from "../../library/microcms";
 import { getAllOtayori } from "../../library/microcms";
+
+const limited = await getLimited();
+
+// thumbnailAltDate から年・月を取り出す
+const date = new Date(limited.thumbnailAltDate);
+const year = isNaN(date.getTime()) ? "" : date.getFullYear();
+const month = isNaN(date.getTime()) ? "" : date.getMonth() + 1;
 
 const { page } = Astro.props;
 
@@ -76,14 +83,23 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
               <p class="otayori-list-head-paragraph">毎月、月末に更新予定です。</p>
             </div><!-- /.otayori-list-head-text -->
             <div class="otayori-list-head-button">
-              <a href="" class="faq-link faq-link--otayori">今月の園だよりを見る</a>
+              <a href={`/otayori/${limited.slug}`} class="faq-link faq-link--otayori">今月の園だよりを見る</a>
             </div><!-- /.otayori-list-head-button -->
           </div><!-- /.otayori-list-head-description -->
-          <div class="otayori-list-head-image">
-            <img src="/assets/images/global/image-dummy@2x.webp" alt="No Image" loading="eager" decoding="async" width="537" height="380">
-          </div><!-- /.otayori-list-head-image -->
+          {limited.thumbnail && (
+            <div class="otayori-list-head-image">
+              <img
+                src={`${limited.thumbnail.url}?fm=webp`}
+                alt={`園だより${year}年${month}月号の画像`}
+                loading="eager"
+                decoding="async"
+                width="537"
+                height="380"
+              >
+            </div>
+          )}
         </div><!-- /.otayori-list-head-content -->
-      </div><!-- /.otayori-list-head -->
+      </div>
       <div class="otayori-list-category-filter">
         <OtayoriCategoryList activeCategory="すべて" />
       </div>
