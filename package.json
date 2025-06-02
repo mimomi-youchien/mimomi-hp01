@@ -12,6 +12,7 @@
     "astro": "^5.7.4",
     "date-fns": "^4.1.0",
     "microcms-js-sdk": "^3.2.0",
+    "netlify-identity-widget": "^1.9.2",
     "node-html-parser": "^7.0.1",
     "sanitize-html": "^2.16.0"
   },

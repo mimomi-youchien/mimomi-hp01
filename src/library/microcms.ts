@@ -166,6 +166,8 @@ export const getOtayoriDetail = async (
 // limited
 // 型定義
 export type Limited = {
+  loginId: string;
+  password: string;
   thumbnail: {
     url: string;
     height: number;

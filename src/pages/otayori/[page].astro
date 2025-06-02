@@ -54,6 +54,18 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
 
   return paginate(sorted, { pageSize: 8 });
 };
+
+const cookies = await Astro.cookies;
+const authCookie = cookies.get("auth");
+
+if (!authCookie?.value || authCookie.value !== "ok") {
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: "/login",
+    },
+  });
+}
 ---
 
 <Layout
