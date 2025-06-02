@@ -45,48 +45,41 @@
   </div>
 
   <script>
-    const messageEl = document.getElementById('message');
-    const loadingEl = document.getElementById('loading');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Netlify Identityの初期化
+      netlifyIdentity.init();
 
-    // Netlify Identityの初期化
-    netlifyIdentity.init();
+      netlifyIdentity.on('init', user => {
+        if (user) {
+          messageEl.innerHTML = `
+            <h1>ログイン済みです</h1>
+            <p>ページを自動で転送しています…</p>
+          `;
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 1500);
+        } else {
+          loadingEl.textContent = '';
+          netlifyIdentity.open('login');
+        }
+      });
 
-    netlifyIdentity.on('init', user => {
-      if (user) {
-        // すでにログイン済みの場合はリダイレクト
+      netlifyIdentity.on('login', user => {
         messageEl.innerHTML = `
-          <h1>ログイン済みです</h1>
+          <h1>ログインに成功しました</h1>
           <p>ページを自動で転送しています…</p>
         `;
         setTimeout(() => {
-          window.location.href = '/';  // ログイン後に遷移させたいページに変更してください
+          window.location.href = '/otayori/1';
         }, 1500);
-      } else {
-        // ログインしていなければログイン／サインアップUIを表示
-        loadingEl.textContent = '';
+      });
 
-        // 招待トークン付きURLであれば自動的にサインアップUIが表示されるはず
-        netlifyIdentity.open('login'); // 'login'または'signup'。招待トークンあれば自動的にパスワード設定画面へ
-      }
-    });
-
-    // ログイン時の処理
-    netlifyIdentity.on('login', user => {
-      messageEl.innerHTML = `
-        <h1>ログインに成功しました</h1>
-        <p>ページを自動で転送しています…</p>
-      `;
-      setTimeout(() => {
-        window.location.href = '/otayori/1';  // ログイン後に遷移させたいページに変更してください
-      }, 1500);
-    });
-
-    // ログアウト時の処理（必要に応じて）
-    netlifyIdentity.on('logout', () => {
-      messageEl.innerHTML = `
-        <h1>ログアウトしました</h1>
-        <p>このページを再読み込みしてください。</p>
-      `;
+      netlifyIdentity.on('logout', () => {
+        messageEl.innerHTML = `
+          <h1>ログアウトしました</h1>
+          <p>このページを再読み込みしてください。</p>
+        `;
+      });
     });
   </script>
 </body>
