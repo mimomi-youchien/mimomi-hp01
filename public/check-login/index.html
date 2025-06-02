@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ログイン確認 / パスワード設定</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f2f5;
+      color: #333;
+      flex-direction: column;
+    }
+    #message {
+      max-width: 360px;
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
+      text-align: center;
+    }
+    #loading {
+      margin-top: 12px;
+      color: #666;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="message">
+    <h1>ログイン状態を確認中…</h1>
+    <p id="loading">しばらくお待ちください。</p>
+  </div>
+
+  <script>
+    const messageEl = document.getElementById('message');
+    const loadingEl = document.getElementById('loading');
+
+    // Netlify Identityの初期化
+    netlifyIdentity.init();
+
+    netlifyIdentity.on('init', user => {
+      if (user) {
+        // すでにログイン済みの場合はリダイレクト
+        messageEl.innerHTML = `
+          <h1>ログイン済みです</h1>
+          <p>ページを自動で転送しています…</p>
+        `;
+        setTimeout(() => {
+          window.location.href = '/';  // ログイン後に遷移させたいページに変更してください
+        }, 1500);
+      } else {
+        // ログインしていなければログイン／サインアップUIを表示
+        loadingEl.textContent = '';
+
+        // 招待トークン付きURLであれば自動的にサインアップUIが表示されるはず
+        netlifyIdentity.open('login'); // 'login'または'signup'。招待トークンあれば自動的にパスワード設定画面へ
+      }
+    });
+
+    // ログイン時の処理
+    netlifyIdentity.on('login', user => {
+      messageEl.innerHTML = `
+        <h1>ログインに成功しました</h1>
+        <p>ページを自動で転送しています…</p>
+      `;
+      setTimeout(() => {
+        window.location.href = '/';  // ログイン後に遷移させたいページに変更してください
+      }, 1500);
+    });
+
+    // ログアウト時の処理（必要に応じて）
+    netlifyIdentity.on('logout', () => {
+      messageEl.innerHTML = `
+        <h1>ログアウトしました</h1>
+        <p>このページを再読み込みしてください。</p>
+      `;
+    });
+  </script>
+</body>
+</html>

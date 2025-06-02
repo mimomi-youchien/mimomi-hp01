@@ -67,24 +67,6 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
     <OtayoriKv />
   </div><!-- /.otayori-list-kv -->
 
-
-  <script type="module" is:client>
-    import "https://identity.netlify.com/v1/netlify-identity-widget.js";
-  
-    netlifyIdentity.init();
-  
-    // ページ読み込み時にログイン確認
-    window.addEventListener('DOMContentLoaded', () => {
-      const user = netlifyIdentity.currentUser();
-      if (!user) {
-        // 未ログインならログインページへ
-        window.location.href = '/login.html';
-      }
-    });
-  </script>
-  
-
-
   <main class="otayori-list-main l-section-body">
     <div class="l-container-s">
       <div class="otayori-list-head">
@@ -153,6 +135,19 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   <div class="otayori-list-cta">
     <Cta />
   </div><!-- /.otayori-list-cta -->
+
+  <script type="module">
+    import "https://identity.netlify.com/v1/netlify-identity-widget.js";
+
+    netlifyIdentity.on('init', user => {
+      if (!user) {
+        // 未ログインなら /check-login/ にリダイレクト
+        window.location.href = "/check-login/";
+      }
+    });
+
+    netlifyIdentity.init();
+  </script>
 </Layout>
 
 <style lang="scss">
