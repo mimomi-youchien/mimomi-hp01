@@ -136,20 +136,50 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
     <Cta />
   </div>
 
-  <script defer>
-    document.addEventListener('DOMContentLoaded', function () {
-      netlifyIdentity.init();
+  // <script defer>
+  //   document.addEventListener('DOMContentLoaded', function () {
+  //     netlifyIdentity.init();
 
-      // init イベント後、user 変数が null でも callback は呼ばれるが、
-      // 念のため currentUser() を使って明示的にチェックする
-      netlifyIdentity.on('init', () => {
-        const user = netlifyIdentity.currentUser();
-        if (!user) {
-          window.location.href = "/check-login/";
-        }
-      });
+  //     // init イベント後、user 変数が null でも callback は呼ばれるが、
+  //     // 念のため currentUser() を使って明示的にチェックする
+  //     netlifyIdentity.on('init', () => {
+  //       const user = netlifyIdentity.currentUser();
+  //       if (!user) {
+  //         window.location.href = "/check-login/";
+  //       }
+  //     });
+  //   });
+  // </script>
+
+
+
+
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOMContentLoaded fired");
+    netlifyIdentity.init();
+
+    netlifyIdentity.on('init', () => {
+      console.log("netlifyIdentity init fired");
+      const user = netlifyIdentity.currentUser();
+      console.log("currentUser:", user);
+
+      if (!user) {
+        console.log("User not logged in. Redirecting...");
+        window.location.href = "/check-login/";
+      }
     });
-  </script>
+  });
+</script>
+
+
+
+
+
+
+
+
 
   // <script type="module">
   //   import "https://identity.netlify.com/v1/netlify-identity-widget.js";
