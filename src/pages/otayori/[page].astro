@@ -137,14 +137,18 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   </div>
 
   <script defer>
-    netlifyIdentity.on('init', user => {
-      if (!user) {
-        // 未ログインなら /check-login/ にリダイレクト
-        window.location.href = "/check-login/";
-      }
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+      netlifyIdentity.init();
 
-    netlifyIdentity.init();
+      // init イベント後、user 変数が null でも callback は呼ばれるが、
+      // 念のため currentUser() を使って明示的にチェックする
+      netlifyIdentity.on('init', () => {
+        const user = netlifyIdentity.currentUser();
+        if (!user) {
+          window.location.href = "/check-login/";
+        }
+      });
+    });
   </script>
 
   // <script type="module">
