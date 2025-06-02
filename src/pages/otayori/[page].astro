@@ -129,16 +129,14 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
       <div class="otayori-list-pagination">
         <OtayoriPagination currentPage={page.currentPage} lastPage={page.lastPage} />
       </div>
-    </div><!-- /.l-container-s -->
+    </div>
   </main>
 
   <div class="otayori-list-cta">
     <Cta />
-  </div><!-- /.otayori-list-cta -->
+  </div>
 
-  <script type="module">
-    import "https://identity.netlify.com/v1/netlify-identity-widget.js";
-
+  <script defer>
     netlifyIdentity.on('init', user => {
       if (!user) {
         // 未ログインなら /check-login/ にリダイレクト
@@ -148,6 +146,20 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
 
     netlifyIdentity.init();
   </script>
+
+  // <script type="module">
+  //   import "https://identity.netlify.com/v1/netlify-identity-widget.js";
+
+  //   netlifyIdentity.on('init', user => {
+  //     if (!user) {
+  //       // 未ログインなら /check-login/ にリダイレクト
+  //       window.location.href = "/check-login/";
+  //     }
+  //   });
+
+  //   netlifyIdentity.init();
+  // </script>
+
 </Layout>
 
 <style lang="scss">
