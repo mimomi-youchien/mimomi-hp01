@@ -136,78 +136,42 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
     <Cta />
   </div>
 
-  // <script defer>
-  //   document.addEventListener('DOMContentLoaded', function () {
-  //     netlifyIdentity.init();
+  <script type="module">
+    const waitForIdentity = () => {
+      return new Promise((resolve) => {
+        const check = () => {
+          if (window.netlifyIdentity) {
+            resolve();
+          } else {
+            setTimeout(check, 50);
+          }
+        };
+        check();
+      });
+    };
 
-  //     // init イベント後、user 変数が null でも callback は呼ばれるが、
-  //     // 念のため currentUser() を使って明示的にチェックする
-  //     netlifyIdentity.on('init', () => {
-  //       const user = netlifyIdentity.currentUser();
-  //       if (!user) {
-  //         window.location.href = "/check-login/";
-  //       }
-  //     });
-  //   });
-  // </script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      // console.log("DOMContentLoaded fired");
 
-<script type="module">
-  const waitForIdentity = () => {
-    return new Promise((resolve) => {
-      const check = () => {
-        if (window.netlifyIdentity) {
-          resolve();
-        } else {
-          setTimeout(check, 50);
+      await waitForIdentity();
+      // console.log("netlifyIdentity loaded");
+
+      // 先に on('init') を仕込む
+      netlifyIdentity.on("init", () => {
+        // console.log("netlifyIdentity init fired");
+        const user = netlifyIdentity.currentUser();
+        // console.log("currentUser:", user);
+
+        if (!user) {
+          // console.log("User not logged in. Redirecting...");
+          window.location.href = "/check-login/";
         }
-      };
-      check();
+      });
+
+      // そのあとで init()
+      netlifyIdentity.init();
     });
-  };
-
-  document.addEventListener("DOMContentLoaded", async () => {
-    console.log("DOMContentLoaded fired");
-
-    await waitForIdentity();
-    console.log("netlifyIdentity loaded");
-
-    // 先に on('init') を仕込む
-    netlifyIdentity.on("init", () => {
-      console.log("netlifyIdentity init fired");
-      const user = netlifyIdentity.currentUser();
-      console.log("currentUser:", user);
-
-      if (!user) {
-        console.log("User not logged in. Redirecting...");
-        window.location.href = "/check-login/";
-      }
-    });
-
-    // そのあとで init()
-    netlifyIdentity.init();
-  });
-</script>
-
-
-
-
-
-
-
-
-  // <script type="module">
-  //   import "https://identity.netlify.com/v1/netlify-identity-widget.js";
-
-  //   netlifyIdentity.on('init', user => {
-  //     if (!user) {
-  //       // 未ログインなら /check-login/ にリダイレクト
-  //       window.location.href = "/check-login/";
-  //     }
-  //   });
-
-  //   netlifyIdentity.init();
-  // </script>
-
+  </script>
 </Layout>
 
 <style lang="scss">
