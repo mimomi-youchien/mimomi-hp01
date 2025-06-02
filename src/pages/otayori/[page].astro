@@ -136,6 +136,44 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
     <Cta />
   </div>
 
+<!-- pages/otayori/[page].astro の下部に設置 -->
+<script type="module">
+  // Netlify Identity がグローバルに読み込まれるまで待機
+  const waitForIdentity = () => {
+    return new Promise((resolve) => {
+      const check = () => {
+        if (window.netlifyIdentity) {
+          resolve();
+        } else {
+          setTimeout(check, 50); // 再試行
+        }
+      };
+      check();
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    console.log("DOMContentLoaded fired");
+
+    await waitForIdentity();
+    console.log("netlifyIdentity loaded");
+
+    netlifyIdentity.init();
+
+    netlifyIdentity.on("init", () => {
+      console.log("netlifyIdentity init fired");
+      const user = netlifyIdentity.currentUser();
+      console.log("currentUser:", user);
+
+      if (!user) {
+        console.log("User not logged in. Redirecting...");
+        window.location.href = "/check-login/";
+      }
+    });
+  });
+</script>
+
+
   // <script defer>
   //   document.addEventListener('DOMContentLoaded', function () {
   //     netlifyIdentity.init();
@@ -155,7 +193,7 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
 
 
 
-<script defer>
+{/* <script defer>
   document.addEventListener('DOMContentLoaded', function () {
     console.log("DOMContentLoaded fired");
     netlifyIdentity.init();
@@ -171,7 +209,7 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
       }
     });
   });
-</script>
+</script> */}
 
 
 
