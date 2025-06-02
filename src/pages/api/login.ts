@@ -1,32 +1,26 @@
-import type { APIRoute } from "astro";
-import { getLimited } from "../../library/microcms";
+// src/pages/api/login.ts
+import type { APIRoute } from 'astro';
 
-export const POST: APIRoute = async ({ request, cookies }) => {
-  const formData = await request.formData();
-  const id = formData.get("id");
-  const pass = formData.get("password");
+export const POST: APIRoute = async ({ request }) => {
+  try {
+    const body = await request.json();
+    const { email, password } = body;
 
-  const limitedInfo = await getLimited();
-
-  if (id === limitedInfo.loginId && pass === limitedInfo.password) {
-    cookies.set("auth", "ok", {
-      httpOnly: true,
-      path: "/",
-      maxAge: 60 * 60 * 24, // 1日
-    });
-
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: "/otayori",
-      },
+    if (email === 'test@example.com' && password === 'password123') {
+      return new Response(JSON.stringify({ message: 'ログイン成功' }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    } else {
+      return new Response(JSON.stringify({ error: '認証失敗' }), {
+        status: 401,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+  } catch (e) {
+    return new Response(JSON.stringify({ error: '不正なリクエスト' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
     });
   }
-
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: "/login?error=1",
-    },
-  });
 };

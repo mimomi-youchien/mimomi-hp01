@@ -54,18 +54,6 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
 
   return paginate(sorted, { pageSize: 8 });
 };
-
-const cookies = await Astro.cookies;
-const authCookie = cookies.get("auth");
-
-if (!authCookie?.value || authCookie.value !== "ok") {
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: "/login",
-    },
-  });
-}
 ---
 
 <Layout
@@ -78,6 +66,24 @@ if (!authCookie?.value || authCookie.value !== "ok") {
   <div class="otayori-list-kv">
     <OtayoriKv />
   </div><!-- /.otayori-list-kv -->
+
+
+  <script type="module" is:client>
+    import "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  
+    netlifyIdentity.init();
+  
+    // ページ読み込み時にログイン確認
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = netlifyIdentity.currentUser();
+      if (!user) {
+        // 未ログインならログインページへ
+        window.location.href = '/login.html';
+      }
+    });
+  </script>
+  
+
 
   <main class="otayori-list-main l-section-body">
     <div class="l-container-s">

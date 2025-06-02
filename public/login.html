@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ログイン</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+</head>
+<body>
+  <h1>ログインページ</h1>
+  <button onclick="netlifyIdentity.open()">ログイン / ユーザー登録</button>
+
+  <script>
+    netlifyIdentity.on("login", user => {
+      window.location.href = "/otayori/"; // ログイン後のリダイレクト先
+    });
+    netlifyIdentity.init();
+  </script>
+</body>
+</html>
