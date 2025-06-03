@@ -54,8 +54,9 @@
       const messageEl = document.getElementById('message');
       const loadingEl = document.getElementById('loading');
 
-      // init より先に on(init) を登録！
+      // イベントリスナーを先に設定
       netlifyIdentity.on('init', user => {
+        console.log('init event:', user);
         if (user) {
           messageEl.innerHTML = `
             <h1>ログイン済みです</h1>
@@ -66,11 +67,13 @@
           }, 1500);
         } else {
           loadingEl.textContent = '';
-          netlifyIdentity.open('login');
+          // 明示的にログインUIを開く
+          netlifyIdentity.open();
         }
       });
 
       netlifyIdentity.on('login', user => {
+        console.log('login event:', user);
         messageEl.innerHTML = `
           <h1>ログインに成功しました</h1>
           <p>ページを自動で転送しています…</p>
@@ -87,7 +90,7 @@
         `;
       });
 
-      // 最後に init を呼ぶ
+      // 初期化はイベント設定後に呼ぶ
       netlifyIdentity.init();
     });
   </script>
