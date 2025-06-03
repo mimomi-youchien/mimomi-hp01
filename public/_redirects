@@ -1,0 +1,6 @@
+/otayori/*  200
+/check-login/*  200
+
+# Basic Auth 保護
+/otayori/*  401
+  Basic-Auth = testid:testpassword
