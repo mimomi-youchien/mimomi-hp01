@@ -91,7 +91,10 @@
       });
 
       // 初期化はイベント設定後に呼ぶ
-      netlifyIdentity.init();
+      netlifyIdentity.init({
+        APIUrl: 'https://mimomi-dev.netlify.app/.netlify/identity'
+      });
+
     });
   </script>
 </body>
