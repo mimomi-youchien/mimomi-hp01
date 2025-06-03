@@ -1,0 +1,19 @@
+[[headers]]
+  for = "/otayori/*"
+  [headers.values]
+    Authorization = "Basic dXNlcjpwYXNzd29yZDEyMw=="
+
+[[headers]]
+  for = "/otayori/category/first-year/*"
+  [headers.values]
+    Authorization = "Basic dXNlcjpwYXNzd29yZDEyMw=="
+
+[[headers]]
+  for = "/otayori/category/second-year/*"
+  [headers.values]
+    Authorization = "Basic dXNlcjpwYXNzd29yZDEyMw=="
+
+[[headers]]
+  for = "/otayori/category/third-year/*"
+  [headers.values]
+    Authorization = "Basic dXNlcjpwYXNzd29yZDEyMw=="
