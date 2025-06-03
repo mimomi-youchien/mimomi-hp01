@@ -1,0 +1,11 @@
+/otayori/*
+  Authorization: Basic dXNlcjpwYXNzd29yZDEyMw==
+
+/otayori/category/first-year/*
+  Authorization: Basic dXNlcjpwYXNzd29yZDEyMw==
+
+/otayori/category/second-year/*
+  Authorization: Basic dXNlcjpwYXNzd29yZDEyMw==
+
+/otayori/category/third-year/*
+  Authorization: Basic dXNlcjpwYXNzd29yZDEyMw==
