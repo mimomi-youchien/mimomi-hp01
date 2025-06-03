@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ログイン確認 / パスワード設定</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -51,9 +51,10 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Netlify Identityの初期化
-      netlifyIdentity.init();
+      const messageEl = document.getElementById('message');
+      const loadingEl = document.getElementById('loading');
 
+      // init より先に on(init) を登録！
       netlifyIdentity.on('init', user => {
         if (user) {
           messageEl.innerHTML = `
@@ -85,6 +86,9 @@
           <p>このページを再読み込みしてください。</p>
         `;
       });
+
+      // 最後に init を呼ぶ
+      netlifyIdentity.init();
     });
   </script>
 </body>
