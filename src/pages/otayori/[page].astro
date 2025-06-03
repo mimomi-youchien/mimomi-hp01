@@ -135,43 +135,6 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   <div class="otayori-list-cta">
     <Cta />
   </div>
-
-  <script type="module">
-    const waitForIdentity = () => {
-      return new Promise((resolve) => {
-        const check = () => {
-          if (window.netlifyIdentity) {
-            resolve();
-          } else {
-            setTimeout(check, 50);
-          }
-        };
-        check();
-      });
-    };
-
-    document.addEventListener("DOMContentLoaded", async () => {
-      // console.log("DOMContentLoaded fired");
-
-      await waitForIdentity();
-      // console.log("netlifyIdentity loaded");
-
-      // 先に on('init') を仕込む
-      netlifyIdentity.on("init", () => {
-        // console.log("netlifyIdentity init fired");
-        const user = netlifyIdentity.currentUser();
-        // console.log("currentUser:", user);
-
-        if (!user) {
-          // console.log("User not logged in. Redirecting...");
-          window.location.href = "/check-login/";
-        }
-      });
-
-      // そのあとで init()
-      netlifyIdentity.init();
-    });
-  </script>
 </Layout>
 
 <style lang="scss">

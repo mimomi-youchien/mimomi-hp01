@@ -51,9 +51,6 @@ const {
     {jsonLd && (
       <script type="application/ld+json" set:html={jsonLd}></script>
     )}
-
-    <!-- Netlify Identity -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
   </head>
 
   <body id="body">
@@ -67,32 +64,6 @@ const {
     <Footer
       logo={logo}
     />
-
     <script src="/assets/js/fadeInAnimation.js" defer></script>
-
-    <!-- Netlify Identityの初期化とログインチェック -->
-    <script defer>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          const isOtayori = window.location.pathname.startsWith("/otayori/");
-          const hasInviteToken = window.location.hash.includes("invite_token=");
-
-          // 未ログインかつ招待トークン付き → モーダルを開く
-          if (!user && hasInviteToken) {
-            window.netlifyIdentity.on("login", () => {
-              window.location.href = "/otayori/1"; // 任意：ログイン後の遷移先
-            });
-            window.netlifyIdentity.open(); // モーダル表示
-          }
-
-          // /otayori/ 配下へのアクセスで未ログイン → ログイン確認ページへリダイレクト
-          if (!user && isOtayori && !hasInviteToken) {
-            window.location.href = "/check-login/";
-          }
-        });
-
-        window.netlifyIdentity.init();
-      }
-    </script>
   </body>
 </html>
