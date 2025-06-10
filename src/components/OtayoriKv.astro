@@ -1,0 +1,111 @@
+---
+const pathname = Astro.url.pathname;
+
+// <h1>を使うページのパターンを定義
+const isIndexOrCategoryPage =
+  pathname === '/otayori/' ||
+  pathname.match(/^\/otayori\/\d+\/?$/) || // /otayori/2 など
+  pathname.match(/^\/otayori\/category\/(first-year|second-year|third-year)(\/\d+)?\/?$/); // 各カテゴリの一覧・ページング
+---
+<div class="c-otayori-kv l-container">
+  <div class="c-otayori-kv-image">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/assets/images/kv/page-kv/pic-kv-otayori-sp@2x.webp">
+      <source media="(min-width: 768px)" srcset="/assets/images/kv/page-kv/pic-kv-otayori-pc@2x.webp">
+      <img src="/assets/images/kv/page-kv/pic-kv-otayori-sp@2x.webp" alt="青い体操服を着た園児たちが保育室で椅子に座り、先生の話を笑顔で聞いている様子" loading="eager" decoding="async" width="320" height="133">
+    </picture>
+  </div><!-- /.c-otayori-kv-image -->
+
+  {isIndexOrCategoryPage ? (
+    <h1 class="c-otayori-kv-title">
+      <span class="c-otayori-kv-title-main-text">おたより</span>
+      <span class="c-otayori-kv-title-sub-text">保護者さま限定</span>
+    </h1>
+  ) : (
+    <p class="c-otayori-kv-title">
+      <span class="c-otayori-kv-title-main-text">おたより</span>
+      <span class="c-otayori-kv-title-sub-text">保護者さま限定</span>
+    </p>
+  )}
+</div><!-- /.c-otayori-kv.l-container -->
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .c-otayori-kv {
+    position: relative;
+  }
+
+  .c-otayori-kv-title {
+    display: flex;
+    align-items: center;
+    gap: calc(16 var(--vw-sp));
+    padding: 0 0 calc(11 var(--vw-sp)) calc(20 var(--vw-sp));
+    color: var(--color-base);
+    font-size: calc(12 var(--vw-sp));
+    font-weight: 700;
+    line-height: 1.5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .c-otayori-kv-title-sub-text {
+    font-size: calc(10 var(--vw-sp));
+    letter-spacing: .2em;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      width:  calc(3 var(--vw-sp));
+      height: calc(1 var(--vw-sp));
+      margin: auto;
+      background-color: currentColor;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+
+    &::before {
+      left: calc(-6 var(--vw-sp));
+    }
+
+    &::after {
+      right: calc(-4 var(--vw-sp));
+    }
+  }
+
+  @include mq() {
+    .c-otayori-kv {
+      max-width: calc(1110px + 40px * 2);
+    }
+
+    .c-otayori-kv-title {
+      flex-direction: column-reverse;
+      gap: 0;
+      padding: 0 0 min(36px, calc(36 / 1190 * 100vw)) min(85px, calc(85 / 1190 * 100vw));
+      font-size: min(30px, calc(30 / 1190 * 100vw));
+      left: 40px;
+
+      @media screen and (min-width: 1190px) {
+        padding: 0 0 36px 85px;
+        font-size: 30px;
+      }
+    }
+
+    .c-otayori-kv-title-sub-text {
+      font-size: min(12px, calc(12 / 1190 * 100vw));
+      letter-spacing: .3em;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      @media screen and (min-width: 1190px) {
+        font-size: 12px;
+      }
+    }
+  }
+</style>

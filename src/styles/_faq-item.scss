@@ -1,0 +1,156 @@
+@use 'breakpoints' as *;
+
+.faq-dt {
+  display: flex;
+  gap: 10px;
+  padding: 7px 20px 6px;
+  border-radius: 10px;
+  border: 1px solid;
+  background-color: #fff;
+  font-weight: 400;
+}
+
+.faq-icon {
+  color: var(--color-baby-pink);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &--green {
+    color: var(--color-green);
+  }
+
+  &--pink {
+    color: var(--color-pink);
+  }
+
+  &--blue {
+    color: var(--color-blue);
+  }
+
+  &--a {
+    margin-top: 2px;
+  }
+}
+
+.faq-question {
+  margin-top: 2px;
+}
+
+.faq-dd {
+  padding: 7px 20px 0 21px;
+}
+
+.faq-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.faq-answer {
+  margin-top: 3px;
+}
+
+.faq-link {
+  display: inline-block;
+  padding-right: 3px;
+  margin: 3px 0 0 24px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    width: 18px;
+    height: 18px;
+    background-image: url(/assets/images/faq/icon-faq-arrow-right.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    filter: invert(36%) sepia(10%) saturate(2363%) hue-rotate(347deg) brightness(100%) contrast(81%);
+    top: 4px;
+    left: 100%;
+  }
+
+  &::after {
+    width: calc(100% - 3px);
+    height: 1px;
+    background-color: currentColor;
+    bottom: -1px;
+    left: 0;
+  }
+
+  &--otayori {
+    margin: 0;
+  }
+}
+
+@include mq() {
+  .faq-dt {
+    gap: 20px;
+    padding: 11px 50px;
+  }
+
+  .faq-icon {
+    font-size: 20px;
+
+    &--a {
+      margin-top: 0;
+    }
+  }
+
+  .faq-question {
+    margin-top: 4px;
+  }
+
+  .faq-dd {
+    padding: 17px 90px 0 50px;
+  }
+
+  .faq-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  .faq-answer {
+    margin-top: 3px;
+  }
+
+  .faq-link {
+    padding: 8px 7px 8px 0;
+    margin: 0 0 0 37px;
+    font-size: 14px;
+
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      top: 10px;
+    }
+
+    &::after {
+      width: calc(100% - 7px);
+      bottom: 5px;
+    }
+
+    &--otayori {
+      margin: 0;
+    }
+  }
+}
+
+@media (any-hover: hover) {
+  .faq-link {
+    &::before {
+      transition: translate .3s ease;
+    }
+
+    &:hover {
+      &::before {
+        translate: 3px;
+      }
+    }
+  }
+}

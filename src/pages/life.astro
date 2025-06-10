@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageKv from "../components/PageKv.astro";
+import LifeTimetable from "../components/page-life/LifeTimetable.astro";
+import LifeMimomiHoiku from "../components/page-life/LifeMimomiHoiku.astro";
+import LifeAnnualEvent from "../components/page-life/LifeAnnualEvent.astro";
+import LifeAzukariHoiku from "../components/page-life/LifeAzukariHoiku.astro";
+import Cta from "../components/Cta.astro";
+---
+
+<Layout
+  title="園の生活 - 園の一日・年間行事・預かり保育のご案内｜習志野市の幼稚園｜みもみ幼稚園"
+  ogType="website"
+  description="習志野市のみもみ幼稚園の一日の流れを紹介。体操やもじ・かず・ことばの専門指導や、茶道や書道などの伝統文化体験も取り入れています。季節の行事や預かり保育の詳細もわかりやすく紹介しています。"
+  noIndex="true"
+>
+  <div class="life">
+    <!-- life-kv -->
+    <div class="life-kv">
+      <PageKv
+        title="園の生活"
+        imageSrcSp="/assets/images/kv/page-kv/pic-kv-life-sp@2x.webp"
+        imageSrcPc="/assets/images/kv/page-kv/pic-kv-life-pc@2x.webp"
+        imageAlt="砂場で水を使い泥遊びをする裸足の園児たち"
+      />
+    </div><!-- /.life-kv -->
+
+    <main class="life-main l-section-body">
+      <div class="l-container-s">
+        <!-- life-timetable -->
+        <div class="life-timetable js-load-fade-in" id="timetable">
+          <LifeTimetable />
+        </div><!-- /.life-timetable -->
+      </div><!-- /.l-container-s -->
+
+      <!-- life-mimomi-hoiku -->
+      <div class="life-mimomi-hoiku js-fade-in" id="mimomi-hoiku">
+        <LifeMimomiHoiku />
+      </div><!-- /.life-mimomi-hoiku -->
+
+      <div class="l-container-s">
+        <!-- life-annual-event -->
+        <div class="life-annual-event js-fade-in" id="annual-event">
+          <LifeAnnualEvent />
+        </div><!-- /.life-annual-event -->
+
+        <!-- life-azukari-hoiku -->
+        <div class="life-azukari-hoiku js-fade-in" id="azukari-hoiku">
+          <LifeAzukariHoiku />
+        </div><!-- /.life-azukari-hoiku -->
+      </div><!-- /.l-container-s -->
+    </main>
+
+    <div class="life-cta">
+      <Cta />
+    </div><!-- /.life-cta -->
+  </div><!-- /.life -->
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .life {
+    overflow: hidden;
+  }
+
+  .life-cta {
+    margin-top: 60px;
+  }
+
+  @include mq() {
+    .life-cta {
+      margin-top: 120px;
+    }
+  }
+
+  // life-kv
+  .life-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+
+    @include mq() {
+      margin-top: 100px;
+    }
+  }
+</style>

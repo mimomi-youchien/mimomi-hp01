@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageKv from "../../components/PageKv.astro";
+import ButtonLink from "../../components/button/ButtonLink.astro";
+import Cta from "../../components/Cta.astro";
+import { formatNewsDate, toMachineDate } from "../../utils/formatDate";
+
+// microCMS呼び出し
+import { getNews, getNewsDetail } from "../../library/microcms";
+
+// HTMLパーサー用ライブラリ
+import { parse } from "node-html-parser";
+
+// 詳細記事ページの全パスを取得
+export async function getStaticPaths() {
+  const response = await getNews({ fields: ["id"], limit: 100 });
+  return response.contents.map((content: any) => ({
+    params: {
+      newsId: content.id,
+    },
+  }));
+}
+
+// 記事の詳細情報を取得
+const { newsId } = Astro.params;
+const news = await getNewsDetail(newsId as string);
+
+// サニタイズ処理
+import sanitizeHtml from "sanitize-html";
+
+// リッチエディタ内の画像URLに画像APIクエリを付与
+function convertImagesToWebP(htmlContent: string) {
+  const root = parse(htmlContent);
+  root.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && src.includes('microcms-assets.io')) {
+      img.setAttribute('src', `${src}?fm=webp`);
+    }
+  });
+  return root.toString();
+}
+
+// 記事本文をサニタイズし、画像をWebPに変換
+const cleanContent = sanitizeHtml(convertImagesToWebP(news.content), {
+  allowedTags: [ 'b', 'i', 'em', 'strong', 'a', 'p', 'h2', 'h3', 'ul', 'ol', 'li', 'br', 'img' ],
+  allowedAttributes: {
+    '*': ['class', 'style'],
+    'a': ['href', 'target'],
+    'img': ['src', 'alt', 'width', 'height']
+  },
+  allowedIframeHostnames: ['www.youtube.com'],
+});
+
+// 記事本文をプレーンテキスト化
+const cleanText = sanitizeHtml(news.content, {
+  allowedTags: [], // すべてのタグを削除
+  allowedAttributes: {} // すべての属性を削除
+}).trim();
+
+// メタディスクリプション：記事本文の最初の150文字を動的に出力
+const metaDescription = cleanText.length > 150 ? cleanText.substring(0, 150) + "…" : cleanText;
+---
+
+<Layout
+  title={`お知らせ - ${news.title}｜習志野市の幼稚園｜みもみ幼稚園`}
+  ogType="article"
+  description={metaDescription}
+  noIndex="true"
+>
+  <!-- news-single-kv -->
+  <div class="news-single-kv">
+    <PageKv
+      title="お知らせ"
+      imageSrcSp="/assets/images/kv/page-kv/pic-kv-news-sp@2x.webp"
+      imageSrcPc="/assets/images/kv/page-kv/pic-kv-news-pc@2x.webp"
+      imageAlt="紫の帽子をかぶった女の子2人が顔を見合わせて微笑んでいる様子"
+      isDetailPage={true}
+    />
+  </div><!-- /.news-single-kv -->
+
+  <main class="news-single-main l-section-body js-load-fade-in">
+    <div class="l-container-s">
+      <article class="news-single-article">
+        <div class="news-single-head">
+          <h1 class="news-single-title">{news.title}</h1>
+          <div class="news-single-meta">
+            <span class="news-single-category">{news.category}</span>
+            <time datetime={toMachineDate(news.customDate || news.publishedAt)} class="news-single-date">
+              {formatNewsDate(news.customDate || news.publishedAt)}
+            </time>
+          </div><!-- /.news-single-meta -->
+        </div><!-- /.news-single-head -->
+        <div class="news-single-thumbnail">
+          <img
+            src={`${news.thumbnail?.url}?fm=webp`}
+            alt={news.thumbnailAlt || "ブログのサムネイル画像"}
+            loading="eager"
+            decoding="async"
+            width="800"
+            height="512"
+          >
+        </div>
+        <div class="news-single-content" set:html={cleanContent}></div>
+      </article>
+      <div class="news-single-button">
+        <ButtonLink
+          buttonText="お知らせ一覧を見る"
+          ButtonHref="/news/1"
+        />
+      </div><!-- /.news-single-button -->
+    </div><!-- /.l-container-s -->
+  </main>
+
+  <div class="news-single-cta">
+    <Cta />
+  </div><!-- /.news-single-cta -->
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .news-single-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+  }
+
+  .news-single-head {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    padding-bottom: 10px;
+    background-size: 12px 1px;
+    background-image: linear-gradient(to right, var(--color-baby-pink) 6px, transparent 6px);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    line-height: 1.5;
+  }
+
+  .news-single-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: justify;
+  }
+
+  .news-single-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .news-single-category {
+    padding: 3px 25px;
+    border-radius: 3px;
+    background-color: var(--color-baby-pink);
+    color: var(--color-base);
+  }
+
+  .news-single-date {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .news-single-thumbnail {
+    margin: 32px 0;
+  }
+
+  // .news-single-contentは_blog-content.scssにてスタイリング
+
+  .news-single-button {
+    text-align: right;
+  }
+
+  .news-single-cta {
+    margin-top: 60px;
+  }
+
+  @include mq() {
+    .news-single-kv {
+      margin-top: 100px;
+    }
+
+    .news-single-head {
+      padding-bottom: 20px;
+    }
+
+    .news-single-title {
+      font-size: 20px;
+      letter-spacing: .2em;
+      line-height: 1.8;
+    }
+
+    .news-single-category {
+      padding: 3px 30px;
+    }
+
+    .news-single-date {
+      font-size: 14px;
+    }
+
+    .news-single-thumbnail {
+      margin: 40px 0;
+    }
+
+  // .news-single-contentは_blog-content.scssにてスタイリング
+
+    .news-single-button {
+      text-align: right;
+    }
+
+    .news-single-cta {
+      margin-top: 120px;
+    }
+  }
+</style>

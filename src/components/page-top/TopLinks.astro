@@ -1,0 +1,250 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="top-links">
+  <div class="top-links-container l-container-s">
+    <div class="top-links-title">
+      <SectionTitle
+        title1="園のこと"
+      />
+    </div><!-- /.top-links-title -->
+    <ul class="top-links-list l-section-body">
+      <li class="top-links-item">
+        <a href="/admission-information" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--01">入園案内</h3>
+            <div class="top-links-item-image">
+              <img src="/assets/images/links/pic-links-01@2x.webp" alt="椅子に座ってお絵かきをする子ども" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">入園時や毎月の費用についてご案内します。</p>
+        </a>
+      </li>
+      <li class="top-links-item">
+        <a href="/recruitment" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--02">採用情報</h3>
+            <div class="top-links-item-image">
+              <img src="/assets/images/links/pic-links-02@2x.webp" alt="幼稚園の隣を走る電車を眺める子ども3人の後ろ姿" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">採用に関する、見学や応募方法をご案内します。</p>
+        </a>
+      </li>
+      <li class="top-links-item">
+        <a href="/mi-shuen-ji" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--03">ぴよちゃん教室</h3>
+            <div class="top-links-item-image">
+              <img src="/assets/images/links/pic-links-03@2x.webp" alt="吊り橋の上で片目を覗くポーズをする男の子" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">未就園児(1,2歳)の親子教室についてご案内します。</p>
+        </a>
+      </li>
+      <li class="top-links-item">
+        <a href="/otayori/1" class="top-links-item-link">
+          <div class="top-links-item-head">
+            <h3 class="top-links-item-title top-links-item-title--04">メンバーシップ</h3>
+            <div class="top-links-item-image">
+              <img src="/assets/images/links/pic-links-04@2x.webp" alt="ハートポーズをする6歳児の女の子2人組" loading="lazy" decoding="async" width="180" height="160">
+            </div><!-- /.top-links-item-image -->
+          </div><!-- /.top-links-item-head -->
+          <p class="top-links-item-text">保護者さま専用。おたよりや園児の日常を届けます。</p>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.top-links-container.l-container-s -->
+</section><!-- /.top-links -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-links {
+    padding-top: 44px;
+    line-height: 1.5;
+  }
+
+  .top-links-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+    padding-top: 10px;
+  }
+
+  .top-links-item-head {
+    position: relative;
+  }
+
+  .top-links-item-title {
+    display: grid;
+    place-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    color: #fffef6;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+
+    &--01,
+    &--02 {
+      width: 91px;
+      height: 40px;
+    }
+
+    &--03,
+    &--04 {
+      width: 134px;
+      height: 37px;
+      padding-right: 10px;
+    }
+
+    &--01 {
+      background-image: url(/assets/images/links/bg-links-title-green.svg);
+    }
+
+    &--02 {
+      background-image: url(/assets/images/links/bg-links-title-yellow.svg);
+    }
+
+    &--03 {
+      background-image: url(/assets/images/links/bg-links-title-pink.svg);
+    }
+
+    &--04 {
+      background-image: url(/assets/images/links/bg-links-title-blue.svg);
+    }
+  }
+
+  .top-links-item-image {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      width: 68px;
+      height: 68px;
+      background-color: var(--color-btn-hover);
+      clip-path: circle(50% at 93% 92%);
+      bottom: 0;
+      right: 0;
+    }
+
+    &::after {
+      width: 11px;
+      height: 9px;
+      background-image: url(/assets/images/global/icon-arrow-right.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      bottom: 13px;
+      right: 10px;
+      filter: invert(34%) sepia(63%) saturate(339%) hue-rotate(347deg) brightness(99%) contrast(93%);
+    }
+  }
+
+  .top-links-item-text {
+    margin-top: 5px;
+    text-align: justify;
+  }
+
+  @include mq() {
+    .top-links {
+      padding-top: 110px;
+    }
+
+    .top-links-list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      gap: min(26px, calc(26 var(--vw-pc)));
+      padding-top: 18px;
+      position: relative;
+
+      @media screen and (min-width: 1025px) {
+        &::before,
+        &::after {
+          content: "";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          position: absolute;
+        }
+
+        &::before {
+          width: 121px;
+          height: 121px;
+          background-image: url(/assets/images/links/illust-links-01.svg);
+          top: -70px;
+          left: -96px;
+        }
+
+        &::after {
+          width: 107px;
+          height: 180px;
+          background-image: url(/assets/images/links/illust-links-02.svg);
+          bottom: -62px;
+          right: -107px;
+        }
+      }
+    }
+
+    .top-links-item-title {
+      font-size: 16px;
+      top: -18px;
+
+      &--01,
+      &--02 {
+        width: 121px;
+        height: 53px;
+      }
+
+      &--03,
+      &--04 {
+        width: 179px;
+        height: 49px;
+      }
+    }
+
+    .top-links-item-image {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+      }
+
+      &::before {
+        width: 80px;
+        height: 80px;
+        clip-path: circle(50% at 95% 92%);
+      }
+
+      &::after {
+        width: 13px;
+        height: 11px;
+        bottom: 15px;
+        right: 11px;
+      }
+    }
+
+    .top-links-item-text {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  }
+
+  @media (any-hover: hover) {
+    .top-links-item-image::after {
+      transition: translate .3s ease;
+
+      .top-links-item-link:hover & {
+        translate: 3px;
+      }
+    }
+  }
+</style>

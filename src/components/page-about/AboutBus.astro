@@ -1,0 +1,166 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="about-bus">
+  <div class="about-bus-title">
+    <SectionTitle
+      title1="送迎バス"
+    />
+  </div>
+  <div class="about-bus-list">
+    <div class="about-bus-item">
+      <h2 class="about-bus-item-title">運行区域</h2>
+      <p class="about-bus-text">バス3台を運行しています。<br>令和7年度は、8コース運行中です。</p>
+      <div class="about-bus-area">
+        <dl class="about-bus-area-list">
+          <dt>習志野市</dt>
+          <dd>実籾・東習志野・新栄・大久保・本大久保・屋敷・花咲・鷺沼台・泉町・鷺沼・藤崎・津田沼・谷津</dd>
+        </dl><!-- /.about-bus-area-list -->
+        <dl class="about-bus-area-list">
+          <dt>船橋市</dt>
+          <dd>三山・習志野</dd>
+        </dl><!-- /.about-bus-area-list -->
+        <dl class="about-bus-area-list">
+          <dt>八千代市</dt>
+          <dd>八千代台西</dd>
+        </dl><!-- /.about-bus-area-list -->
+        <dl class="about-bus-area-list">
+          <dt>千葉市</dt>
+          <dd>幕張本郷・幕張西</dd>
+        </dl><!-- /.about-bus-area-list -->
+      </div><!-- /.about-bus-area -->
+      <div class="about-bus-area-note">
+        <small>※毎年、バスルートは変更しますので、詳しいルートはお問い合わせください。</small>
+        <small>※その他地域の方、バスルートがお近くを通っていない方もお気軽にご相談ください。</small>
+      </div><!-- /.about-bus-area-note -->
+    </div><!-- /.about-bus-item -->
+    <div class="about-bus-item">
+      <h2 class="about-bus-item-title">ちゃくバスメール</h2>
+      <p class="about-bus-text">バスの位置確認やバス接近通知メールが受信できるようになります</p>
+      <div class="about-bus-image">
+        <img src="/assets/images/about/page-about/bus/image-about-bus@2x.webp" alt="ちゃくバスメールを受信したスマートフォンのイメージ画像" loading="lazy" decoding="async" width="202" height="380">
+      </div><!-- /.about-bus-image -->
+    </div><!-- /.about-bus-item -->
+  </div><!-- /.about-bus-list -->
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .about-bus {
+    padding: 50px 0 33px;
+  }
+
+  .about-bus-list {
+    display: grid;
+    gap: 30px;
+    margin-top: 30px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .about-bus-item-title {
+    padding-bottom: 4px;
+    border-bottom: 1px solid;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .about-bus-text {
+    margin-top: 5px;
+  }
+
+  .about-bus-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 18px;
+    border-radius: 10px;
+    border: 1px solid;
+    margin-top: 14px;
+    background-color: #fff;
+  }
+
+  .about-bus-area-list {
+    display: flex;
+    gap: 18px;
+
+    dt {
+      flex: 0 0 58px;
+      color: var(--color-baby-pink);
+      font-weight: 700;
+    }
+
+    dd {
+      flex: 1 1 auto;
+    }
+  }
+
+  .about-bus-area-note {
+    margin-top: 10px;
+
+    small {
+      display: block;
+      font-size: 14px;
+    }
+  }
+
+  .about-bus-image {
+    margin-top: 42px;
+    text-align: center;
+
+    img {
+      width: 178px;
+    }
+  }
+
+  @include mq() {
+    .about-bus {
+      padding-top: 36px;
+      padding-bottom: 0;
+    }
+
+    .about-bus-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .about-bus-item-title {
+      font-size: 20px;
+    }
+
+    .about-bus-text {
+      margin-top: 10px;
+    }
+
+    .about-bus-area {
+      gap: 20px;
+      padding: 22px 30px;
+      margin-top: 14px;
+    }
+
+    .about-bus-area-list {
+      gap: 38px;
+
+      dt {
+        flex: 0 0 66px;
+      }
+    }
+
+    .about-bus-area-note {
+      small {
+        font-size: 12px;
+      }
+    }
+
+    .about-bus-image {
+      margin-top: 10px;
+
+      img {
+        width: 202px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,158 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="about-facility l-section">
+  <div class="about-facility-title">
+    <SectionTitle
+      title1="施設紹介"
+    />
+  </div>
+  <div class="about-facility-head">
+    <figure class="about-facility-head-image">
+      <img src="/assets/images/about/page-about/facility/pic-about-facility-01@2x.webp" alt="" loading="lazy" decoding="async" width="800" height="463">
+      <figcaption  class="about-facility-head-caption">
+        <p class="about-facility-head-title">みもみ農園</p>
+        <p class="about-facility-head-text">園児全員で春にはじゃがいも、秋にはさつまいも掘りができる農園です。今後、更に様々な畑体験ができるよう計画中です。</p>
+      </figcaption>
+    </figure>
+  </div><!-- /.about-facility-head -->
+  <ul class="about-facility-photos">
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-02@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">明るく綺麗な園舎</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-03@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">木のぬくもりのある保育棟</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-04@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">みもみキッチン</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-05@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">広々とした園庭</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-06@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">船の大型遊具(みもみ丸)</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-07@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">大きな砂場</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-08@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">どんぐり広場</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-09@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">茶道室</figcaption>
+      </figure>
+    </li>
+    <li class="about-facility-photos-item">
+      <figure class="about-facility-photos-image">
+        <img src="/assets/images/about/page-about/facility/pic-about-facility-10@2x.webp" alt="" loading="lazy" decoding="async" width="250" height="180">
+        <figcaption  class="about-facility-photos-caption">ホール</figcaption>
+      </figure>
+    </li>
+  </ul>
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .about-facility-head {
+    margin-top: 30px;
+  }
+
+  .about-facility-head-title {
+    margin-top: 10px;
+    color: var(--color-baby-pink);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .about-facility-head-text {
+    margin-top: 5px;
+    text-align: justify;
+  }
+
+  .about-facility-photos {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 20px;
+  }
+
+  .about-facility-photos-caption {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+    color: var(--color-baby-pink);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 7px;
+      margin-top: 5px;
+      background-color: currentColor;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+  }
+
+  @include mq() {
+    .about-facility-head {
+      margin-top: 40px;
+    }
+
+    .about-facility-head-caption {
+      padding: 0 6px;
+    }
+
+    .about-facility-head-title {
+      font-size: 20px;
+    }
+
+    .about-facility-head-text {
+      margin-top: 10px;
+    }
+
+    .about-facility-photos {
+      margin-top: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px 25px;
+    }
+
+    .about-facility-photos-caption {
+      gap: 10px;
+      font-size: 16px;
+
+      &::before {
+        width: 12px;
+        height: 10px;
+        margin-top: 6px;
+      }
+    }
+  }
+</style>

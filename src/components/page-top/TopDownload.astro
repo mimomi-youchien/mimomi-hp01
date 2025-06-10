@@ -1,0 +1,74 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="top-download">
+  <div class="top-download-container l-container-s">
+    <div class="l-section">
+      <div class="top-download-title">
+        <SectionTitle
+          title1="各種ダウンロード"
+        />
+      </div><!-- /.top-download-title -->
+      <ul class="top-download-list l-section-body">
+        <li class="top-download-item">
+          <a href="/assets/docs/certificate-of-recovery.pdf" download="治癒証明書.pdf">治癒証明書</a>
+        </li>
+        <!-- <li class="top-download-item">
+          <a href="" download=""></a>
+        </li> -->
+      </ul>
+    </div><!-- /.l-section -->
+  </div><!-- /.top-download-container.l-container-s -->
+</section><!-- /.top-download -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-download-list {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+  }
+
+  .top-download-item {
+    a {
+      display: grid;
+      place-items: center;
+      width: 150px;
+      height: 34px;
+      border-radius: 10px;
+      background-color: var(--color-blue);
+      color: var(--color-base);
+      font-weight: 700;
+    }
+  }
+
+  @include mq() {
+    .top-download-list {
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .top-download-item {
+      a {
+        width: 200px;
+        height: 40px;
+        letter-spacing: .1em;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    .top-download-item {
+      a {
+        transition: background-color .3s ease;
+
+        &:hover {
+          background-color: #7db7d0;
+        }
+      }
+    }
+  }
+</style>

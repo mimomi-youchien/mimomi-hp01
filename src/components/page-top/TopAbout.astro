@@ -1,0 +1,114 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import ButtonLink from "../button/ButtonLink.astro";
+---
+
+<section class="top-About">
+  <div class="top-About-container l-container">
+    <div class="top-About-image">
+      <picture>
+        <source media="(max-width: 767px)" srcset="/assets/images/about/pic-about-group-photo-sp@2x.webp">
+        <source media="(min-width: 768px)" srcset="/assets/images/about/pic-about-group-photo-pc@2x.webp">
+        <img src="/assets/images/about/pic-about-group-photo-sp@2x.webp" alt=" 歌を歌う5歳児の子どもたち" loading="lazy" decoding="async" width="320" height="133">
+      </picture>
+    </div><!-- /.top-About-image -->
+    <div class="top-About-title">
+      <SectionTitle
+        title1="みんなで"
+        title2="考える力を"
+      />
+    </div><!-- /.top-About-title -->
+    <div class="top-About-content l-section-body">
+      <div class="top-About-description">
+        <p class="top-About-text">幼稚園では、子ども達が「どうしたら良いかな？」と自分で考えて行動する力を育てます。小さな成功も大きな成長として、たくさんほめて、自信へとつなげていきます。</p>
+        <p class="top-About-text">遊びの中で心を育み、考える力をバランスよく伸ばしていきます。困った時も自分で解決できるように、みんなで一緒に学んでいきます。</p>
+      </div><!-- /.top-About-description -->
+      <div class="top-About-button">
+        <ButtonLink
+          buttonText="園の紹介を見る"
+          ButtonHref="/about"
+        />
+      </div><!-- /.top-About-button -->
+    </div><!-- /.top-About-content.l-section-body -->
+  </div><!-- /.top-About-container.l-container -->
+</section><!-- /.top-About -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-About-title {
+    margin-top: -10px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      bottom: 4px;
+      translate: -50%;
+    }
+
+    &::before {
+      width: 60px;
+      height: 24px;
+      background-image: url(/assets/images/about/illust-about-flowers-sp-01@2x.webp);
+      left: calc(50% - 120px);
+    }
+
+    &::after {
+      width: 57px;
+      height: 25px;
+      background-image: url(/assets/images/about/illust-about-flowers-sp-02@2x.webp);
+      left: calc(50% + 120px);
+    }
+  }
+
+  .top-About-description {
+    display: grid;
+    gap: 1.7em;
+    text-align: justify;
+  }
+
+  .top-About-button {
+    margin-top: 30px;
+    text-align: right;
+  }
+
+  @include mq() {
+    .top-About-title {
+      margin-top: -16px;
+
+      &::before,
+      &::after {
+        bottom: -105px;
+      }
+
+      &::before {
+        width: 247px;
+        height: 66px;
+        background-image: url(/assets/images/about/illust-about-flowers-pc@2x.webp);
+        left: 50%;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .top-About-content {
+      margin: 146px auto 0;
+      max-width: 800px;
+    }
+
+    .top-About-description {
+      gap: 1.88em;
+    }
+
+    .top-About-button {
+      margin-top: 40px;
+    }
+  }
+</style>

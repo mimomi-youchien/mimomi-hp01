@@ -1,0 +1,153 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import NewsCard from "../blog/NewsCard.astro";
+import ButtonLink from "../button/ButtonLink.astro";
+import { getNews } from "../../library/microcms";
+
+// microCMSからデータ取得
+const allNews = await getNews({
+  fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
+  limit: 100,
+});
+
+// customDate優先でソートし、最新3件を取得
+const top3Posts = allNews.contents
+  .sort((a, b) => {
+    const dateA = new Date(a.customDate || a.publishedAt);
+    const dateB = new Date(b.customDate || b.publishedAt);
+    return dateB.getTime() - dateA.getTime(); // 降順
+  })
+  .slice(0, 3);
+---
+
+<section class="top-news">
+  <div class="top-news-body">
+    <div class="top-news-container l-container-s">
+      <div class="top-news-title">
+        <SectionTitle title1="お知らせ" />
+      </div><!-- /.top-news-title -->
+      <p class="top-news-lead">
+        園児の日々の様子や<br class="u-no-pc">イベントごとをお届けしています！
+      </p>
+      <ul class="top-news-list">
+        {
+          top3Posts.map((item) => (
+            <li class="top-news-item">
+              <NewsCard
+                id={item.id}
+                title={item.title}
+                thumbnail={item.thumbnail?.url}
+                thumbnailAlt={item.thumbnailAlt}
+                customDate={item.customDate}
+                publishedAt={item.publishedAt}
+                category={item.category}
+              />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="top-introduction-button">
+        <ButtonLink
+          buttonText="お知らせ一覧へ"
+          ButtonHref="/news/1"
+        />
+      </div><!-- /.top-introduction-button -->
+    </div><!-- /.top-news-container.l-container-s -->
+  </div><!-- top-news-body -->
+</section><!-- /.top-news -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-news {
+    padding: 73px 0 76px;
+    margin-top: 47px;
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 800px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      left: 50%;
+      z-index: -1;
+      translate: -50%;
+    }
+
+    &::before {
+      height: 75px;
+      background-image: url(/assets/images/news/bg-news-sp-top.svg);
+      top: 0;
+    }
+
+    &::after {
+      height: 78px;
+      background-image: url(/assets/images/news/bg-news-sp-bottom.svg);
+      bottom: 0;
+    }
+  }
+
+  .top-news-body {
+    background-color: #f6f2ee;
+  }
+
+  .top-news-lead {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .top-news-list {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .top-news-item {
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid;
+    }
+  }
+
+  .top-introduction-button {
+    margin-top: 30px;
+    text-align: right;
+  }
+
+  @include mq() {
+    .top-news {
+      max-width: 2000px;
+      padding: 130px 0 131px;
+      margin: 110px auto 0;
+
+      &::before,
+      &::after {
+        width: 2000px;
+      }
+
+      &::before {
+        height: 132px;
+        background-image: url(/assets/images/news/bg-news-pc-top.svg);
+      }
+
+      &::after {
+        height: 133px;
+        background-image: url(/assets/images/news/bg-news-pc-bottom.svg);
+      }
+    }
+
+
+    .top-news-list {
+      margin-top: 40px;
+    }
+
+    .top-introduction-button {
+      margin-top: 20px;
+    }
+  }
+</style>

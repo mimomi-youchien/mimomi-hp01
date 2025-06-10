@@ -1,0 +1,158 @@
+---
+import ButtonCta from "../button/ButtonCta.astro"
+---
+
+<section class="top-lead fade-in-up fade-in-up--delay-8">
+  <div class="top-lead-container l-container-s">
+    <h2 class="top-lead-title">豊かな緑に囲まれた広い敷地で、<br>のびのびと過ごせる幼稚園</h2>
+    <div class="l-section-body">
+      <div class="top-lead-description">
+        <p class="top-lead-text">京成実籾駅前に位置し、子ども達のために考え抜かれた環境と設備が整っています。<br>自由に遊び、学ぶ姿をいつでも見学にお越しください。</p>
+        <p class="top-lead-text">みもみ幼稚園に関する最新情報やお問い合わせ情報などは公式LINEにてお送りしておりますので、まずはお友だち追加をお願いいたします！<br>ご質問等ございましたら、チャットも対応しておりますので、メッセージをお送りください。</p>
+      </div><!-- /.top-lead-description -->
+      <div class="top-lead-button">
+        <ButtonCta />
+      </div><!-- /.top-lead-button -->
+    </div><!-- /.l-section-body -->
+  </div><!-- /.top-lead-container.l-container-s -->
+</section><!-- /.top-lead -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-lead {
+    padding-top: 57px;
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+      translate: -50%;
+    }
+
+    &::before {
+      width: calc(224 var(--vw-sp));
+      height: calc(201 var(--vw-sp));
+      background-image: url(/assets/images/global/dec-laurel-01.svg);
+      top: calc(-62 var(--vw-sp));
+      left: calc(50% + calc(159 var(--vw-sp)));
+    }
+
+    &::after {
+      width: calc(227 var(--vw-sp));
+      height: calc(238 var(--vw-sp));
+      background-image: url(/assets/images/global/dec-laurel-02.svg);
+      bottom: calc(73 var(--vw-sp));
+      left: calc(50% - calc(154 var(--vw-sp)));
+    }
+  }
+
+  .top-lead-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.185em;
+    line-height: 1.78;
+    text-align: center;
+  }
+
+  .top-lead-description {
+    display: grid;
+    gap: 1.7em;
+    text-align: justify;
+  }
+
+  .top-lead-button {
+    margin-top: 30px;
+    text-align: right;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 19px;
+      border-radius: 10px;
+      border: 1px solid var(--color-line);
+      background-color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-image: url(/assets/images/global/icon-line.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        filter: invert(100%) sepia(16%) saturate(4980%) hue-rotate(33deg) brightness(85%) contrast(76%);
+      }
+    }
+  }
+
+  @include mq() {
+    .top-lead {
+      padding-top: 138px;
+      padding-bottom: 120px;
+
+      &::before {
+        width: min(682px, calc(682 var(--vw-pc)));
+        height: min(612px, calc(612 var(--vw-pc)));
+        top: max(-171px, calc(-171 var(--vw-pc)));
+        left: min(calc(50% + 502px), calc(50% + calc(502 var(--vw-pc))));
+      }
+
+      &::after {
+        width: min(690px, calc(690 var(--vw-pc)));
+        height: min(725px, calc(725 var(--vw-pc)));
+        bottom: min(18px, calc(18 var(--vw-pc)));
+        left: max(calc(50% - 573px), calc(50% - calc(573 var(--vw-pc))));
+      }
+    }
+
+    .top-lead-container {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .top-lead-title {
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .top-lead-description {
+      gap: 1.88em;
+    }
+
+    .top-lead-button {
+      margin-top: 40px;
+    }
+
+    .top-lead-bg {
+      width: 1764px;
+      width: min(1764px, calc(1764 var(--vw-pc)));
+      top: auto;
+      bottom: -20px;
+      left: 50%;
+      translate: -52%;
+    }
+  }
+
+  @media (any-hover: hover) {
+    .top-lead-button {
+      a {
+        transition: opacity .3s ease;
+
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+</style>

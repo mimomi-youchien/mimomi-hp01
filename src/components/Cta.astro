@@ -1,0 +1,73 @@
+---
+import ButtonCta from "./button/ButtonCta.astro";
+---
+
+<div class="c-cta">
+  <div class="c-cta-container l-container-s">
+    <p class="c-cta-text">ご見学やご相談、資料請求など<br>ご気軽にお問い合わせください。</p>
+    <div class="c-cta-button">
+      <ButtonCta
+        ctaClass="c-button-cta c-button-cta--lg"
+      />
+    </div><!-- /.c-cta-button -->
+  </div><!-- /.c-cta-container.l-container-s -->
+</div><!-- /.c-cta -->
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .c-cta {
+    padding: 20px 0;
+    margin-bottom: 60px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+
+  .c-cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .c-cta-text {
+    width: fit-content;
+    margin: auto;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    line-height: 1.5;
+  }
+
+  .c-cta-button {
+    text-align: center;
+  }
+
+  @include mq() {
+    .c-cta {
+      padding: 40px 0;
+      margin-bottom: 120px;
+    }
+
+    .c-cta-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+      padding: 0 48px;
+    }
+
+    .c-cta-text {
+      width: fit-content;
+      margin: 0;
+      font-size: max(18px, calc(20 / 1024 * 100vw));
+
+      @media screen and (min-width: 1024px) {
+        font-size: 20px;
+      }
+    }
+
+    .c-cta-button {
+      text-align: center;
+    }
+  }
+</style>

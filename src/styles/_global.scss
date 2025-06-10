@@ -1,0 +1,37 @@
+/* -----------------------------------
+  global
+----------------------------------- */
+
+/* global > color
+----------------------------------- */
+:root {
+  --color-base: #fffef6;
+  --color-main: #855e3b;
+  --color-blue: #89c3d5;
+  --color-green: #b3e165;
+  --color-pink: #fc816f;
+  --color-baby-pink: #faab99;
+  --color-yellow: #f7d056;
+  --color-btn-hover: #fbf4df;
+  --color-line: #8cc35e;
+}
+
+/* global > content-width
+----------------------------------- */
+:root {
+  --width-content: 1100px;
+  --width-content-s: 800px;
+}
+
+/* global > content-width
+----------------------------------- */
+:root {
+  --vw-sp: / 375 * 100vw;
+  --vw-pc: / 1280 * 100vw;
+}
+
+/* global > font
+----------------------------------- */
+:root {
+  --font-family-base: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}

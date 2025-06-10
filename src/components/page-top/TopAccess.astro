@@ -1,0 +1,188 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<section class="top-access">
+  <div class="top-access-container l-container-s">
+    <div class="l-section">
+      <div class="top-access-title">
+        <SectionTitle
+          title1="アクセス"
+        />
+      </div><!-- /.top-access-title -->
+      <h3 class="top-access-title-lv3">学校法人飯生学園 みもみ幼稚園</h3>
+      <div class="top-access-content">
+        <dl class="top-access-list">
+          <dt class="top-access-term top-access-term--location">住所</dt>
+          <dd class="top-access-description">
+            <span>〒275-0002 千葉県習志野市実籾3-13-15</span>
+            <span>京成実籾駅より徒歩3分</span>
+          </dd>
+        </dl>
+        <dl class="top-access-list">
+          <dt class="top-access-term top-access-term--phone">電話番号</dt>
+          <dd class="top-access-description">047-473-4724</dd>
+        </dl>
+        <dl class="top-access-list">
+          <dt class="top-access-term top-access-term--fax">FAX</dt>
+          <dd class="top-access-description">047-473-1051</dd>
+        </dl>
+        <dl class="top-access-list">
+          <dt class="top-access-term top-access-term--parking-lot">駐車場</dt>
+          <dd class="top-access-description top-access-description--parking-lot">
+            久保歯科医院と有料パーキングの間の道を進むと右手にございます。
+            <small class="top-access-note">※令和２年より、正門の場所が変わっています。</small>
+            <small class="top-access-note">※線路沿いではありませんのでお気を付け下さい。</small>
+          </dd>
+        </dl>
+      </div><!-- /.top-access-content -->
+      <div class="top-access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.594421677065!2d140.06766371093698!3d35.68698732954415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022810fe28698c7%3A0xa48a75c3c0a8b4ea!2z44G_44KC44G_5bm856ia5ZyS!5e0!3m2!1sja!2sjp!4v1748130871786!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div><!-- /.top-access-map -->
+    </div><!-- /.l-section -->
+  </div><!-- /.top-access-container.l-container-s -->
+</section><!-- /.top-access -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-access-title-lv3 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-yellow);
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.875;
+  }
+
+  .top-access-content {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  .top-access-term {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-yellow);
+    font-weight: 700;
+
+    &::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+
+    &--location {
+      &::before {
+        background-image: url(/assets/images/access/icon-access-home.svg);
+      }
+    }
+
+    &--phone {
+      &::before {
+        background-image: url(/assets/images/access/icon-access-phone.svg);
+      }
+    }
+
+    &--fax {
+      &::before {
+        background-image: url(/assets/images/access/icon-access-fax.svg);
+      }
+    }
+
+    &--parking-lot {
+      &::before {
+        background-image: url(/assets/images/access/icon-access-parking-lot.svg);
+      }
+    }
+  }
+
+  .top-access-description {
+    span {
+      display: inline-block;
+    }
+  }
+
+  .top-access-note {
+    display: block;
+    font-size: 12px;
+  }
+
+  .top-access-map {
+    margin-top: max(10px, calc(10 var(--vw-sp)));
+    background-color: #f5f5f5;
+
+    iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 320 / 200;
+    }
+  }
+
+  @include mq() {
+    .top-access-title-lv3 {
+      padding-bottom: 10px;
+      margin-top: 40px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .top-access-content {
+      gap: 0;
+      margin-top: 20px;
+    }
+
+    .top-access-list {
+      display: flex;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-top: 20px;
+      }
+
+      &:nth-child(4) {
+        margin-top: -12px;
+      }
+    }
+
+    .top-access-term {
+      flex: 0 0 134px;
+      gap: 10px;
+
+      &::before {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .top-access-description {
+      margin-top: 6px;
+
+      &--parking-lot {
+        margin-top: 37px;
+      }
+
+      span {
+        margin-right: .7em;
+      }
+    }
+
+    .top-access-note {
+      font-size: 14px;
+    }
+
+    .top-access-map {
+      margin-top: 40px;
+
+      iframe {
+        aspect-ratio: 800 / 310;
+      }
+    }
+  }
+</style>

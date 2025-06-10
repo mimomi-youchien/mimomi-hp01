@@ -1,0 +1,64 @@
+---
+// PageKv.astro
+const { title, imageSrcSp, imageSrcPc, imageAlt, isDetailPage = false } = Astro.props;
+---
+
+<div class="c-page-kv l-container">
+  <div class="c-page-kv-image">
+    <picture>
+      <source media="(max-width: 767px)" srcset={imageSrcSp}>
+      <source media="(min-width: 768px)" srcset={imageSrcPc}>
+      <img src={imageSrcSp} alt={imageAlt} loading="eager" decoding="async" width="320" height="133">
+    </picture>
+  </div><!-- /.c-page-kv-image -->
+
+  {isDetailPage ? (
+    <p class="c-page-kv-title">{title}</p>
+  ) : (
+    <h1 class="c-page-kv-title">{title}</h1>
+  )}
+</div><!-- /.c-page-kv.l-container -->
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .c-page-kv {
+    position: relative;
+  }
+
+  .c-page-kv-image {
+
+  }
+
+  .c-page-kv-title {
+    padding: 0 0 calc(11 var(--vw-sp)) calc(20 var(--vw-sp));
+    color: var(--color-base);
+    font-size: calc(12 var(--vw-sp));
+    font-weight: 700;
+    line-height: 1.5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  @include mq() {
+    .c-page-kv {
+      max-width: calc(1110px + 40px * 2);
+    }
+
+    .c-page-kv-image {
+
+    }
+
+    .c-page-kv-title {
+      padding: 0 0 min(45px, calc(45 / 1190 * 100vw)) min(85px, calc(85 / 1190 * 100vw));
+      font-size: min(30px, calc(30 / 1190 * 100vw));
+      left: 40px;
+
+      @media screen and (min-width: 1190px) {
+        padding: 0 0 45px 85px;
+        font-size: 30px;
+      }
+    }
+  }
+</style>

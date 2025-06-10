@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TopKv from "../components/page-top/TopKv.astro";
+import TopLead from "../components/page-top/TopLead.astro";
+import TopAbout from "../components/page-top/TopAbout.astro";
+import TopLife from "../components/page-top/TopLife.astro";
+import TopNews from "../components/page-top/TopNews.astro";
+import TopLinks from "../components/page-top/TopLinks.astro";
+import TopFaq from "../components/page-top/TopFaq.astro";
+import TopDownload from "../components/page-top/TopDownload.astro";
+import TopAccess from "../components/page-top/TopAccess.astro";
+import Cta from "../components/Cta.astro";
+---
+
+<Layout
+  title="自然豊かな環境でのびのびと成長する習志野市の幼稚園｜みもみ幼稚園"
+  ogType="website"
+  description="京成実籾駅徒歩3分のみもみ幼稚園は、自然に囲まれた広い敷地でのびのび遊び、学べる環境です。自由と自立を育む教育を行っています。習志野市・船橋市・八千代市・千葉市からもアクセス良好です。見学も随時受付中です。"
+  noIndex="true"
+>
+  <!-- top-kv -->
+  <div id="kv">
+    <TopKv />
+  </div>
+
+  <!-- top-main -->
+  <main class="top-main">
+
+    <!-- top-lead -->
+    <div id="lead">
+      <TopLead />
+    </div>
+
+    <!-- top-introduction -->
+    <div id="introduction" class="js-fade-in">
+      <TopAbout />
+    </div>
+
+    <!-- top-life -->
+    <div id="life" class="js-fade-in">
+      <TopLife />
+    </div>
+
+    <!-- top-news -->
+    <div id="news" class="js-fade-in">
+      <TopNews />
+    </div>
+
+    <!-- top-links -->
+    <div id="links" class="js-fade-in">
+      <TopLinks />
+    </div>
+
+    <!-- top-faq -->
+    <div id="faq" class="js-fade-in">
+      <TopFaq />
+    </div>
+
+    <!-- top-download -->
+    <div id="download" class="js-fade-in">
+      <TopDownload />
+    </div>
+
+    <!-- top-access -->
+    <div id="access" class="js-fade-in">
+      <TopAccess />
+    </div>
+
+    <!-- top-cta -->
+    <div class="top-cta l-section">
+      <Cta />
+    </div><!-- /.top-cta.l-section -->
+  </main>
+</Layout>

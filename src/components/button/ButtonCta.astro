@@ -1,0 +1,191 @@
+---
+const { ctaText, ctaClass, ctaHref, ctaTarget } = Astro.props;
+---
+
+<a href={ctaHref || "https://lin.ee/UtZ5lXCf/"} class={ctaClass || "c-button-cta"} target={ctaTarget || "_blank"}>{ctaText || "お友だち追加する"}</a>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .c-button-cta {
+    display: inline-block;
+    width: fit-content;
+    padding: 9px 20px 9px 46px;
+    border-radius: 5px;
+    background-color: var(--color-line);
+    background-image: url(/assets/images/global/icon-line@2x.webp);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left 20px center;
+    color: var(--color-base);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    &--recruitment {
+      background-color: var(--color-main);
+    }
+
+    &--tel {
+      padding: 9px 27px 9px 46px;
+      background-color: var(--color-main);
+      background-image: url(/assets/images/global/icon-phone-white.svg);
+      background-repeat: no-repeat;
+      background-size: 16px 16px;
+      background-position: left 20px center;
+      font-weight: 400;
+    }
+
+    &--lg {
+      padding: 8px 20px 8px 50px;
+      border-radius: 10px;
+      background-size: 20px 20px;
+      font-size: 16px;
+    }
+  }
+
+  @include mq() {
+    .c-button-cta {
+      padding: 13px 20px 13px 50px;
+      border-radius: 10px;
+      background-size: 20px 20px;
+      background-position: left 20px top 12px;
+      font-size: 12px;
+
+      &--recruitment {
+
+      }
+
+      &--tel {
+        padding: 12px 22px 11px 50px;
+        background-size: 16px 16px;
+        background-position: left 20px top 14px;
+        font-size: 14px;
+
+        // タブレット横向き(1024px)まで電話発信有効
+        @media screen and (min-width: 1025px) {
+          background-color: rgb(133 94 59 / .3);
+          background-image: url(/assets/images/global/icon-phone-brown.svg);
+          color: var(--color-main);
+          pointer-events: none;
+          cursor: default;
+        }
+
+        &::before {
+          width: 16px;
+          height: 16px;
+
+          // タブレット横向き(1024px)まで電話発信有効
+          @media screen and (min-width: 1025px) {
+            filter: invert(33%) sepia(95%) saturate(257%) hue-rotate(347deg) brightness(93%) contrast(87%);
+          }
+        }
+      }
+
+      &--lg {
+        padding: max(18px, calc(20 / 1024 * 100vw)) max(38px, calc(40 / 1024 * 100vw)) max(18px, calc(20 / 1024 * 100vw)) max(98px, calc(100 / 1024 * 100vw));
+        border-radius: 20px;
+        background-size: max(38px, calc(40 / 1024 * 100vw)) max(38px, calc(40 / 1024 * 100vw));
+        background-position: left max(38px, calc(40 / 1024 * 100vw)) top max(17px, calc(19 / 1024 * 100vw));
+        font-size: max(24px, calc(26 / 1024 * 100vw));
+
+        @media screen and (min-width: 1024px) {
+          padding: 20px 40px 20px 100px;
+          background-size: 40px 40px;
+          background-position: left 40px top 19px;
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    .c-button-cta {
+      transition: background-color .3s ease;
+
+      &:hover {
+        background-color: #84b759;
+
+        @include mq() {
+          animation: cta-button-pc .4s ease-in-out;
+        }
+      }
+
+      &--recruitment {
+        &:hover {
+          background-color: #65472d;
+        }
+      }
+
+      &--tel {
+        &:hover {
+          background-color: #65472d;
+
+          @include mq() {
+            animation: cta-button-tel .4s ease-in-out;
+          }
+        }
+      }
+
+      &--lg {
+        &:hover {
+          @include mq() {
+            animation: cta-button-lg-tb .4s ease-in-out;
+          }
+
+          @media screen and (min-width: 1024px) {
+            animation: cta-button-lg-pc .4s ease-in-out;
+          }
+        }
+      }
+    }
+
+    @keyframes cta-button-pc {
+      0% {
+        background-position: left 20px top 12px;
+      }
+      60% {
+        background-position: left 20px top 6px;
+      }
+      100% {
+        background-position: left 20px top 12px;
+      }
+    }
+
+    @keyframes cta-button-lg-tb {
+      0% {
+        background-position: left max(38px, calc(40 / 1024 * 100vw)) top max(17px, calc(19 / 1024 * 100vw));
+      }
+      60% {
+        background-position: left max(38px, calc(40 / 1024 * 100vw)) top max(10px, calc(12 / 1024 * 100vw));;
+      }
+      100% {
+        background-position: left max(38px, calc(40 / 1024 * 100vw)) top max(17px, calc(19 / 1024 * 100vw));
+      }
+    }
+
+    @keyframes cta-button-lg-pc {
+      0% {
+        background-position: left 40px top 19px;
+      }
+      60% {
+        background-position: left 40px top 12px;
+      }
+      100% {
+        background-position: left 40px top 19px;
+      }
+    }
+
+    @keyframes cta-button-tel {
+      0% {
+        background-position: left 20px top 14px;
+      }
+      60% {
+        background-position: left 20px top 8px;
+      }
+      100% {
+        background-position: left 20px top 14px;
+      }
+    }
+  }
+</style>

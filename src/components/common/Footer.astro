@@ -1,0 +1,442 @@
+---
+import ButtonCta from "../button/ButtonCta.astro";
+const { logo, logoAlt } = Astro.props;
+---
+
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-container l-container">
+    <div class="footer-info">
+      <div class="footer-logo">
+        <img src={logo} alt={logoAlt} loading="lazy" decoding="async" width="152" height="33">
+      </div><!-- /.footer-logo -->
+      <div class="footer-location">
+        <p class="footer-address">〒275-0002&emsp;千葉県習志野市実籾3-13-15</p>
+        <p class="footer-access">京成実籾駅より徒歩3分</p>
+      </div><!-- /.footer-location -->
+      <div class="footer-tel">
+        <a href="tel:047-473-4724">047-473-4724</a>
+      </div><!-- /.footer-tel -->
+      <div class="footer-line">
+        <p class="footer-line-text">
+          <span>みもみ幼稚園公式LINEにて最新情報を配信しています！</span>
+          <span>採用情報はリクルート専用LINEをご登録ください。</span>
+        </p>
+        <ul class="footer-line-link">
+          <li class="footer-line-item">
+            <ButtonCta />
+          </li>
+          <li class="footer-line-item">
+            <ButtonCta
+            ctaText="リクルート専用"
+            ctaClass="c-button-cta c-button-cta--recruitment"
+            ctaHref="https://lin.ee/qD9ric4/"
+            />
+          </li>
+        </ul>
+      </div><!-- /.footer-line -->
+    </div><!-- /.footer-info -->
+    <div class="footer-privacy-policy">
+      <a href="/privacy-policy">プライバシーポリシー</a>
+    </div><!-- /.footer-privacy-policy -->
+    <div class="footer-copyright footer-copyright--sp">
+      <small aria-label="著作権 2025 学校法人飯生学園みもみ幼稚園">&copy;2025 学校法人飯生学園みもみ幼稚園 All Rights Reserved.</small>
+    </div><!-- /.footer-copyright -->
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-list">
+        <div class="footer-nav-group">
+          <div class="footer-nav-item">
+            <a href="/">ホーム</a>
+            <ul class="footer-sub-menus">
+              <li class="footer-sub-menus-item">
+                <a href="/#download">各種ダウンロード</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/#access">アクセス</a>
+              </li>
+            </ul>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/about">園の紹介</a>
+            <ul class="footer-sub-menus">
+              <li class="footer-sub-menus-item">
+                <a href="/about#body">教育方針</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/about#kyushoku">自園給食のこだわり</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/about#bus">送迎バス</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/about#safety">安心・安全への取り組み</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/about#facility">施設紹介</a>
+              </li>
+            </ul>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/life">園の生活</a>
+            <ul class="footer-sub-menus">
+              <li class="footer-sub-menus-item">
+                <a href="/life#body">園の一日</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/life#mimomi-hoiku">みもみ保育</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/life#annual-event">年間行事</a>
+              </li>
+              <li class="footer-sub-menus-item">
+                <a href="/life#azukari-hoiku">預かり保育</a>
+              </li>
+            </ul>
+          </div><!-- /.footer-nav-item -->
+        </div><!-- /.footer-nav-group -->
+        <div class="footer-nav-group">
+          <div class="footer-nav-item">
+            <a href="/admission-information">入園案内</a>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/news/1">お知らせ</a>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/recruitment">採用情報</a>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/faq">よくある質問</a>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/otayori/1">保護者さま専用ページ<span>「おたより」</span></a>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/mi-shuen-ji">未就園児親子教室<span>について</span></a>
+          </div><!-- /.footer-nav-item -->
+          <div class="footer-nav-item">
+            <a href="/privacy-policy">プライバシーポリシー</a>
+          </div><!-- /.footer-nav-item -->
+        </div><!-- /.footer-nav-group -->
+      </div><!-- /.footer-nav-list -->
+    </nav>
+  </div><!-- /.footer-container.l-container -->
+
+  <!-- トップへ戻るボタン -->
+  <a href="#" class="footer-to-page-top" aria-label="ページトップへ戻る">
+    <img src="/assets/images/global/icon-to-page-top.svg" alt="" loading="lazy" decoding="async" width="22" height="12">
+    <span aria-disabled="true">トップ</span>
+  </a><!-- /.to-page-top -->
+
+  <div class="l-container">
+    <div class="footer-copyright footer-copyright--pc">
+      <small aria-label="著作権 2025 学校法人飯生学園みもみ幼稚園">&copy;2025 学校法人飯生学園みもみ幼稚園 All Rights Reserved.</small>
+    </div><!-- /.footer-copyright -->
+  </div><!-- /.l-container -->
+</footer><!-- /.footer -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .footer {
+    padding-top: 40px;
+    height: 325px;
+    font-size: clamp(11px, calc(12 var(--vw-sp)), 12px);
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      width: 800px;
+      height: 325px;
+      background-image: url(/assets/images/global/bg-footer-sp@2x.webp);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: -1;
+      translate: -50%;
+    }
+  }
+
+  .footer-container {
+    width: fit-content;
+  }
+
+  .footer-logo {
+    max-width: 84px;
+  }
+
+  .footer-location {
+    margin-top: 8px;
+  }
+
+  .footer-tel {
+    width: fit-content;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 0;
+      font-size: 12px;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        background-image: url(/assets/images/global/icon-phone-brown.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  .footer-line {
+    margin-top: 5px;
+  }
+
+  .footer-line-text {
+    display: grid;
+  }
+
+  .footer-line-link {
+    display: flex;
+    gap: 10px;
+    gap: calc(10 var(--vw-sp));
+    margin-top: 8px;
+  }
+
+  .footer-privacy-policy {
+    a {
+      display: block;
+      width: fit-content;
+      padding: 5px 0;
+      margin-top: 3px;
+      font-size: 10px;
+    }
+  }
+
+  .footer-nav {
+    display: none;
+  }
+
+  .footer-copyright {
+    &--pc {
+      display: none;
+    }
+
+    small {
+      font-size: 10px;
+    }
+  }
+
+  .footer-to-page-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    position: absolute;
+    top: 39px;
+    right: calc(27 var(--vw-sp));
+
+    @include mq() {
+      top: 74px;
+      right: 40px;
+    }
+
+    img {
+      width: 22px;
+    }
+  }
+
+  @include mq() {
+    .footer {
+      padding-top: 60px;
+      height: 480px;
+
+      &::before {
+        width: 1200px;
+        height: 480px;
+        background-image: url(/assets/images/global/bg-footer-tb@2x.webp);
+      }
+    }
+
+    .footer-container {
+      width: 100%;
+      padding: 0 calc(80 / 768 * 100vw);
+    }
+
+    .footer-info {
+      font-size: 14px;
+    }
+
+    .footer-logo {
+      max-width: 172px;
+    }
+
+    .footer-location {
+      margin-top: 20px;
+    }
+
+    .footer-tel {
+      a {
+        gap: 10px;
+        font-size: 16px;
+
+        &::before {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    .footer-line {
+      margin-top: 15px;
+    }
+
+    .footer-line-link {
+      gap: 24px;
+    }
+
+    .footer-privacy-policy {
+      a {
+        font-size: 12px;
+      }
+    }
+
+    .footer-copyright {
+      small {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    // タブレット横向き(1024px)まで電話発信有効
+    .footer-tel {
+      text-decoration: none;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  @media screen and (min-width: 1030px) {
+    .footer {
+      padding-top: 122px;
+      height: 590px;
+
+      &::before {
+        width: 2000px;
+        height: 590px;
+        background-image: url(/assets/images/global/bg-footer-pc@2x.webp);
+      }
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 40px;
+    }
+
+    .footer-info {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .footer-line-link {
+      gap: 20px;
+    }
+
+    .footer-privacy-policy {
+      display: none;
+    }
+
+    .footer-nav {
+      display: block;
+    }
+
+    .footer-nav-list {
+      display: flex;
+      gap: 40px;
+      font-size: 14px;
+
+      a {
+        display: block;
+        padding: 5px 0;
+      }
+    }
+
+    .footer-nav-group {
+      &:first-child {
+        display: flex;
+        gap: 40px;
+      }
+
+      &:last-child {
+        display: grid;
+        gap: 10px;
+      }
+    }
+
+    .footer-nav-item {
+      & > a {
+        font-weight: 700;
+      }
+
+      a span {
+        display: none;
+
+        @media screen and (min-width: 1120px) {
+          display: inline;
+        }
+      }
+    }
+
+    .footer-sub-menus {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .footer-copyright {
+      &--sp {
+        display: none;
+      }
+
+      &--pc {
+        display: block;
+        margin-top: 15px;
+        text-align: right;
+      }
+
+      small {
+        font-size: 12px;
+      }
+    }
+
+    .footer-to-page-top {
+      display: none;
+    }
+  }
+
+  @media (any-hover: hover) {
+    .footer-nav-item a,
+    .footer-sub-menus-item a {
+      transition: color .3s ease;
+
+      &:hover {
+        color: #65472d;
+      }
+    }
+  }
+</style>

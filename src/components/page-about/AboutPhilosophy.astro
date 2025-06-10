@@ -1,0 +1,199 @@
+<section class="about-philosophy l-section">
+  <div class="about-philosophy-title">
+    <span class="about-philosophy-title-lead">成長を支える</span>
+    <h2 class="about-philosophy-title-text">みもみ幼稚園の<span>3</span>つの教育</h2>
+  </div>
+  <div class="about-philosophy-lead">
+    <div class="about-philosophy-lead-image">
+      <img src="/assets/images/about/page-about/philosophy/image-about-philosophy-group@2x.webp" alt="体育教育・徳育教育・知育教育" loading="lazy" decoding="async" width="200" height="200">
+    </div><!-- /.about-philosophy-lead-image -->
+    <p class="about-philosophy-lead-text">調和のとれた人格形成の基礎作りを行います</p>
+  </div><!-- /.about-philosophy-lead -->
+  <ul class="about-philosophy-list">
+    <li class="about-philosophy-list-item about-philosophy-list-item--01">
+      <div class="about-philosophy-list-content">
+        <h3 class="about-philosophy-list-title about-philosophy-list-title--01">
+          <span class="term">体育教育：</span><span class="definition">じょうぶな体</span>
+        </h3>
+        <div class="about-philosophy-list-text">
+          <p class="about-philosophy-list-paragraph">体力のある子、ねばり強い子、のびのびした子に育てます。</p>
+          <p class="about-philosophy-list-paragraph">広い園庭、プール、アスレチックどんぐり広場、数々の遊具、体育施設(ホール)を利用して専門の体育指導教師による系統的な体育指導を行っています。第二の心臓、第二の脳と言われる足の裏への刺激を大切に考え、裸足になり、園庭で元気に遊ぶ子ども達です。</p>
+        </div><!-- /.about-philosophy-list-text -->
+      </div><!-- /.about-philosophy-list-content -->
+    </li>
+    <li class="about-philosophy-list-item about-philosophy-list-item--02">
+      <div class="about-philosophy-list-content">
+        <h3 class="about-philosophy-list-title about-philosophy-list-title--02">
+          <span class="term">徳育教育：</span><span class="definition">思いやりの心</span>
+        </h3>
+        <div class="about-philosophy-list-text">
+          <p class="about-philosophy-list-paragraph">よい環境の中で、日常の正しい生活習慣を身につけ、集団生活への理解と態度を育てるとともに、自然を愛し情操豊かなしつけの行き届いた、心やさしい子に育てます。</p>
+          <p class="about-philosophy-list-paragraph">幼稚園農園における土と親しむ教育、和室における茶道・書道の指導など各種行事を体験することによって感謝と思いやりの心を育てます。</p>
+        </div><!-- /.about-philosophy-list-text -->
+      </div><!-- /.about-philosophy-list-content -->
+    </li>
+    <li class="about-philosophy-list-item about-philosophy-list-item--03">
+      <div class="about-philosophy-list-content">
+        <h3 class="about-philosophy-list-title about-philosophy-list-title--03">
+          <span class="term">知育教育：</span><span class="definition">自分で考える力</span>
+        </h3>
+        <div class="about-philosophy-list-text">
+          <p class="about-philosophy-list-paragraph">自ら考える力を育てるために、遊びを通じて思考力の基礎を育て、将来学力のある子になるための土台を固めていきます。</p>
+          <p class="about-philosophy-list-paragraph">小学校へ向けて文字指導、数の遊びなどを取り入れています。</p>
+        </div><!-- /.about-philosophy-list-text -->
+      </div><!-- /.about-philosophy-list-content -->
+    </li>
+  </ul>
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .about-philosophy {
+    padding-bottom: 50px;
+  }
+
+  .about-philosophy-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+  }
+
+  .about-philosophy-title-lead {
+    color: var(--color-baby-pink);
+    font-size: 16px;
+  }
+
+  .about-philosophy-title-text {
+    font-size: 18px;
+    padding-left: .2em;
+    letter-spacing: .2em;
+    line-height: 1.5;
+
+    span {
+      font-size: 24px;
+    }
+  }
+
+  .about-philosophy-lead {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .about-philosophy-lead-image {
+    img {
+      width: 200px;
+    }
+  }
+
+  .about-philosophy-lead-text {
+    margin-top: 20px;
+    line-height: calc(30 / 14);
+  }
+
+  .about-philosophy-list {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .about-philosophy-list-title {
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.875;
+
+    &--01 {
+      border-color: var(--color-green);
+    }
+
+    &--02 {
+      border-color: var(--color-blue);
+    }
+
+    &--03 {
+      border-color: var(--color-yellow);
+    }
+  }
+
+  .about-philosophy-list-text {
+    margin-top: 5px;
+    text-align: justify;
+  }
+
+  @include mq() {
+    .about-philosophy {
+      padding-bottom: 123px;
+    }
+
+    .about-philosophy-title-lead {
+      padding-left: .2em;
+      font-size: 20px;
+      letter-spacing: .2em;
+      line-height: 1.5;
+    }
+
+    .about-philosophy-title-text {
+      font-size: 30px;
+
+      span {
+        font-size: 40px;
+      }
+    }
+
+    .about-philosophy-lead {
+      margin-top: 60px;
+    }
+
+    .about-philosophy-lead-text {
+      margin-top: 20px;
+      line-height: 1.875;
+    }
+
+    .about-philosophy-list {
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .about-philosophy-list-item {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      &::before {
+        content: "";
+        flex: 0 0 100px;
+        width: 100px;
+        height: 107px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+
+      &--01 {
+        &::before {
+          background-image: url(/assets/images/about/page-about/philosophy/image-about-philosophy-01@2x.webp);
+        }
+      }
+
+      &--02 {
+        &::before {
+          background-image: url(/assets/images/about/page-about/philosophy/image-about-philosophy-02@2x.webp);
+        }
+      }
+
+      &--03 {
+        &::before {
+          background-image: url(/assets/images/about/page-about/philosophy/image-about-philosophy-03@2x.webp);
+        }
+      }
+    }
+
+    .about-philosophy-list-title {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+</style>

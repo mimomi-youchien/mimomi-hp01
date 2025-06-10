@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageKv from "../components/PageKv.astro";
+import AboutLead from "../components/page-about/AboutLead.astro";
+import AboutPhilosophy from "../components/page-about/AboutPhilosophy.astro";
+import AboutKyushoku from "../components/page-about/AboutKyushoku.astro";
+import AboutBus from "../components/page-about/AboutBus.astro";
+import AboutSafety from "../components/page-about/AboutSafety.astro";
+import AboutFacility from "../components/page-about/AboutFacility.astro";
+import Cta from "../components/Cta.astro";
+---
+
+<Layout
+  title="園の紹介 - 自ら考え行動する力を育てる｜習志野市の幼稚園｜みもみ幼稚園"
+  ogType="website"
+  description="習志野市のみもみ幼稚園は、体育・徳育・知育のバランスを大切に、子どもたちが自ら考え、行動できる力を育みます。自然豊かな環境で、考える力と優しい心を養います。手作り給食や安全への取り組みも万全です。"
+  noIndex="true"
+>
+  <div class="about">
+    <!-- about-kv -->
+    <div class="about-kv">
+      <PageKv
+        title="園の紹介"
+        imageSrcSp="/assets/images/kv/page-kv/pic-kv-about-sp@2x.webp"
+        imageSrcPc="/assets/images/kv/page-kv/pic-kv-about-pc@2x.webp"
+        imageAlt="スイカを食べながら笑い合う3人の男の子"
+      />
+    </div><!-- /.about-kv -->
+
+    <main class="about-main l-section-body">
+      <div class="l-container-s">
+        <!-- about-lead -->
+        <div class="about-lead js-load-fade-in" id="philosophy">
+          <AboutLead />
+        </div><!-- /.about-lead -->
+
+        <!-- about-philosophy -->
+        <div class="about-philosophy js-fade-in">
+          <AboutPhilosophy />
+        </div><!-- /.about-philosophy -->
+      </div><!-- /.l-container-s -->
+
+      <!-- about-kyushoku -->
+      <div class="about-kyushoku js-fade-in" id="kyushoku">
+        <AboutKyushoku />
+      </div><!-- /.about-kyushoku -->
+
+      <div class="l-container-s">
+        <!-- about-bus -->
+        <div class="about-bus js-fade-in" id="bus">
+          <AboutBus />
+        </div><!-- /.about-bus -->
+
+        <!-- about-safety -->
+        <div class="about-safety js-fade-in" id="safety">
+          <AboutSafety />
+        </div><!-- /.about-safety -->
+
+        <!-- about-facility -->
+        <div class="about-facility js-fade-in" id="facility">
+          <AboutFacility />
+        </div><!-- /.about-facility -->
+      </div><!-- /.l-container-s -->
+    </main>
+
+    <div class="about-cta">
+      <Cta />
+    </div><!-- /.about-cta -->
+  </div><!-- /.about -->
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .about {
+    overflow: hidden;
+  }
+
+  .about-cta {
+    margin-top: 60px;
+  }
+
+  @include mq() {
+    .about-cta {
+      margin-top: 120px;
+    }
+  }
+
+  // about-kv
+  .about-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+
+    @include mq() {
+      margin-top: 100px;
+    }
+  }
+</style>

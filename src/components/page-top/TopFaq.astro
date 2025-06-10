@@ -1,0 +1,100 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import ButtonLink from "../button/ButtonLink.astro";
+---
+
+<section class="top-faq">
+  <div class="top-faq-container l-container-s">
+    <div class="l-section">
+      <div class="top-faq-title">
+        <SectionTitle
+          title1="よくある質問"
+        />
+      </div><!-- /.top-faq-title -->
+      <ul class="top-faq-list l-section-body">
+        <li class="faq-item">
+          <dl class="faq-dl">
+            <dt class="faq-dt">
+              <span class="faq-icon faq-icon--pink" aria-label="質問">q</span>
+              <span class="faq-question">未就園児教室はありますか？</span>
+            </dt>
+            <dd class="faq-dd">
+              <div class="faq-wrapper">
+                <span class="faq-icon faq-icon--a" aria-label="回答">a</span>
+                <div class="faq-answer">
+                  <p class="faq-paragraph">1歳児教室(リトルぴよちゃん教室)、2歳児教室(ぴよちゃん教室)を5月から翌年3月まで開講しています。</p>
+                  <p class="faq-paragraph">詳細は「未就園児親子教室について」のページをご覧ください。</p>
+                </div><!-- /.faq-answer -->
+              </div><!-- /.faq-wrapper -->
+              <a href="/mi-shuen-ji" class="faq-link">未就園児親子教室についてを見る</a>
+            </dd>
+          </dl>
+        </li>
+        <li class="faq-item">
+          <dl class="faq-dl">
+            <dt class="faq-dt">
+              <span class="faq-icon faq-icon--pink" aria-label="質問">q</span>
+              <span class="faq-question">見学はできますか？</span>
+            </dt>
+            <dd class="faq-dd">
+              <div class="faq-wrapper">
+                <span class="faq-icon faq-icon--a" aria-label="回答">a</span>
+                <div class="faq-answer">
+                  <p class="faq-paragraph">幼稚園、未就園児教室はいつでもご見学が可能です。詳しい日程のご確認やお申し込みについては、みもみ幼稚園の公式LINEより承っております。園庭、アスレチック広場(どんぐり広場)でも是非遊んでくださいね。</p>
+                </div><!-- /.faq-answer -->
+              </div><!-- /.faq-wrapper -->
+            </dd>
+          </dl>
+        </li>
+        <li class="faq-item">
+          <dl class="faq-dl">
+            <dt class="faq-dt">
+              <span class="faq-icon faq-icon--pink" aria-label="質問">q</span>
+              <span class="faq-question">預かり保育はありますか？</span>
+            </dt>
+            <dd class="faq-dd">
+              <div class="faq-wrapper">
+                <span class="faq-icon faq-icon--a" aria-label="回答">a</span>
+                <div class="faq-answer">
+                  <p class="faq-paragraph">早朝保育(8:00〜9:00)、延長保育(保育後〜18:00)があり、全園児ご利用いただけます。早朝保育は一律200円、延長保育は1時間200円となります。また、春休み、夏休み、冬休みには長期休暇保育(8:00〜18:00)をご利用いただけます。詳細は「預かり保育」をご覧ください。</p>
+                </div><!-- /.faq-answer -->
+              </div><!-- /.faq-wrapper -->
+              <a href="life#azukari-hoiku" class="faq-link faq-link--disabled">預かり保育を見る</a>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+      <div class="top-faq-button">
+        <ButtonLink
+          buttonText="すべての質問を見る"
+          ButtonHref="/faq"
+        />
+      </div><!-- /.top-faq-button -->
+    </div><!-- /.l-section -->
+  </div><!-- /.top-faq-container.l-container-s -->
+</section><!-- /.top-faq -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-faq-list {
+    display: grid;
+    gap: 30px;
+    text-align: justify;
+  }
+
+  .top-faq-button {
+    margin-top: 30px;
+    text-align: right;
+  }
+
+  @include mq() {
+    .top-faq-list {
+      gap: 40px;
+    }
+
+    .top-faq-button {
+      margin-top: 20px;
+    }
+  }
+</style>

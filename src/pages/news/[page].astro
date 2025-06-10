@@ -1,0 +1,148 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageKv from "../../components/PageKv.astro";
+import NewsCategoryList from "../../components/blog/NewsCategoryList.astro";
+import NewsCard from "../../components/blog/NewsCard.astro";
+import NewsPagination from "../../components/blog/NewsPagination.astro"
+import Cta from "../../components/Cta.astro";
+import type { GetStaticPathsOptions } from 'astro';
+
+import { getAllNews } from "../../library/microcms";
+
+const { page } = Astro.props;
+
+// 全件取得（ソート処理のため）
+const allPosts = await getAllNews({
+  fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
+  limit: 100,
+});
+
+// ソート処理（customDate優先）
+const sortedPosts = allPosts.contents.sort((a, b) => {
+  const dateA = new Date(a.customDate || a.publishedAt);
+  const dateB = new Date(b.customDate || b.publishedAt);
+  return dateB.getTime() - dateA.getTime(); // 新しい順
+});
+
+// ページごとの投稿を取り出す
+const postsPerPage = 8;
+const start = (page.currentPage - 1) * postsPerPage;
+const end = start + postsPerPage;
+const posts = sortedPosts.slice(start, end);
+
+// 動的ルートの生成
+export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
+  const allNews = await getAllNews({
+    fields: ["id", "title", "thumbnail", "thumbnailAlt", "category", "publishedAt", "customDate"],
+    limit: 100,
+  });
+
+  // 同様にソート
+  const sorted = allNews.contents.sort((a, b) => {
+    const dateA = new Date(a.customDate || a.publishedAt);
+    const dateB = new Date(b.customDate || b.publishedAt);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return paginate(sorted, { pageSize: 8 });
+};
+---
+
+<Layout
+  title="お知らせ一覧｜習志野市の幼稚園｜みもみ幼稚園"
+  ogType="website"
+  description="習志野市のみもみ幼稚園からのお知らせ一覧。園からのご連絡・イベント・入園の募集案内を発信。みもみ日記では子どもたちの成長をお届けしています。"
+  noIndex="true"
+>
+  <!-- news-list-kv -->
+  <div class="news-list-kv">
+    <PageKv
+      title="お知らせ"
+      imageSrcSp="/assets/images/kv/page-kv/pic-kv-news-sp@2x.webp"
+      imageSrcPc="/assets/images/kv/page-kv/pic-kv-news-pc@2x.webp"
+      imageAlt="紫の帽子をかぶった女の子2人が顔を見合わせて微笑んでいる様子"
+    />
+  </div><!-- /.news-list-kv -->
+
+  <main class="news-list-main l-section-body js-load-fade-in">
+    <div class="l-container-s">
+      <div class="news-list-category-filter">
+        <NewsCategoryList activeCategory="すべて" />
+      </div><!-- /.news-list-category-filter -->
+      <ul class="news-list-list">
+        {
+          posts.length > 0 ? (
+            posts.map((item) => (
+              <li class="news-list-item">
+                <NewsCard
+                  id={item.id}
+                  title={item.title}
+                  thumbnail={item.thumbnail?.url}
+                  thumbnailAlt={item.thumbnailAlt}
+                  customDate={item.customDate}
+                  publishedAt={item.publishedAt}
+                  category={item.category}
+                />
+              </li>
+            ))
+          ) : (
+            <li class="news-list-item">
+              <p>現在、表示できる記事がありません。</p>
+            </li>
+          )
+        }
+      </ul>
+      <div class="news-list-pagination">
+        <NewsPagination currentPage={page.currentPage} lastPage={page.lastPage} />
+      </div>
+    </div>
+  </main>
+
+  <div class="news-list-cta">
+    <Cta />
+  </div><!-- /.news-list-cta -->
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .news-list-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+  }
+
+  .news-list-list {
+    display: grid;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .news-list-item {
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid;
+    }
+  }
+
+  .news-list-pagination {
+    margin-top: 60px;
+  }
+
+  .news-list-cta {
+    margin-top: 60px;
+  }
+
+  @include mq() {
+    .news-list-kv {
+      margin-top: 100px;
+    }
+
+    .news-list-list {
+      margin-top: 60px;
+    }
+
+    .news-list-cta {
+      margin-top: 120px;
+    }
+  }
+</style>

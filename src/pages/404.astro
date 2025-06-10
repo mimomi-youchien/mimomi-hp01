@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ButtonLink from "../components/button/ButtonLink.astro";
+---
+
+<Layout
+  title="404エラーページ｜習志野市の幼稚園｜みもみ幼稚園"
+  ogType="website"
+  description="ページが見つかりませんでした。お探しの情報は削除されたか、URLが間違っている可能性があります。トップページや以下のリンクから目的のページをご確認ください。"
+  noIndex="true"
+>
+  <main class="not-found-main">
+    <div class="l-container-s">
+      <div class="not-found-content">
+        <h1 class="not-found-title">
+          <span>404</span>
+          <span>Not Found</span>
+        </h1>
+        <p class="not-found-text">お探しのページは見つかりませんでした。<br>アクセスいただいたページは変更もしくは消去された可能性があります。</p>
+        <div class="not-found-button">
+          <ButtonLink
+            buttonText="ホームへ戻る"
+            ButtonHref="/"
+          />
+        </div><!-- /.not-found-button -->
+      </div><!-- /.not-found-content -->
+    </div><!-- /.l-container-s -->
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .not-found-main {
+    margin-top: calc(48px + 60px);
+    line-height: 1.5;
+  }
+
+  .not-found-content {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .not-found-title {
+    color: var(--color-yellow);
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+
+    &::before {
+      width: 50px;
+      height: 48px;
+      background-image: url(/assets/images/404/illust-404-bird-green.svg);
+      top: -11px;
+      left: 195px;
+    }
+
+    &::after {
+      width: 83px;
+      height: 73px;
+      background-image: url(/assets/images/404/illust-404-bird-pink.svg);
+      top: 22px;
+      left: 238px;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  .not-found-text {
+    margin-top: 20px;
+  }
+
+  .not-found-button {
+    margin-top: 30px;
+    text-align: right;
+  }
+
+  @include mq() {
+    .not-found-main {
+      margin-top: calc(100px + 80px);
+    }
+
+    .not-found-content {
+      max-width: initial;
+    }
+
+    .not-found-title {
+      font-size: 60px;
+
+      &::before {
+        width: 122px;
+        height: 120px;
+        top: -44px;
+        left: 100%;
+        left: calc(100% - 242px);
+      }
+
+      &::after {
+        width: 200px;
+        height: 176px;
+        top: 92px;
+        left: calc(100% - 200px);
+      }
+    }
+
+    .not-found-text {
+      margin-top: 40px;
+    }
+
+    .not-found-button {
+      margin-top: 80px;
+    }
+  }
+</style>

@@ -1,0 +1,140 @@
+---
+import { formatNewsDate, toMachineDate } from "../../utils/formatDate";
+const {
+  id,
+  title,
+  thumbnail,
+  thumbnailAlt,
+  category,
+  customDate,
+  publishedAt
+} = Astro.props;
+
+// customDate があればそれを使い、なければ publishedAt を使う
+const rawDate = customDate ?? publishedAt;
+
+// 日付をパースして整形表示（rawDate があれば）
+const formattedDate = formatNewsDate(rawDate);
+const machineReadableDate = toMachineDate(rawDate);
+
+// altテキストを設定（デフォルト値を指定）
+const altText = thumbnailAlt || "ブログのサムネイル画像";
+---
+
+<article class="c-news-card">
+  <a href={`/news/${id}`} class="c-news-card-link" aria-label={`お知らせ: ${title}`}>
+    <div class="c-news-card-image">
+      <img
+        src={`${thumbnail}?fm=webp`}
+        alt={altText}
+        loading="lazy"
+        decoding="async"
+        width="250"
+        height="160"
+      >
+    </div><!-- /.c-news-card-image -->
+    <div class="c-news-card-content">
+      <span class="c-news-card-meta">
+        <span class="c-news-card-category">{category}</span>
+        <time class="c-news-card-date" datetime={machineReadableDate}>{formattedDate}</time>
+      </span>
+      <p class="c-news-card-post-title">{title}</p>
+    </div><!-- /.c-news-card-content -->
+  </a>
+</article>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .c-news-card-link {
+    display: flex;
+    align-items: center;
+    gap: min(20px, calc(20 var(--vw-sp)));
+    line-height: 1;
+  }
+
+  .c-news-card-image {
+    flex: 0 0 100px;
+  }
+
+  .c-news-card-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .c-news-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .c-news-card-category {
+    padding: 3px 9px;
+    border-radius: 3px;
+    border: 1px solid;
+    font-size: 12px;
+
+    @media screen and (min-width: 375px) {
+      font-size: 14px;
+    }
+  }
+
+  .c-news-card-date {
+    font-size: 10px;
+    font-weight: 700;
+
+    @media screen and (min-width: 375px) {
+      font-size: 12px;
+    }
+  }
+
+  .c-news-card-post-title {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    @media screen and (min-width: 375px) {
+      font-size: 14px;
+    }
+  }
+
+  @include mq() {
+    .c-news-card-link {
+      gap: 40px;
+    }
+
+    .c-news-card-image {
+      flex: 0 0 250px;
+    }
+
+    .c-news-card-content {
+      gap: 20px;
+    }
+
+    .c-news-card-meta {
+      gap: 40px;
+      font-size: 14px;
+    }
+
+    .c-news-card-category {
+      padding: 5px 19px;
+    }
+
+    .c-news-card-post-title {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (any-hover: hover) {
+    .c-news-card {
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--color-baby-pink);
+      }
+    }
+  }
+</style>

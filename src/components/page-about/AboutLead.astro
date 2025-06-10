@@ -1,0 +1,185 @@
+<section class="about-lead">
+  <h2 class="about-lead-title">
+    <span>大きく羽ばたけ！</span>
+    <span>その土台を、今しっかりと</span>
+  </h2>
+  <div class="about-lead-list">
+    <div class="about-lead-item">
+      <div class="about-lead-content">
+        <p class="about-lead-text">「どうしたら良いと思う？」そんな問いかけが多い幼稚園です。<br>卒園までに自分の意志をきちんと口に出して言える子に。困った時にも自分で対応できるようになって欲しいと考えています。</p>
+      </div><!-- /.about-lead-content -->
+      <div class="about-lead-image">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-01-sp@2x.webp">
+          <source media="(min-width: 768px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-01-pc@2x.webp">
+          <img src="/assets/images/about/page-about/lead/pic-about-lead-01-sp@2x.webp" alt="幼稚園のブランコで笑顔を見せる2人の女の子" loading="eager" decoding="async" width="240" height="180">
+        </picture>
+      </div><!-- /.about-lead-image -->
+    </div><!-- /.about-lead-item -->
+    <div class="about-lead-item about-lead-item--02">
+      <div class="about-lead-content about-lead-content--02">
+        <p class="about-lead-text">どんな小さなことでも、本当に上手にできたことできるようになったことを心から喜び、しっかりと認めてほめます。何かを突出させるのではなく、詰め込むのでもなく、体・徳・知をバランスよく伸ばす教育を実践しています。</p>
+        <p class="about-lead-text">のびのびと素直で思いやりのある自立した子に。<br>園児一人ひとりを見守り、自ら考える学びの機会をつくる。<br>人格形成の基礎を培う幼児期だからこそ、今しっかりと取り組みます。</p>
+      </div><!-- /.about-lead-content -->
+      <div class="about-lead-image about-lead-image--02">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-02-sp@2x.webp">
+          <source media="(min-width: 768px)" srcset="/assets/images/about/page-about/lead/pic-about-lead-02-pc@2x.webp">
+          <img src="/assets/images/about/page-about/lead/pic-about-lead-02-sp@2x.webp" alt="大きな滑り台の上でピースする2人の女の子" loading="eager" decoding="async" width="240" height="180">
+        </picture>
+      </div><!-- /.about-lead-image -->
+    </div><!-- /.about-lead-item -->
+  </div><!-- /.about-lead-list -->
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .about-lead-title {
+    display: flex;
+    flex-direction: column;
+    padding-left: .2em;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .about-lead-list {
+    display: grid;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .about-lead-item {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .about-lead-content {
+    display: grid;
+    gap: 1.7em;
+  }
+
+  .about-lead-text {
+    text-align: justify;
+  }
+
+  .about-lead-image {
+    padding: 0 40px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &::before {
+      width: 135px;
+      height: 119px;
+      background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-01.svg);
+      right: -57px;
+      top: -18px;
+    }
+
+    &::after {
+      width: 135px;
+      height: 119px;
+      background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-02.svg);
+      left: -49px;
+      bottom: -30px;
+    }
+
+    &--02 {
+      &::before {
+        width: 135px;
+        height: 119px;
+        background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-03.svg);
+        top: -18px;
+        right: auto;
+        left: -49px;
+      }
+
+      &::after {
+        width: 135px;
+        height: 119px;
+        background-image: url(/assets/images/about/page-about/lead/deco-about-lead-sp-04.svg);
+        right: -57px;
+        bottom: -30px;
+        left: auto;
+      }
+    }
+  }
+
+  @include mq() {
+    .about-lead {
+      padding-top: 10px;
+    }
+
+    .about-lead-title {
+      display: block;
+      font-size: 30px;
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    .about-lead-list {
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .about-lead-item {
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+
+      &--02 {
+        flex-direction: row-reverse;
+    }
+
+    .about-lead-content {
+      flex: 1 1 auto;
+      gap: 1.8em;
+      }
+    }
+
+    .about-lead-image {
+      flex: 0 0 380px;
+      padding: 0;
+
+      &::before {
+        width: 277px;
+        height: 276px;
+        background-image: url(/assets/images/about/page-about/lead/deco-about-lead-pc-01.svg);
+        right: -229px;
+        top: -115px;
+      }
+
+      &::after {
+        display: none;
+      }
+
+      &--02 {
+        flex: 0 0 275px;
+
+        &::before {
+          width: 283px;
+          height: 272px;
+          background-image: url(/assets/images/about/page-about/lead/deco-about-lead-pc-02.svg);
+          top: auto;
+          bottom: -152px;
+          left: -221px;
+        }
+      }
+    }
+  }
+</style>

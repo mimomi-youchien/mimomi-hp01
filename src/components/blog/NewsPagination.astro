@@ -1,0 +1,140 @@
+---
+const { currentPage, lastPage, category } = Astro.props;
+const baseUrl = category ? `/news/category/${category}` : `/news`; // ベースURLを条件によって変更
+
+// 表示させたいページ番号を計算する関数
+function getPageNumbers(currentPage, lastPage) {
+  const pages = [];
+
+  if (lastPage <= 5) {
+    // ページ数が少なければすべて表示
+    for (let i = 1; i <= lastPage; i++) pages.push(i);
+  } else {
+    // 最初の2ページ + 中間（...）+ 最後の1ページ
+    if (currentPage <= 3) {
+      pages.push(1, 2, 3, '...', lastPage);
+    } else if (currentPage >= lastPage - 1) {
+      pages.push(1, '...', lastPage - 1, lastPage);
+    } else {
+      pages.push(1, '...', currentPage, '...', lastPage);
+    }
+  }
+
+  return pages;
+}
+
+const pagesToShow = getPageNumbers(currentPage, lastPage);
+---
+
+<nav class="c-pagination">
+  {currentPage > 1 && (
+    <a href={`${baseUrl}/${currentPage - 1}`} class="c-pagination-link c-pagination-link--prev" aria-label="前のページへ">
+      <img src="/assets/images/global/icon-arrow-right.svg" alt="" loading="lazy" decoding="async" width="12" height="10">
+    </a>
+  )}
+
+  {pagesToShow.map((page, i) =>
+    typeof page === 'number' ? (
+      <a
+        href={`${baseUrl}/${page}`}
+        class={`c-pagination-link ${currentPage === page ? 'active' : ''}`}
+      >
+        {page}
+      </a>
+    ) : (
+      <span class="c-pagination-ellipsis" key={`ellipsis-${i}`}>…</span>
+    )
+  )}
+
+  {currentPage < lastPage && (
+    <a href={`${baseUrl}/${currentPage + 1}`} class="c-pagination-link c-pagination-link--next" aria-label="次のページへ">
+      <img src="/assets/images/global/icon-arrow-right.svg" alt="" loading="lazy" decoding="async" width="12" height="10">
+    </a>
+  )}
+</nav>
+
+<style lang="scss">
+  @use "../../styles/breakpoints" as *;
+
+  .c-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .c-pagination-link {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--color-main);
+    background-color: #fff;
+    font-size: 12px;
+
+    &--prev,
+    &--next {
+      img {
+        width: 10px;
+        filter: invert(37%) sepia(5%) saturate(3522%) hue-rotate(347deg) brightness(102%) contrast(93%);
+      }
+    }
+
+    &--prev {
+      img {
+        rotate: 180deg;
+      }
+    }
+
+    &.active {
+      background-color: var(--color-main);
+      color: var(--color-base);
+    }
+  }
+
+  @include mq() {
+    .c-pagination {
+      gap: 20px;
+    }
+
+    .c-pagination-link {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+
+      &--prev,
+      &--next {
+        img {
+          width: 12px;
+        }
+      }
+    }
+  }
+
+  .c-pagination-ellipsis {
+    display: grid;
+    place-items: center;
+  }
+
+  @media (any-hover: hover) {
+    .c-pagination-link {
+      transition: background-color .3s ease, color .3s ease;
+
+      &:hover {
+        background-color: var(--color-main);
+        color: var(--color-base);
+      }
+
+      &--prev,
+      &--next {
+        img {
+          transition: filter .3s ease;
+        }
+
+        &:hover img {
+          filter: invert(89%) sepia(1%) saturate(1532%) hue-rotate(13deg) brightness(108%) contrast(113%);
+        }
+      }
+    }
+  }
+</style>

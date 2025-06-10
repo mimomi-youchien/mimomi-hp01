@@ -1,0 +1,253 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import ButtonLink from "../button/ButtonLink.astro";
+---
+
+<section class="top-life">
+  <div class="top-life-container l-container-s">
+    <div class="l-section">
+      <div class="top-life-title">
+        <SectionTitle
+          title1="のびのび成長 みもみっ子！"
+        />
+      </div><!-- /.top-life-title -->
+      <ul class="top-life-list l-section-body">
+        <li class="top-life-item top-life-item--01">
+          <h3 class="top-life-heading-sp">感じる“ココロ”</h3>
+          <div class="top-life-content">
+            <div class="top-life-description">
+              <h3 class="top-life-heading-pc">感じる“ココロ”</h3>
+              <div class="top-life-wrapper">
+                <p class="top-life-text">毎年じゃがいもとさつまいもを苗から育て、夏にはひまわりがいっぱいに咲くみもみ農園。</p>
+                <p class="top-life-text">日々自然に囲まれる環境が子どもたちの豊かな成長にとって大切だと考えます。<br>「土ってふかふかしてる！」「おいもが大きくなった！」子ども達にとって、この世界は初めての経験と感動で溢れています。<br>感動は「もっと知りたい！」と、知的好奇心を向上させ、学ぶ意欲へとつながります。心動かす体験を大切に。子ども達が目を輝かせ、夢中になる姿を見守ります。</p>
+              </div><!-- /.top-life-wrapper -->
+            </div><!-- /.top-life-description -->
+            <div class="top-life-image top-life-image--01">
+              <picture>
+                <source media="(max-width: 767px)" srcset="/assets/images/life/pic-life-sp-01@2x.webp">
+                <source media="(min-width: 768px)" srcset="/assets/images/life/pic-life-pc-01@2x.webp">
+                <img src="/assets/images/life/pic-life-sp-01@2x.webp" alt="幼稚園の農園で裸足でじゃがいもを掘る子ども" loading="lazy" decoding="async" width="240" height="180">
+              </picture>
+            </div><!-- /.top-life-image -->
+          </div><!-- /.top-life-content -->
+        </li>
+        <li class="top-life-item top-life-item--02">
+          <h3 class="top-life-heading-sp">あそびから生きる力を</h3>
+          <div class="top-life-content top-life-content--02">
+            <div class="top-life-description top-life-description--02">
+              <h3 class="top-life-heading-pc">あそびから生きる力を</h3>
+              <div class="top-life-wrapper">
+                <p class="top-life-text">どんぐり広場には、大きな汽車、吊り橋、クモの巣登り、丸太ステップ、ロープ登り、流木渡り…。秋には沢山の落ち葉やどんぐりで自然遊びを。木の優しい色や手触り感は、温かい気持ちにしてくれます。</p>
+                <p class="top-life-text">沢山のアスレチックで、走る、登る、ぶらさがる、バランスをとる...のびのびと遊ぶ中で、全身の使い方を身に付けます。<br>幼稚園で遊んで学ぶ。新たな時代を生きる子どもたちが、かけがえのない時間を過ごせる場であることを願っています。</p>
+              </div><!-- /.top-life-wrapper -->
+            </div><!-- /.top-life-description -->
+            <div class="top-life-image top-life-image--02">
+              <picture>
+                <source media="(max-width: 767px)" srcset="/assets/images/life/pic-life-sp-02@2x.webp">
+                <source media="(min-width: 768px)" srcset="/assets/images/life/pic-life-pc-02@2x.webp">
+                <img src="/assets/images/life/pic-life-sp-02@2x.webp" alt="アスレチック広場でロープ登りをする子ども" loading="lazy" decoding="async" width="240" height="180">
+              </picture>
+            </div><!-- /.top-life-image -->
+          </div><!-- /.top-life-content -->
+        </li>
+      </ul>
+      <div class="top-life-button">
+        <ButtonLink
+          buttonText="園の生活を見る"
+          ButtonHref="/life"
+        />
+      </div><!-- /.top-life-button -->
+    </div><!-- /.l-section -->
+  </div><!-- /.top-life-container.l-container-s -->
+</section><!-- /.top-life -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-life {
+    overflow: hidden;
+  }
+
+  .top-life-list {
+    display: grid;
+    gap: 30px;
+  }
+
+  .top-life-heading-sp {
+    padding-left: .2em;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .top-life-heading-pc {
+    display: none;
+  }
+
+  .top-life-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .top-life-wrapper {
+    display: grid;
+    gap: 1.7em;
+    text-align: justify;
+  }
+
+  .top-life-image {
+    padding: 0 40px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      width: calc(135 var(--vw-sp));
+      height: calc(119 var(--vw-sp));
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+      translate: -50%;
+    }
+
+    &--01 {
+      &::before {
+        background-image: url(/assets/images/life/dec-life-sp-01.svg);
+        top: -42px;
+        left: calc(50% + calc(135 var(--vw-sp)));
+      }
+
+      &::after {
+        background-image: url(/assets/images/life/dec-life-sp-02.svg);
+        bottom: -37px;
+        left: calc(50% - calc(131 var(--vw-sp)));
+      }
+    }
+
+    &--02 {
+      &::before {
+        background-image: url(/assets/images/life/dec-life-sp-03.svg);
+        top: -30px;
+        left: calc(50% - 131px)
+      }
+
+      &::after {
+        background-image: url(/assets/images/life/dec-life-sp-04.svg);
+        bottom: -49px;
+        left: calc(50% + 135px)
+      }
+    }
+  }
+
+  .top-life-button {
+    margin-top: 30px;
+    text-align: right;
+  }
+
+  @include mq() {
+    .top-life-list {
+      gap: 40px;
+    }
+
+    .top-life-item {
+      position: relative;
+
+      &::after {
+        content: "";
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        position: absolute;
+        z-index: -1;
+        translate: -50%;
+      }
+
+      &--01 {
+        &::after {
+          width: 277px;
+          height: 276px;
+          background-image: url(/assets/images/life/dec-life-pc-01.svg);
+          top: -86px;
+          left: calc(50% + 380px);
+
+          @media screen and (min-width: 1025px) {
+            left: calc(50% + 487px);
+          }
+        }
+      }
+
+      &--02 {
+        &::after {
+          width: 283px;
+          height: 272px;
+          background-image: url(/assets/images/life/dec-life-pc-02.svg);
+          bottom: -78px;
+          left: calc(50% - 380px);
+
+          @media screen and (min-width: 1025px) {
+            left: calc(50% - 483px);
+          }
+        }
+      }
+    }
+
+    .top-life-heading-sp {
+      display: none;
+    }
+
+    .top-life-heading-pc {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      line-height: 1.5;
+    }
+
+    .top-life-content {
+      margin-top: 0;
+      flex-direction: row;
+      align-items: center;
+      gap: clamp(30px, calc(40 var(--vw-pc)), 40px);
+
+      &--02 {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .top-life-wrapper {
+      gap: 1.88em;
+      margin-top: 10px;
+    }
+
+    .top-life-image {
+      flex: 0 0 280px;
+      padding: 0;
+
+      &--01 {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      &--02 {
+        flex: 0 0 320px;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .top-life-button {
+      margin-top: 20px;
+    }
+  }
+</style>

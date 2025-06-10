@@ -1,0 +1,391 @@
+---
+import { getNews } from "../../library/microcms";
+import { formatNewsDate, toMachineDate } from "../../utils/formatDate";
+
+// 多めに取得し、カテゴリーでフィルタしてからソート
+const response = await getNews({ limit: 100 });
+
+const allowedCategories = ["ご連絡", "募集案内"];
+
+const newsList = response.contents
+  .filter(item => item.category.some(cat => allowedCategories.includes(cat)))
+  .sort((a, b) => {
+    const dateA = new Date(a.customDate || a.publishedAt);
+    const dateB = new Date(b.customDate || b.publishedAt);
+    return dateB.getTime() - dateA.getTime();
+  })
+  .slice(0, 2); // 上位2件のみ
+---
+
+<div class="top-kv">
+  <div class="top-kv-content">
+    <h2 class="top-kv-title fade-in-up fade-in-up--delay-2">
+      <picture>
+        <source media="(max-width: 767px)" srcset="/assets/images/kv/text-kv-sp.svg">
+        <source media="(min-width: 768px)" srcset="/assets/images/kv/text-kv-pc.svg">
+        <img src="/assets/images/kv/text-kv-sp.svg" alt="どうする？が成長の合図" loading="eager" decoding="async" width="198" height="53">
+      </picture>
+    </h2>
+    <div class="top-kv-photo fade-in-up fade-in-up--delay-1">
+      <picture>
+        <source media="(max-width: 767px)" srcset="/assets/images/kv/pic-kv-sp@2x.webp">
+        <source media="(min-width: 768px)" srcset="/assets/images/kv/pic-kv-pc@2x.webp">
+        <img src="/assets/images/kv/pic-kv-sp@2x.webp" alt="木の枝と葉を使ってバーベキューごっこをする3歳児2人（アスレチック広場）" loading="eager" decoding="async" width="320" height="400">
+      </picture>
+      <div class="top-kv-decoration top-kv-decoration--top-left fade-in-up fade-in-up--delay-3">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/images/kv/dec-kv-01-sp@2x.webp">
+          <source media="(min-width: 768px)" srcset="assets/images/kv/dec-kv-01-pc@2x.webp">
+          <img src="/assets/images/kv/dec-kv-01-sp@2x.webp" alt="" loading="eager" decoding="async" width="71" height="122">
+        </picture>
+      </div><!-- /.top-kv-decoration -->
+      <div class="top-kv-decoration top-kv-decoration--bottom-right fade-in-up fade-in-up--delay-4">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/images/kv/dec-kv-02-sp@2x.webp">
+          <source media="(min-width: 768px)" srcset="assets/images/kv/dec-kv-02-pc@2x.webp">
+          <img src="/assets/images/kv/dec-kv-02-sp@2x.webp" alt="" loading="eager" decoding="async" width="86" height="159">
+        </picture>
+      </div><!-- /.top-kv-decoration -->
+      <div class="top-kv-decoration top-kv-decoration--top-right fade-in-up fade-in-up--delay-5">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/images/kv/dec-kv-03-sp@2x.webp">
+          <source media="(min-width: 768px)" srcset="assets/images/kv/dec-kv-03-pc@2x.webp">
+          <img src="/assets/images/kv/dec-kv-03-sp@2x.webp" alt="" loading="eager" decoding="async" width="91" height="166">
+        </picture>
+      </div><!-- /.top-kv-decoration -->
+      <div class="top-kv-decoration top-kv-decoration--bottom-left fade-in-up fade-in-up--delay-6">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/images/kv/dec-kv-04-sp@2x.webp">
+          <source media="(min-width: 768px)" srcset="assets/images/kv/dec-kv-04-pc@2x.webp">
+          <img src="/assets/images/kv/dec-kv-04-sp@2x.webp" alt="" loading="eager" decoding="async" width="93" height="78">
+        </picture>
+      </div><!-- /.top-kv-decoration -->
+    </div><!-- /.top-kv-photo -->
+  </div><!-- /.top-kv-content -->
+  <div class="top-kv-news fade-in-up fade-in-up--delay-7">
+    <h2 class="top-kv-news-heading">最新情報</h2>
+    <div class="top-kv-news-wrapper">
+      <ul class="top-kv-news-list">
+        {newsList.map((item) => (
+          <li class="top-kv-news-item">
+            <a href={`/news/${item.id}`} class="top-kv-news-link">
+              <div class="top-kv-news-inner">
+                <span class="top-kv-news-head">
+                  <time datetime={toMachineDate(item.customDate || item.publishedAt)} class="top-kv-news-date">
+                    {formatNewsDate(item.customDate || item.publishedAt)}
+                  </time>
+                  <span class="top-kv-news-category">{item.category}</span>
+                </span>
+                <p class="top-kv-news-title">{item.title}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div><!-- /.top-kv-news-wrapper -->
+  </div><!-- /.top-kv-news -->
+</div><!-- /.top-kv -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .top-kv {
+    padding-top: min(calc(55px * 1.5), calc(55 var(--vw-sp)));
+    margin: 48px auto 0;
+    max-width: 480px;
+  }
+
+  .top-kv-title {
+    text-align: center;
+
+    img {
+      width: min(calc(198px * 1.5), calc(198 var(--vw-sp)));
+    }
+  }
+
+  .top-kv-photo {
+    margin-top: min(calc(23px * 1.5), calc(23 var(--vw-sp)));
+    text-align: center;
+    position: relative;
+
+    img {
+      width: min(calc(320px * 1.5), calc(320 var(--vw-sp)));
+    }
+  }
+
+  .top-kv-decoration {
+    position: absolute;
+    translate: -50%;
+
+    &--top-left {
+      top: max(calc(-98px * 1.5), calc(-98 var(--vw-sp)));
+      left: calc(50% - min(calc(140px * 1.5), calc(140 var(--vw-sp))));
+
+      img {
+        width: min(calc(71px * 1.5), calc(71 var(--vw-sp)));
+      }
+    }
+
+    &--bottom-right {
+      bottom: max(calc(-23px * 1.5), calc(-23 var(--vw-sp)));
+      left: calc(50% + min(calc(144px * 1.5), calc(144 var(--vw-sp))));
+
+      img {
+        width: min(calc(86px * 1.5), calc(86 var(--vw-sp)));
+      }
+    }
+
+    &--top-right {
+      top: max(calc(-100px * 1.5), calc(-100 var(--vw-sp)));
+      left: calc(50% + min(calc(125px * 1.5), calc(125 var(--vw-sp))));
+
+      img {
+        width: min(calc(91px * 1.5), calc(91 var(--vw-sp)));
+      }
+    }
+
+    &--bottom-left {
+      bottom: max(calc(-21px * 1.5), calc(-21 var(--vw-sp)));
+      left: calc(50% - min(calc(127px * 1.5), calc(127 var(--vw-sp))));
+
+      img {
+        width: min(calc(93px * 1.5), calc(93 var(--vw-sp)));
+      }
+    }
+  }
+
+  .top-kv-news {
+    display: flex;
+    flex-direction: column;
+    width: calc(320 var(--vw-sp));
+    max-width: 480px;
+    padding: 9px 20px 0;
+    border-radius: 10px;
+    border: 1px solid;
+    margin: min(calc(43px * 1.5), calc(43 var(--vw-sp))) auto 0;
+    background-color: #fffefb;
+  }
+
+  .top-kv-news-heading {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.875;
+  }
+
+  .top-kv-news-item {
+    &:not(:last-child) {
+      border-bottom: 1px solid;
+    }
+  }
+
+  .top-kv-news-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      width: 12px;
+      height: 10px;
+      background-image: url(/assets/images/global/icon-arrow-right.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      filter: invert(34%) sepia(63%) saturate(339%) hue-rotate(347deg) brightness(99%) contrast(93%);
+    }
+  }
+
+  .top-kv-news-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .top-kv-news-date {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .top-kv-news-category {
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid;
+    font-size: 12px;
+  }
+
+  .top-kv-news-title {
+    margin-top: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: justify;
+  }
+
+  @include mq() {
+    .top-kv {
+      padding-top: min(72px, calc(72 var(--vw-pc)));
+      max-width: 1280px;
+      margin: 100px auto 0;
+      position: relative;
+    }
+
+    .top-kv-content {
+      position: relative;
+    }
+
+    .top-kv-title {
+      text-align: left;
+      position: absolute;
+      top: max(-60px, calc(-60 var(--vw-pc)));
+      left: calc(50% - min(165px, calc(165 var(--vw-pc))));
+      translate: -50%;
+
+      img {
+        width: min(632px, calc(632 var(--vw-pc)));
+      }
+    }
+
+    .top-kv-photo {
+      margin: 0 0 0 min(15px, calc(15 var(--vw-pc)));
+
+      img {
+        width: min(948px, calc(948 var(--vw-pc)));
+      }
+    }
+
+    .top-kv-decoration {
+      &--top-left {
+        top: max(-48px, calc(-48 var(--vw-pc)));
+        left: calc(50% - min(517px, calc(517 var(--vw-pc))));
+
+        img {
+          width: min(51px, calc(51 var(--vw-pc)));
+        }
+      }
+
+      &--bottom-right {
+        bottom: max(-16px, calc(-16 var(--vw-pc)));
+        left: calc(50% + min(433px, calc(433 var(--vw-pc))));
+
+        img {
+          width: min(234px, calc(234 var(--vw-pc)));
+        }
+      }
+
+      &--top-right {
+        top: max(-50px, calc(-50 var(--vw-pc)));
+        left: calc(50% + min(418px, calc(418 var(--vw-pc))));
+
+        img {
+          width: min(208px, calc(208 var(--vw-pc)));
+        }
+      }
+
+      &--bottom-left {
+        bottom: min(81px, calc(81 var(--vw-pc)));
+        left: calc(50% - min(492px, calc(492 var(--vw-pc))));
+
+        img {
+          width: min(143px, calc(143 var(--vw-pc)));
+        }
+      }
+    }
+
+    .top-kv-news {
+      flex-direction: row;
+      gap: 0;
+      width: clamp(700px, calc(763 / 1110 * 100vw), 763px);
+      max-width: initial;
+      padding: 10px 24px 6px;
+      margin: 0;
+      position: absolute;
+      top: calc(580 / 1280 * 100vw);
+      left: 50%;
+      z-index: 10;
+      translate: -50%;
+
+      @media screen and (min-width: 1110px) {
+        width: 763px;
+        padding: 10px 37px 6px;
+        left: calc(50% - min(170px, calc(170 / 1280 * 100vw)));
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 763px;
+        top: 580px;
+        left: calc(50% - 170px);
+      }
+    }
+
+    .top-kv-news-heading {
+      flex: 0 0 calc(80px + 38px);
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .top-kv-news-list {
+      gap: 10px;
+    }
+
+    .top-kv-news-link {
+      gap: 16px;
+      font-size: 14px;
+
+      @media screen and (min-width: 1110px) {
+        gap: 20px;
+      }
+
+      &::after {
+        width: 14px;
+        height: 12px;
+      }
+    }
+
+    .top-kv-news-inner {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .top-kv-news-head {
+      flex: 0 0 180px;
+      gap: 35px;
+    }
+
+    .top-kv-news-category {
+      padding: 0 9px;
+    }
+
+    .top-kv-news-title {
+      flex: 0 0 clamp(290px, calc(328 / 1110 * 100vw), 328px);
+      margin-top: 0;
+
+      @media screen and (min-width: 1110px) {
+        flex: 0 0 328px;
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    .top-kv-news-link {
+      transition: color .3s ease;
+
+      &:hover {
+        color: var(--color-baby-pink);
+
+        &::after {
+          filter: invert(97%) sepia(91%) saturate(6024%) hue-rotate(294deg) brightness(100%) contrast(96%);
+          translate: 3px;
+        }
+      }
+
+      &::after {
+        transition: filter .3s ease, translate .3s ease;
+      }
+    }
+  }
+</style>

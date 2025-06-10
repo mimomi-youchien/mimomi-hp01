@@ -1,0 +1,189 @@
+@use 'breakpoints' as *;
+
+// news（お知らせ・一般ページ）
+.news-single-content {
+  padding-bottom: 8px;
+  text-align: justify;
+
+  @include mq() {
+    padding-bottom: 28px;
+  }
+
+  h2 {
+    padding: 5px 20px;
+    margin: 32px 0 24px;
+    background-color: var(--color-baby-pink);
+    color: var(--color-base);
+    font-size: 16px;
+    font-weight: 700;
+
+    &:not(:first-of-type) {
+      margin-top: 40px;
+    }
+
+    @include mq() {
+      padding: 5px 20px;
+      margin: 40px 0 32px;
+      font-size: 20px;
+
+      &:not(:first-of-type) {
+        margin-top: 48px;
+      }
+    }
+  }
+
+  h3 {
+    display: grid;
+    gap: 10px;
+    margin: 24px 0 16px;
+    color: var(--color-baby-pink);
+    font-weight: 700;
+
+    @include mq() {
+      margin: 32px 0 24px;
+    }
+
+    &::after {
+      content: "";
+      width: 120px;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  p {
+    margin: 16px 0 24px;
+
+    @include mq() {
+      margin: 24px 0 32px;
+    }
+  }
+
+  img + p {
+    margin-top: 24px;
+
+    @include mq() {
+      margin-top: 32px;
+    }
+  }
+
+  img {
+    &:last-child {
+      margin-bottom: 24px;
+
+      @include mq() {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  img + img {
+    margin-top: 24px;
+
+    @include mq() {
+      margin-top: 32px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+// otayori（お便り・保護者限定ページ）
+.otayori-single-content {
+  padding-bottom: 8px;
+  text-align: justify;
+
+  @include mq() {
+    padding-bottom: 28px;
+  }
+
+  h2 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+    margin: 32px 0 24px;
+    color: var(--color-blue);
+    font-size: 16px;
+    font-weight: 700;
+
+    &:not(:first-of-type) {
+      margin-top: 40px;
+    }
+
+    @include mq() {
+      margin: 40px 0 32px;
+      font-size: 20px;
+
+      &:not(:first-of-type) {
+        margin-top: 48px;
+      }
+    }
+  }
+
+  h3 {
+    display: flex;
+    gap: 10px;
+    margin: 24px 0 16px;
+    color: var(--color-blue);
+    font-weight: 700;
+
+    @include mq() {
+      margin: 32px 0 24px;
+    }
+
+    &::before {
+      content: "";
+      width: 19px;
+      height: 10px;
+      border-radius: 2px;
+      margin-top: 8px;
+      background-color: currentColor;
+
+      @include mq() {
+        width: 20px;
+        height: 14px;
+        border-radius: 3px;
+        margin-top: 7px;
+      }
+    }
+  }
+
+  p {
+    margin: 10px 0 24px;
+
+    @include mq() {
+      margin: 24px 0 32px;
+    }
+  }
+
+  img + p {
+    margin-top: 24px;
+
+    @include mq() {
+      margin-top: 32px;
+    }
+  }
+
+  img {
+    &:last-child {
+      margin-bottom: 24px;
+
+      @include mq() {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  img + img {
+    margin-top: 24px;
+
+    @include mq() {
+      margin-top: 32px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

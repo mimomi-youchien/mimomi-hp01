@@ -1,0 +1,224 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageKv from "../components/PageKv.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ButtonCta from "../components/button/ButtonCta.astro";
+---
+
+<Layout
+  title="採用情報｜習志野市の幼稚園｜みもみ幼稚園"
+  ogType="website"
+  description="習志野市のみもみ幼稚園は、豊かな自然の中で子ども達の考える力を育てるための仲間を募集しています。リクルート専用の公式LINEよりご質問・ご相談を受付中。時短勤務も可能です。"
+  noIndex="true"
+>
+  <div class="recruitment">
+    <!-- recruitment-kv -->
+    <div class="recruitment-kv">
+      <PageKv
+        title="採用情報"
+        imageSrcSp="/assets/images/kv/page-kv/pic-kv-recruitment-sp@2x.webp"
+        imageSrcPc="/assets/images/kv/page-kv/pic-kv-recruitment-pc@2x.webp"
+        imageAlt="アスレチック広場で、子どもたちが落ち葉を集めて遊んでいる様子"
+      />
+    </div><!-- /.recruitment-kv -->
+
+    <main class="recruitment-main l-section-body js-load-fade-in">
+      <div class="l-container-s">
+        <div class="recruitment-title">
+          <SectionTitle
+            title1="採用情報"
+          />
+        </div><!-- /.recruitment-title -->
+        <p class="recruitment-lead">みもみ幼稚園は、豊かな自然の中で<br>子ども達の考える力を育てるための<br class="u-no-pc">仲間を募集しています。</p>
+        <div class="recruitment-button">
+          <p class="recruitment-button-text">こちらはリクルート専用です</p>
+          <div class="recruitment-button-cta">
+            <ButtonCta
+              ctaClass="c-button-cta c-button-cta--lg c-button-cta--recruitment"
+            />
+          </div><!-- /.recruitment-button-cta -->
+        </div><!-- /.recruitment-button -->
+        <div class="recruitment-description">
+          <div class="recruitment-text">
+            <p class="recruitment-paragraph">興味のある方はお気軽にお問い合わせください。<br>リクルート専用の公式LINEよりご質問・ご相談等を承っております。</p>
+            <p class="recruitment-paragraph">園見学も実施していますので、公式LINEよりお申し込みください！</p>
+          </div><!-- /.recruitment-text -->
+          <small class="recruitment-note">(※時短勤務も可能です。子育て中の職員もいますのでご相談ください。)</small>
+        </div><!-- /.recruitment-description -->
+      </div><!-- /.l-container-s -->
+    </main>
+  </div><!-- /.recruitment -->
+</Layout>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .recruitment {
+    padding-bottom: 60px;
+    overflow: hidden;
+  }
+
+  .recruitment-kv {
+    padding-top: 20px;
+    margin-top: 48px;
+  }
+
+  .recruitment-main {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      position: absolute;
+      z-index: -1;
+      translate: -50%;
+    }
+
+    &::before {
+      width: calc(224 var(--vw-sp));
+      height: calc(201 var(--vw-sp));
+      background-image: url(/assets/images/global/dec-laurel-01.svg);
+      top: calc(-95 var(--vw-sp));
+      left: calc(50% + calc(156 var(--vw-sp)));
+    }
+
+    &::after {
+      width: calc(227 var(--vw-sp));
+      height: calc(238 var(--vw-sp));
+      background-image: url(/assets/images/global/dec-laurel-02.svg);
+      bottom: calc(-25 var(--vw-sp));
+      left: calc(50% - calc(154 var(--vw-sp)));
+    }
+  }
+
+  .recruitment-lead {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .recruitment-button {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .recruitment-button-text {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 1px;
+      height: 11px;
+      background-color: currentColor;
+      position: absolute;
+      top: 3px;
+    }
+
+    &::before {
+      left: calc(50% - 73px);
+      rotate: -20deg;
+    }
+
+    &::after {
+      left: calc(50% + 73px);
+      rotate: 20deg;
+    }
+  }
+
+  .recruitment-button-cta {
+    margin-top: 5px;
+  }
+
+  .recruitment-description {
+    max-width: 450px;
+    margin: 30px auto 0;
+  }
+
+  .recruitment-text {
+    display: grid;
+    gap: 1.7em;
+  }
+
+  .recruitment-note {
+    display: block;
+    font-size: 14px;
+  }
+
+  @include mq() {
+    .recruitment {
+      padding-bottom: 120px;
+    }
+
+    .recruitment-kv {
+      margin-top: 100px;
+    }
+
+    .recruitment-main {
+      &::before {
+        width: min(682px, calc(682 var(--vw-pc)));
+        height: min(612px, calc(612 var(--vw-pc)));
+        top: max(-279px, calc(-279 var(--vw-pc)));
+        left: min(calc(50% + 539px), calc(50% + calc(539 var(--vw-pc))));
+      }
+
+      &::after {
+        width: min(690px, calc(690 var(--vw-pc)));
+        height: min(725px, calc(725 var(--vw-pc)));
+        bottom: max(-163px, calc(-163 var(--vw-pc)));
+        left: max(calc(50% - 536px), calc(50% - calc(536 var(--vw-pc))));
+      }
+    }
+
+    .recruitment-lead {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    .recruitment-button {
+      margin-top: 20px;
+    }
+
+    .recruitment-button-text {
+      font-size: 13px;
+
+      &::before,
+      &::after {
+        height: 14px;
+        top: 3px;
+      }
+
+      &::before {
+        left: calc(50% - 94px);
+      }
+
+      &::after {
+        left: calc(50% + 94px);
+      }
+    }
+
+    .recruitment-button-cta {
+      margin-top: 10px;
+    }
+
+    .recruitment-description {
+      max-width: initial;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .recruitment-text {
+      gap: 2em;
+    }
+
+    .recruitment-note {
+      font-size: 16px;
+    }
+  }
+</style>
