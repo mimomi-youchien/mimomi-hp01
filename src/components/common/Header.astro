@@ -11,14 +11,12 @@ const isTopPage = Astro.url.pathname === "/";
     {isTopPage ? (
       <h1 class="header-logo">
         <a href="/">
-          {/* <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33"> */}
           <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33" fetchpriority="low">
         </a>
       </h1>
     ) : (
       <p class="header-logo">
         <a href="/">
-          {/* <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33"> */}
           <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33" fetchpriority="low">
         </a>
       </p>

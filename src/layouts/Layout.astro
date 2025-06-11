@@ -44,12 +44,11 @@ const {
     <meta name="twitter:description" content={ogDescription}>
     <meta name="twitter:image:src" content={ogImage}>
 
-    <!-- destyle.css -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css"> -->
+    <!-- destyle.css（preload+onload） -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css"></noscript>
 
-    <!-- Layout.astro などの<head>内 -->
+    <!-- AstroビルドCSSのpreload+onload -->
     <link rel="preload" href="/_astro/index.Y_5S2fcT.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/_astro/index.Y_5S2fcT.css"></noscript>
 
