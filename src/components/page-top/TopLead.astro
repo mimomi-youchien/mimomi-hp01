@@ -71,29 +71,6 @@ import ButtonCta from "../button/ButtonCta.astro"
   .top-lead-button {
     margin-top: 30px;
     text-align: right;
-
-    a {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 19px;
-      border-radius: 10px;
-      border: 1px solid var(--color-line);
-      background-color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-
-      &::before {
-        content: "";
-        width: 20px;
-        height: 20px;
-        background-image: url(/assets/images/global/icon-line.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center center;
-        filter: invert(100%) sepia(16%) saturate(4980%) hue-rotate(33deg) brightness(85%) contrast(76%);
-      }
-    }
   }
 
   @include mq() {
@@ -141,18 +118,6 @@ import ButtonCta from "../button/ButtonCta.astro"
       bottom: -20px;
       left: 50%;
       translate: -52%;
-    }
-  }
-
-  @media (any-hover: hover) {
-    .top-lead-button {
-      a {
-        transition: opacity .3s ease;
-
-        &:hover {
-          opacity: .8;
-        }
-      }
     }
   }
 </style>
