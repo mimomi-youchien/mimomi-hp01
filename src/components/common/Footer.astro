@@ -8,7 +8,14 @@ const { logo, logoAlt } = Astro.props;
   <div class="footer-container l-container">
     <div class="footer-info">
       <div class="footer-logo">
-        <img src={logo} alt={logoAlt} loading="lazy" decoding="async" width="152" height="33">
+        <img
+          src={logo}
+          alt={logoAlt}
+          loading="lazy"
+          decoding="async"
+          width="152"
+          height="33"
+        />
       </div><!-- /.footer-logo -->
       <div class="footer-location">
         <p class="footer-address">〒275-0002&emsp;千葉県習志野市実籾3-13-15</p>
@@ -28,9 +35,9 @@ const { logo, logoAlt } = Astro.props;
           </li>
           <li class="footer-line-item">
             <ButtonCta
-            ctaText="リクルート専用"
-            ctaClass="c-button-cta c-button-cta--recruitment"
-            ctaHref="https://lin.ee/qD9ric4/"
+              ctaText="リクルート専用"
+              ctaClass="c-button-cta c-button-cta--recruitment"
+              ctaHref="https://lin.ee/qD9ric4/"
             />
           </li>
         </ul>
@@ -40,7 +47,9 @@ const { logo, logoAlt } = Astro.props;
       <a href="/privacy-policy">プライバシーポリシー</a>
     </div><!-- /.footer-privacy-policy -->
     <div class="footer-copyright footer-copyright--sp">
-      <small aria-label="著作権 2025 学校法人飯生学園みもみ幼稚園">&copy;2025 学校法人飯生学園みもみ幼稚園 All Rights Reserved.</small>
+      <small aria-label="著作権 2025 学校法人飯生学園みもみ幼稚園"
+        >&copy;2025 学校法人飯生学園みもみ幼稚園 All Rights Reserved.</small
+      >
     </div><!-- /.footer-copyright -->
     <nav class="footer-nav" aria-label="フッターナビゲーション">
       <div class="footer-nav-list">
@@ -108,7 +117,9 @@ const { logo, logoAlt } = Astro.props;
             <a href="/faq">よくある質問</a>
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
-            <a href="https://xs064997.xsrv.jp/mimomi-otayori-test/otayori/">保護者さま専用ページ<span>「おたより」</span></a>
+            <a href="https://parents.mimomi-youchien.com/otayori/"
+              >保護者さま専用ページ<span>「おたより」</span></a
+            >
           </div><!-- /.footer-nav-item -->
           <div class="footer-nav-item">
             <a href="/mi-shuen-ji">未就園児親子教室<span>について</span></a>
@@ -123,19 +134,28 @@ const { logo, logoAlt } = Astro.props;
 
   <!-- トップへ戻るボタン -->
   <a href="#" class="footer-to-page-top" aria-label="ページトップへ戻る">
-    <img src="/assets/images/global/icon-to-page-top.svg" alt="" loading="lazy" decoding="async" width="22" height="12">
+    <img
+      src="/assets/images/global/icon-to-page-top.svg"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      width="22"
+      height="12"
+    />
     <span aria-disabled="true">トップ</span>
   </a><!-- /.to-page-top -->
 
   <div class="l-container">
     <div class="footer-copyright footer-copyright--pc">
-      <small aria-label="著作権 2025 学校法人飯生学園みもみ幼稚園">&copy;2025 学校法人飯生学園みもみ幼稚園 All Rights Reserved.</small>
+      <small aria-label="著作権 2025 学校法人飯生学園みもみ幼稚園"
+        >&copy;2025 学校法人飯生学園みもみ幼稚園 All Rights Reserved.</small
+      >
     </div><!-- /.footer-copyright -->
   </div><!-- /.l-container -->
 </footer><!-- /.footer -->
 
 <style lang="scss">
-  @use '../../styles/breakpoints' as *;
+  @use "../../styles/breakpoints" as *;
 
   .footer {
     padding-top: 40px;
@@ -432,7 +452,7 @@ const { logo, logoAlt } = Astro.props;
   @media (any-hover: hover) {
     .footer-nav-item a,
     .footer-sub-menus-item a {
-      transition: color .3s ease;
+      transition: color 0.3s ease;
 
       &:hover {
         color: #65472d;

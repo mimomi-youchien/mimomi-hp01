@@ -8,19 +8,37 @@ const isTopPage = Astro.url.pathname === "/";
 <!-- header -->
 <header class="header" id="site-header">
   <div class="header-container l-container">
-    {isTopPage ? (
-      <h1 class="header-logo">
-        <a href="/">
-          <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33" fetchpriority="low">
-        </a>
-      </h1>
-    ) : (
-      <p class="header-logo">
-        <a href="/">
-          <img src={logo} alt={logoAlt} loading="eager" decoding="async" width="152" height="33" fetchpriority="low">
-        </a>
-      </p>
-    )}
+    {
+      isTopPage ? (
+        <h1 class="header-logo">
+          <a href="/">
+            <img
+              src={logo}
+              alt={logoAlt}
+              loading="eager"
+              decoding="async"
+              width="152"
+              height="33"
+              fetchpriority="low"
+            />
+          </a>
+        </h1>
+      ) : (
+        <p class="header-logo">
+          <a href="/">
+            <img
+              src={logo}
+              alt={logoAlt}
+              loading="eager"
+              decoding="async"
+              width="152"
+              height="33"
+              fetchpriority="low"
+            />
+          </a>
+        </p>
+      )
+    }
     <button class="header-hamburger" type="button">
       <span class="header-hamburger-icon"></span>
       <span class="header-hamburger-icon"></span>
@@ -31,7 +49,12 @@ const isTopPage = Astro.url.pathname === "/";
       <nav class="header-nav" aria-label="サイトナビゲーション">
         <ul class="header-nav-list">
           <li class="header-nav-item header-nav-item--top">
-            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">ホーム</button>
+            <button
+              class="header-nav-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false">ホーム</button
+            >
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
                 <a href="/#download">各種ダウンロード</a>
@@ -42,7 +65,12 @@ const isTopPage = Astro.url.pathname === "/";
             </ul>
           </li>
           <li class="header-nav-item">
-            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">園の紹介</button>
+            <button
+              class="header-nav-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false">園の紹介</button
+            >
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
                 <a href="/about#body">教育方針</a>
@@ -62,7 +90,12 @@ const isTopPage = Astro.url.pathname === "/";
             </ul>
           </li>
           <li class="header-nav-item">
-            <button class="header-nav-btn" type="button" aria-haspopup="true" aria-expanded="false">園の生活</button>
+            <button
+              class="header-nav-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false">園の生活</button
+            >
             <ul class="header-hidden-list">
               <li class="header-hidden-item">
                 <a href="/life#body">園の一日</a>
@@ -71,10 +104,10 @@ const isTopPage = Astro.url.pathname === "/";
                 <a href="/life#mimomi-hoiku">みもみ保育</a>
               </li>
               <li class="header-hidden-item">
-                <a  href="/life#annual-event">年間行事</a>
+                <a href="/life#annual-event">年間行事</a>
               </li>
               <li class="header-hidden-item">
-                <a  href="/life#azukari-hoiku">預かり保育</a>
+                <a href="/life#azukari-hoiku">預かり保育</a>
               </li>
             </ul>
           </li>
@@ -91,22 +124,38 @@ const isTopPage = Astro.url.pathname === "/";
             <a href="/faq">よくある質問</a>
           </li>
           <li class="header-nav-item header-nav-item--parents">
-            <a href="https://xs064997.xsrv.jp/mimomi-otayori-test/otayori/"><span><span>保護者さま</span><span>専用ページ</span><span class="_no-pc">「おたより」</span></span></a>
+            <a href="https://parents.mimomi-youchien.com/otayori/"
+              ><span
+                ><span>保護者さま</span><span>専用ページ</span><span
+                  class="_no-pc">「おたより」</span
+                ></span
+              ></a
+            >
           </li>
           <li class="header-nav-item header-nav-item--mi-shuen-ji">
-            <a href="/mi-shuen-ji"><span><span>未就園児(1,2歳)</span><span>親子教室について</span></span></a>
+            <a href="/mi-shuen-ji"
+              ><span
+                ><span>未就園児(1,2歳)</span><span>親子教室について</span></span
+              ></a
+            >
           </li>
         </ul>
       </nav>
       <div class="header-cta">
         <!-- pc -->
         <div class="header-cta-button-pc">
-          <a href="https://lin.ee/UtZ5lXCf/" target="_blank" aria-label="最新情報、お問い合わせは公式LINEから">
+          <a
+            href="https://lin.ee/UtZ5lXCf/"
+            target="_blank"
+            aria-label="最新情報、お問い合わせは公式LINEから"
+          >
           </a>
         </div><!-- /.header-cta-button-pc -->
         <!-- sp -->
         <div class="header-cta-button-sp">
-          <p class="header-cta-button-text">最新情報、お問い合わせは公式LINEから</p>
+          <p class="header-cta-button-text">
+            最新情報、お問い合わせは公式LINEから
+          </p>
           <ul class="header-cta-button-list">
             <li class="header-cta-button-item">
               <ButtonCta />
@@ -170,42 +219,48 @@ const isTopPage = Astro.url.pathname === "/";
     });
 
     // navボタンクリック時のサブメニュー開閉処理
-    navButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
+    navButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const expanded = this.getAttribute("aria-expanded") === "true";
         const hiddenList = this.nextElementSibling;
 
-        navButtons.forEach(btn => {
-          btn.setAttribute('aria-expanded', 'false');
-          btn.classList.remove('is-open');
-          if (btn.nextElementSibling && btn.nextElementSibling.classList.contains('header-hidden-list')) {
+        navButtons.forEach((btn) => {
+          btn.setAttribute("aria-expanded", "false");
+          btn.classList.remove("is-open");
+          if (
+            btn.nextElementSibling &&
+            btn.nextElementSibling.classList.contains("header-hidden-list")
+          ) {
             const list = btn.nextElementSibling;
-            list.classList.remove('is-open');
-            list.style.height = '0'; // 高さをリセット
+            list.classList.remove("is-open");
+            list.style.height = "0"; // 高さをリセット
           }
         });
 
         if (!expanded) {
-          this.setAttribute('aria-expanded', 'true');
-          this.classList.add('is-open');
-          if (hiddenList && hiddenList.classList.contains('header-hidden-list')) {
-            hiddenList.classList.add('is-open');
+          this.setAttribute("aria-expanded", "true");
+          this.classList.add("is-open");
+          if (
+            hiddenList &&
+            hiddenList.classList.contains("header-hidden-list")
+          ) {
+            hiddenList.classList.add("is-open");
             const scrollHeight = hiddenList.scrollHeight; // 中身に合わせた高さを取得
-            hiddenList.style.height = scrollHeight + 'px';
+            hiddenList.style.height = scrollHeight + "px";
           }
         }
       });
     });
 
-     // スクロール時に.subメニューを閉じる
-      window.addEventListener('scroll', function () {
-      navButtons.forEach(btn => {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.classList.remove('is-open');
+    // スクロール時に.subメニューを閉じる
+    window.addEventListener("scroll", function () {
+      navButtons.forEach((btn) => {
+        btn.setAttribute("aria-expanded", "false");
+        btn.classList.remove("is-open");
         const hiddenList = btn.nextElementSibling;
-        if (hiddenList && hiddenList.classList.contains('header-hidden-list')) {
-          hiddenList.classList.remove('is-open');
-          hiddenList.style.height = '0';
+        if (hiddenList && hiddenList.classList.contains("header-hidden-list")) {
+          hiddenList.classList.remove("is-open");
+          hiddenList.style.height = "0";
         }
       });
     });
@@ -213,7 +268,7 @@ const isTopPage = Astro.url.pathname === "/";
 </script>
 
 <style lang="scss">
-  @use '../../styles/breakpoints' as *;
+  @use "../../styles/breakpoints" as *;
 
   // header
   .header {
@@ -355,7 +410,7 @@ const isTopPage = Astro.url.pathname === "/";
     top: 44px;
     left: 50%;
     translate: -50%;
-    transition: height .3s ease;
+    transition: height 0.3s ease;
 
     &.is-open {
       display: block;
@@ -400,7 +455,7 @@ const isTopPage = Astro.url.pathname === "/";
   @media screen and (max-width: 1149px) {
     .header {
       font-size: 16px;
-      box-shadow: 0 1px 1px 0 rgb(0 0 0 / .2);
+      box-shadow: 0 1px 1px 0 rgb(0 0 0 / 0.2);
     }
 
     .header-container {
@@ -428,7 +483,7 @@ const isTopPage = Astro.url.pathname === "/";
       background-color: var(--color-main);
       position: absolute;
       left: 0;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
 
       &:nth-of-type(1) {
         top: 16px;
@@ -445,7 +500,7 @@ const isTopPage = Astro.url.pathname === "/";
 
     // animation
     .header-hamburger span:nth-of-type(1) {
-      animation: btn07-bar01 .6s forwards;
+      animation: btn07-bar01 0.6s forwards;
     }
     @keyframes btn07-bar01 {
       0% {
@@ -459,11 +514,11 @@ const isTopPage = Astro.url.pathname === "/";
       }
     }
     .header-hamburger span:nth-of-type(2) {
-      transition: all .25s .25s;
+      transition: all 0.25s 0.25s;
       opacity: 1;
     }
     .header-hamburger span:nth-of-type(3) {
-      animation: btn07-bar03 .6s forwards;
+      animation: btn07-bar03 0.6s forwards;
     }
     @keyframes btn07-bar03 {
       0% {
@@ -477,7 +532,7 @@ const isTopPage = Astro.url.pathname === "/";
       }
     }
     .header-hamburger.active span:nth-of-type(1) {
-      animation: active-btn07-bar01 .6s forwards;
+      animation: active-btn07-bar01 0.6s forwards;
     }
     @keyframes active-btn07-bar01 {
       0% {
@@ -494,7 +549,7 @@ const isTopPage = Astro.url.pathname === "/";
       opacity: 0;
     }
     .header-hamburger.active span:nth-of-type(3) {
-      animation: active-btn07-bar03 .6s forwards;
+      animation: active-btn07-bar03 0.6s forwards;
     }
     @keyframes active-btn07-bar03 {
       0% {
@@ -522,7 +577,7 @@ const isTopPage = Astro.url.pathname === "/";
       right: -70%;
       z-index: 20;
       overflow: auto;
-      transition: all .6s ease;
+      transition: all 0.6s ease;
 
       &.active {
         right: 0;
@@ -662,7 +717,7 @@ const isTopPage = Astro.url.pathname === "/";
   @media (any-hover: hover) {
     .header-nav-item {
       a {
-        transition: color .3s ease;
+        transition: color 0.3s ease;
 
         &:hover {
           color: var(--color-baby-pink);
@@ -672,16 +727,16 @@ const isTopPage = Astro.url.pathname === "/";
       &--parents,
       &--mi-shuen-ji {
         a {
-          transition: background-color .3s ease;
+          transition: background-color 0.3s ease;
 
           &:hover {
             background-color: var(--color-btn-hover);
             color: var(--color-main);
-            animation: header-button .4s ease-in-out;
+            animation: header-button 0.4s ease-in-out;
           }
 
           @media screen and (max-width: 1149px) {
-            transition: color .3s ease;
+            transition: color 0.3s ease;
 
             &:hover {
               background-color: transparent;
@@ -705,7 +760,7 @@ const isTopPage = Astro.url.pathname === "/";
     }
 
     .header-nav-btn {
-      transition: color .3s ease;
+      transition: color 0.3s ease;
 
       &:hover {
         color: var(--color-baby-pink);
@@ -716,17 +771,17 @@ const isTopPage = Astro.url.pathname === "/";
       }
 
       &::after {
-        transition: background-color .3s ease;
+        transition: background-color 0.3s ease;
       }
     }
 
     .header-cta-button-pc {
       a {
-        transition: background-color .3s ease;
+        transition: background-color 0.3s ease;
 
         &:hover {
           background-color: #84b759;
-          animation: header-cta-button .4s ease-in-out;
+          animation: header-cta-button 0.4s ease-in-out;
         }
       }
 
