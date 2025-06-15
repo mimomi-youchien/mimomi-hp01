@@ -90,18 +90,21 @@
   }
 
   // microCMSリッチエディタのスタイルを許可
-  // inline styleで色がついたテキストの表示を許可
-  span[style],
-  u,
-  em,
-  strong {
+  span[style] { // inline styleで色がついたテキストの表示を許可
     all: unset;
     font-weight: inherit;
     text-decoration: inherit;
     color: inherit;
   }
 
-  // <u> タグをサポート
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
   u {
     text-decoration: underline;
   }
