@@ -42,7 +42,7 @@ function convertImagesToWebP(htmlContent: string) {
 
 // 記事本文をサニタイズし、画像をWebPに変換
 const cleanContent = sanitizeHtml(convertImagesToWebP(news.content), {
-  allowedTags: [ 'b', 'i', 'em', 'strong', 'a', 'p', 'h2', 'h3', 'ul', 'ol', 'li', 'br', 'img' ],
+  allowedTags: [ 'b', 'i', 'em', 'strong', 'u', 'span', 'a', 'p', 'h2', 'h3', 'ul', 'ol', 'li', 'br', 'img' ],
   allowedAttributes: {
     '*': ['class', 'style'],
     'a': ['href', 'target'],

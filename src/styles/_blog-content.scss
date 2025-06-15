@@ -88,6 +88,23 @@
   a {
     text-decoration: underline;
   }
+
+  // microCMSリッチエディタのスタイルを許可
+  // inline styleで色がついたテキストの表示を許可
+  span[style],
+  u,
+  em,
+  strong {
+    all: unset;
+    font-weight: inherit;
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  // <u> タグをサポート
+  u {
+    text-decoration: underline;
+  }
 }
 
 // otayori（お便り・保護者限定ページ）
