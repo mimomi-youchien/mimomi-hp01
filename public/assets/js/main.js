@@ -25,3 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
+
+// ページ内リンク
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// ページトップへ戻るボタン
+document.querySelector('.footer-to-page-top')?.addEventListener('click', function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
