@@ -45,7 +45,7 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   });
 
   // 指定カテゴリーのみにフィルタリング
-  const categorySlug = "recruitment";
+  const categorySlug = "mi-shuen-jievent";
   const categoryName = CATEGORY_MAP[categorySlug];
   const filtered = allNews.contents.filter(post =>
     post.category.includes(categoryName)
@@ -109,7 +109,7 @@ export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
         <NewsPagination
           currentPage={page.currentPage}
           lastPage={page.lastPage}
-          category="recruitment"
+          category="mi-shuen-jievent"
         />
       </div>
     </div>
