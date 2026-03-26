@@ -1,17 +1,10 @@
 ---
-// props でアクティブなカテゴリー名を受け取る
-const { activeCategory } = Astro.props;
-
-const categories = [
-  { name: "すべて", slug: "/news/1" },
-  { name: "ご連絡", slug: "/news/category/information/1" },
-  { name: "募集案内", slug: "/news/category/recruitment/1" },
-  { name: "みもみ日記", slug: "/news/category/mimomi-nikki/1" },
-];
+// props でアクティブなカテゴリー名とカテゴリ一覧を受け取る
+const { activeCategory, categories = [] } = Astro.props;
 ---
 
 <ul class="c-news-category-list">
-  {categories.map(category => (
+  {categories.map((category) => (
     <li class="c-news-category-list-item">
       <a
         href={category.slug}
