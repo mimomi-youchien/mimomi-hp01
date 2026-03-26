@@ -18,7 +18,7 @@ const allPosts = await getAllNews({
 });
 
 // 指定カテゴリーのみにフィルタリング
-const categorySlug = "recruitment";
+const categorySlug = "mi-shuen-jievent";
 const categoryName = CATEGORY_MAP[categorySlug];
 const filteredPosts = allPosts.contents.filter(post =>
   post.category.includes(categoryName)
