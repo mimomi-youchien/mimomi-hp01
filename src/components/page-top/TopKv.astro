@@ -5,7 +5,7 @@ import { formatNewsDate, toMachineDate } from "../../utils/formatDate";
 // 多めに取得し、カテゴリーでフィルタしてからソート
 const response = await getNews({ limit: 100 });
 
-const allowedCategories = ["ご連絡", "募集案内"];
+const allowedCategories = ["ご連絡", "募集案内", "未就園児イベント", "見学案内"];
 
 const newsList = response.contents
   .filter(item => item.category.some(cat => allowedCategories.includes(cat)))
